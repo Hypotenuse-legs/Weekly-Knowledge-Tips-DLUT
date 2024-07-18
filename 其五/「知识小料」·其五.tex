@@ -1,0 +1,172 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{caption, subcaption}
+\usepackage{circuitikz}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fourier}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{pifont}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+
+
+
+%\backgroundsetup{contents=\includegraphics{示例.png}, center, scale=1, angle=0, opacity=1}
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+\captionsetup{font=small, labelfont=bf}
+
+
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{red!20!}{\textcolor{red!80!black}{#1}}}
+\newcommand\Correct[1]{\colorbox{green!20}{\textcolor{green!50!black}{#1}}}
+\newcommand\mypi{\text{\timesnewroman π}}
+%这4个信息随“刊号”更新
+\newcommand\IssueNumber{05}
+\newcommand\Date{2023-10-16}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{积分变换与场论}
+\renewcommand\thefootnote{\ding{\numexpr171 + \value{footnote}}}
+\newcommand\xb[1]{_\mathrm{#1}}
+\newcommand\e{\mathrm{e}}
+\newcommand\ddd{\mathrm{d}}
+
+\ctikzset{resistors/scale=0.6, % smaller R
+    capacitors/scale=0.7, % even smaller C
+    diodes/scale=0.6, % small diodes
+    transistors/scale=1.3,
+    sources/scale=0.6,
+}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+{\scriptsize\Issue \textcolor[HTML]{C8BA83}{WEEKLY TIPS}}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{ISSUE.}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+%此处以后填写正文
+{\color{cyan!50!black}
+利用拉普拉斯变换，求方程 $\left\{\begin{aligned} &y''' + 3y'' + 3y' + y = \e^t \\ &y(0)=y'(0)=y''(0)=0\end{aligned}\right.$ 的解。
+}
+
+先两边取拉普拉斯变换，由
+\begin{equation*}
+\begin{aligned}
+    y(t) &\longrightarrow Y(s) \\
+    y'(t) &\longrightarrow sY(s)-y(0) \\
+    y''(t) &\longrightarrow s^2Y(s) - sy(0) - y'(0) \\
+    y'''(t) &\longrightarrow s^3Y(s) - s^2y(0) - sy'(0) - y''(0) \\
+\end{aligned}
+\end{equation*}
+并将初值条件 $y(0)=y'(0)=y''(0)=0$ 代入，得到
+\begin{equation*}
+    s^3Y(s) + 3s^2Y(s) + 3sY(s) + Y(s) = \mathcal{L}(\e^t) = \dfrac{1}{s-1} 
+\end{equation*}
+解得
+\begin{equation}\label{eq:res}
+    Y(s) = \dfrac{1}{(s-1)(s+1)^3}
+\end{equation}
+
+接下来要对上式取逆变换了。有多种方法可以实现逆变换，这里提供两种方法。
+
+【方法一】\Emph{卷积定理}。使用 $f(t) * g(t) \longrightarrow F(s)\cdot G(s)$。由于变换后的结果是 $\dfrac{1}{s-1}\cdot \dfrac{1}{(s+1)^3}$，故需要对这两个乘积式进行逆变换。
+\begin{equation*}
+\begin{aligned}
+    \mathcal{L}^{-1}\left[\dfrac{1}{s-1}\right] &= \e^t \\
+    \mathcal{L}^{-1}\left[\dfrac{1}{(s+1)^3}\right] &= \e^{-t} \mathcal{L}^{-1}\left[\dfrac{1}{s^3}\right] = \e^{-t}\cdot \dfrac{1}{2}t^2 \text{\textcolor{cyan}{（逆用位移性质）}}\\
+\end{aligned}
+\end{equation*}
+于是有 $y(t) = \e^t * \dfrac{1}{2}\e^{-t}t^2$。用卷积的定义展开该式得到
+\begin{equation*}
+\begin{aligned}
+    y(t) &= \int_0^{t} \dfrac12\e^{-\tau}\tau ^2 \cdot \e^{t-\tau}\ddd\tau \\
+    &= \dfrac12\e^t \int_0^{t} \tau^2\cdot \e^{-2\tau} \ddd\tau \\ 
+    &= \dfrac12\e^t \left[-\dfrac12\e^{-2\tau} \left(\tau^2 + \tau + \dfrac12 \right)\right]\Bigg|_{\tau=0}^{\tau=t} \text{\textcolor{cyan}{（分部积分）}}\\
+\end{aligned}
+\end{equation*}
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\phantom{...}
+\vspace{0.3cm}
+\begin{equation*}
+\begin{aligned}
+    &= \dfrac12\e^t \cdot \left[-\dfrac12\e^{-2t}\left(t^2 + t + \dfrac12\right) + \dfrac14\right] \\
+    &= -\dfrac14 t^2 \e^{-t} - \dfrac14 t\e^{-t} - \dfrac18 \e^{-t} + \dfrac18 \e^t \\
+\end{aligned}
+\end{equation*}
+
+【方法二】\Emph{反演积分公式+留数法}。我们知道，反演积分公式（课本 P108）的形式为
+\begin{equation}\color{blue}
+    f(t) = \mathcal{L}^{-1}[F(s)] = \sum_{k=1}^{n}\mathrm{Res}[F(s)\e^{st},\ s_k], t>0 
+\end{equation}
+其中 $s_k$ 是 $F(s)$ 的所有孤立奇点。那么在本题中，$Y(s)$ 有两个孤立奇点——$s=1$ 和 $s=-1$，应有
+\begin{equation*}
+    y(t) = \mathrm{Res}\left[\dfrac{\e^{st}}{(s-1)(s+1)^3},\ 1 \right] + \mathrm{Res}\left[\dfrac{\e^{st}}{(s-1)(s+1)^3},\ -1 \right]
+\end{equation*}
+
+而 $f(z)$ 的 $m$ 级极点处留数公式是
+\begin{equation}\color{blue}
+    \mathrm{Res}[f(z),z_0] = \dfrac{1}{(m-1)!} \lim\limits_{z\to z_0} [(z-z_0)^m f(z)]^{(m-1)}
+\end{equation}
+故对于一级极点 $s=1$ 得到
+\begin{equation*}
+    \mathrm{Res}\left[\dfrac{\e^{st}}{(s-1)(s+1)^3},\ 1 \right] = \lim\limits_{s\to 1} \dfrac{\e^{st}}{(s+1)^3} = \dfrac18 \e^{t}
+\end{equation*}
+对于三级极点 $s=-1$ 得到
+\begin{equation*}
+    \mathrm{Res}\left[\dfrac{\e^{st}}{(s-1)(s+1)^3},\ -1 \right] = \dfrac12\lim\limits_{s\to -1} \left(\dfrac{\e^{st}}{s-1}\right)_s'' = \dfrac18\e^{-t}(-2t^2 -2t -1)
+\end{equation*}
+因而将两个留数的结果相加得到
+\begin{equation*}
+    y(t) = \dfrac18\e^t + \dfrac18\e^{-t}(-2t^2 -2t -1)
+\end{equation*}
+
+\textcolor{cyan!80!black}{【结论】$y(t) = -\dfrac14 t^2 \e^{-t} - \dfrac14 t\e^{-t} - \dfrac18 \e^{-t} + \dfrac18 \e^t$。}
+
+\vspace{0.3cm}
+
+\textcolor{cyan!80!black}{【点评】本题是一道通过拉普拉斯变换求解微分方程的问题，难点在于如何做拉普拉斯逆变换。通常来说，一个函数做拉普拉斯逆变换有多种方法，如卷积定理、反演积分公式、部分分式法等，对于不同的问题应作出具体分析。}
+
+\end{document} 
