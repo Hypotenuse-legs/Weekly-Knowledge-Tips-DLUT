@@ -1,0 +1,205 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption,subcaption}
+\usepackage{diagbox}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fontspec}
+%\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{makecell}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=0.3cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+\captionsetup{font=small, labelfont=bf}
+\setlist[itemize]{itemsep=0pt, parsep=0pt}
+%\reversemarginpar
+
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+\CTEXsetup[format = {\color{cyan!50!black}\bfseries\large}]{subsection}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+
+\renewcommand\d{\mathrm{d}}
+\newcommand\Cov{\mathrm{Cov}}
+
+\newcommand\IssueNumber{22}
+\newcommand\Date{2024-4-6}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{概率与统计 A}
+\newcommand\Source{2021数 I 考研第 16 题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\small
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\vspace{-0.1cm}
+    \Brown{来源：\Source}
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black} 甲、乙两个盒子中有 2 个红球和 2 个白球，选取甲盒中任意一球，观察颜色后放入乙盒，再从乙盒中任取一球，令 $X,Y$ 分别表示从甲盒和乙盒中取到的红球的个数，则 $X$ 与 $Y$ 的相关系数为\underline{\hspace{2cm}}。
+
+\vspace{1em}
+}
+
+首先列出 $X,Y$ 的\textbf{取值}，均为 $0,1$。由于是离散型随机变量，所以可以考虑列分布列，直接得到数字特征。
+
+要计算 $P(X=0,Y=0)$，可以把取球过程拆成\textbf{两个步骤}：
+\begin{itemize}%[itemsep=0pt,parsep=0pt]
+  \item 在甲盒中取一白球；
+  \item 在已知乙盒中多了一个白球的条件下，在乙盒中取一白球。
+\end{itemize}
+因此我们可以借用\textbf{概率乘法公式}\textcolor{cyan}{（也就是分步乘法）}：
+\begin{equation}\label{eq:1}
+    P(X=0,Y=0) = P(X=0)\cdot P(Y=0|X=0) = \dfrac12\times\dfrac35 = \dfrac{3}{10}
+\end{equation}
+
+类似地，可以求出另外的概率值，列出\textbf{分布列}：
+\begin{equation}\label{eq:2}
+\begin{split}
+   P(X=0,Y=1) &= P(X=0)\cdot P(Y=1|X=0) = \dfrac12\times\dfrac25 = \dfrac15 \\
+   P(X=1,Y=0) &= P(X=1)\cdot P(Y=0|X=1) = \dfrac12\times\dfrac25 = \dfrac15 \\
+   P(X=1,Y=1) &= P(X=1)\cdot P(Y=1|X=1) = \dfrac12\times\dfrac35 = \dfrac{3}{10} \\
+\end{split}
+\end{equation}
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{c|cc|c}
+    \Xhline{1pt}
+    \diagbox{$Y$}{$X$} & 0 & 1 & $p_{i\textbullet}$ \\
+    \Xhline{.5pt}
+    0 & $\frac{3}{10}$ & $\frac{1}{5}$ & $\frac{1}{2}$ \\
+    1 & $\frac15$ & $\frac3{10}$ & $\frac12$ \\
+    \Xhline{.5pt}
+    $p_{\textbullet j}$ & $\frac12$ & $\frac12$ & 1\\
+    \Xhline{1pt}
+    \end{tabular}
+    \caption{二维随机变量 $(X,Y)$ 的分布列}
+\end{table}
+
+有了分布列，就可以计算 $(X,Y)$ 的\textbf{相关系数}了。
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+\begin{equation}\label{eq:3}
+    \rho_{XY} = \dfrac{\Cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}} = \dfrac{E(XY) - E(X)E(Y)}{\sqrt{D(X)}\sqrt{
+    D(Y)}}
+\end{equation}
+
+这样就转化为计算 $E(X),E(Y),E(XY),D(X),D(Y)$ 了。
+
+由「\textbf{联合确定边缘}」的思想，我们可以写出相关一维随机变量的分布列。其中注意 $P(XY=1) = P(X=1,Y=1) = \dfrac3{10}$。
+
+\begin{figure}[htb]
+\begin{minipage}[t]{.32\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+        $X$ & 0 & 1 \\
+    \midrule
+        $P$ & $\frac12$ & $\frac12$ \\
+    \bottomrule
+    \end{tabular}
+    \subcaption{$X$ 的分布列}
+\end{minipage}
+\begin{minipage}[t]{.32\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+        $Y$ & 0 & 1 \\
+    \midrule
+        $P$ & $\frac12$ & $\frac12$ \\
+    \bottomrule
+    \end{tabular}
+    \subcaption{$Y$ 的分布列}
+\end{minipage}
+\begin{minipage}[t]{.32\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+        $XY$ & 0 & 1 \\
+    \midrule
+        $P$ & $\frac7{10}$ & $\frac3{10}$ \\
+    \bottomrule
+    \end{tabular}
+    \subcaption{$XY$ 的分布列}
+\end{minipage}
+\caption{相关一维随机变量的分布列}
+\end{figure}
+
+可以看到，$X,Y,XY$ 三个随机变量均服从二项分布，$X\sim B(1,p)$，$E(X)=p$，$D(X)=p(1-p)$，因此：
+\begin{itemize}
+  \item $E(X) = \frac12$，$D(X) = \frac12\times(1-\frac12) = \frac14$
+  \item $E(Y) = \frac12$，$D(Y) = \frac12\times(1-\frac12) = \frac14$
+  \item $E(XY) = \frac3{10}$
+\end{itemize}
+\begin{equation*}
+    \rho_{XY} = \dfrac{E(XY) - E(X)E(Y)}{\sqrt{D(X)}\sqrt{
+    D(Y)}} = \dfrac{\frac{3}{10} - \frac12\times\frac12}{\sqrt{\frac14}\times\sqrt{\frac14}} = \dfrac{1}{5}
+\end{equation*}
+
+\vspace{1em}
+{\color{cyan!80!black} 【结论】$\dfrac{1}{5}$
+
+\vspace{1em}
+【点评】本题以相关系数为切入点，考察了相关系数的公式、协方差的公式、二维离散型随机变量分布列的求解、条件概率与乘法公式的应用等，算是一道综合性较强的问题。要解决此问题，关键是会运用「联合确定边缘」的思想，以及会把抽样过程分成两个步骤求解。
+}
+
+
+\end{document}

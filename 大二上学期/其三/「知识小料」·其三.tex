@@ -1,0 +1,151 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{mathptmx} %mathptmx和times结合使得公式使用times new roman字体
+\usepackage{times}
+\usepackage{xcolor}
+
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+\setmainfont{Times New Roman}
+\captionsetup{font=small, labelfont=bf}
+
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{red!20!}{\textcolor{red!80!black}{#1}}}
+\newcommand\Correct[1]{\colorbox{green!20}{\textcolor{green!50!black}{#1}}}
+\newcommand\Mathemph[1]{\text{\textcolor{green!60!black}{$#1$}}}
+
+\newcommand\h{\text{\textcolor{blue}{\,$\wedge$\,}}} %合取
+\newcommand\x{\text{\textcolor{red!70!black}{\,$\vee$\,}}} %析取
+\newcommand\f{\neg} %非
+\newcommand\is{\Leftrightarrow\ } %等价
+
+%这4个信息随“刊号”更新
+\newcommand\IssueNumber{03}
+\newcommand\Date{2023-9-25}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{离散数学}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+{\scriptsize\Issue \textcolor[HTML]{C8BA83}{WEEKLY TIPS}}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{ISSUE.}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+%此处以后填写正文
+\textcolor{cyan!50!black}{
+求出 $(P \to (Q\h R))\h (\f P \to (\f Q \h \f R))$ 的主析取范式和主合取范式，并判断公式类型。
+}
+
+由于中间是“合取”，所以这里先求主合取范式。对原式作如下等值演算：
+\begin{equation}
+\begin{aligned}
+& (P \to (Q\h R))\h (\f P \to (\f Q \h \f R)) \\ 
+\iff & (\f P\x (Q\h R)) \h (P \x (\f Q\h \f R)) \\
+\iff & ((\f P\x Q)\h (\f P\x R)) \h ((P\x \f Q)\h (P\x \f R)) \\ 
+\iff & (\f P\x Q) \h (\f P\x R) \h (P\x \f Q) \h (P\x \f R) \text{\textcolor{cyan}{（去外层括号）}}\\
+\end{aligned}
+\end{equation}
+
+到此我们得到了合取范式，现在要变为主合取范式——对每一个简单析取式，需要补进所有未出现的命题变元，以获得极大项。如第一个简单析取式 $\f P\x Q$，可以补进命题变元 $R$ 后用分配律展开之：
+\begin{equation}
+\begin{aligned}
+    \f P\x Q & \iff \f P\x Q\x (R\h \f R) \\
+    &\iff (\f P\x Q\x R)\h (\f P\x Q\x \f R) \\
+\end{aligned}
+\end{equation}
+
+因此对得到的 4 个简单析取式作类似的操作，得到的极大项如下表 \ref{tab:jidaxiang} 所示。
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+    $\f P\x Q$ & $\iff$ & $(\f P\x Q\x \Mathemph{R})\h (\f P\x Q\x \Mathemph{\f R})$ \\
+    $\f P\x R$ & $\iff$ & $(\f P\x \Mathemph{Q}\x R)\h (\f P\x \Mathemph{\f Q}\x R)$ \\
+    $ P\x \f Q$ & $\iff$ & $(P\x \f Q\x \Mathemph{R})\h (P\x \f Q\x \Mathemph{\f R})$ \\
+    $ P\x \f R$ & $\iff$ & $(P\x \Mathemph{Q}\x \f R)\h (P\x \Mathemph{\f Q}\x \f R)$ \\
+    \bottomrule 
+    \end{tabular}
+    \caption{对 4 个简单析取式展开得到的极大项表}\label{tab:jidaxiang}
+\end{table}
+重复出现的只计一次，得到原式的主合取范式为：
+\begin{equation}\begin{split}
+& (P\x Q\x \f R)\h (P\x \f Q\x R)\h (P\x \f Q\x \f R) \\
+\h & (\f P\x Q\x R)\h (\f P\x Q\x \f R)\h (\f P\x \f Q\x R) \\
+\iff & M_{001}\h M_{010}\h M_{011} \h M_{100} \h M_{101}\h M_{110} \\
+\iff & M_1\h M_2\h M_3 \h M_4\h M_5\h M_6 \text{\quad （可写作 $\displaystyle\bigwedge\limits_{i=1}^6 M_i$）}
+\end{split}\end{equation}
+
+
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\phantom{...}
+\vspace{0.5cm}
+
+需要注意的是，在对极大项二进制编号时，原子命题记 0，否定记 1。这一点与极小项不同。
+
+下面我们再来求主析取范式。对原式作如下等值演算：
+\begin{equation}
+\begin{aligned}
+& (P \to (Q\h R))\h (\f P \to (\f Q \h \f R)) \\
+\iff & \Mathemph{(\f P\x (Q\h R))} \h (P \x (\f Q\h \f R)) \\
+\iff & \big(\Mathemph{(\f P\x (Q\h R))}\h P\big) \x \big(\Mathemph{(\f P\x (Q\h R))}\h (\f Q\h \f R)\big) \text{\textcolor{cyan}{（分配律）}}\\
+\iff & \big((\f P\h P)\x (Q\h R\h P)\big) \x \big( (\f P\h \f Q\h \f R) \x (Q\h R\h \f Q\h \f R) \big) \\
+\iff & (P\h Q\h R)\x (\f P\h \f Q\h \f R) \\
+\iff & m_{111} \x m_{000} \\
+\iff & m_7 \x m_0 \\
+\end{aligned}
+\end{equation}
+可以看到，求主析取范式时，大量使用了分配律，而且式子结构不美观，容易出错。事实上，当我们得到主合取范式为 $M_1\h M_2\h M_3 \h M_4\h M_5\h M_6$ 之后，便可以直接推出主析取范式为 $m_0\x m_7$，因为这两种范式有「互补」关系。
+
+最后就是判断公式类型，一般为永真式、永假式、可满足式的三者之一。本题由范式分析的结果很容易得到类型为可满足式。
+
+\textcolor{cyan!80!black}{【结论】主析取范式为 $m_0\x m_7$，主合取范式为 $M_1\h M_2\h M_3 \h M_4\h M_5\h M_6$，公式类型为可满足式。}
+
+\textcolor{cyan!80!black}{【点评】本题是一道求主范式的经典试题，可以由式子自身的结构选择求取某一种范式，然后通过「互补」关系直接写出另一种范式。}
+
+\end{document}

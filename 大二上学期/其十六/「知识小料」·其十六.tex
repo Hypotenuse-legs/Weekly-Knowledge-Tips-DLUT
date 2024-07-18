@@ -1,0 +1,476 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=0.8cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\ttfamily\footnotesize{-\ \thepage\ -}}
+
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+\CTEXsetup[format = {\color{cyan!50!black}\bfseries\large}]{subsection}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\renewcommand\arraystretch{1.8}
+
+\renewcommand\pi{\text{\timesnewroman π}}
+\renewcommand\d{\mathrm{d}}
+\newcommand\B{\boldsymbol{B}}
+\renewcommand\S{\boldsymbol{S}}
+\renewcommand\l{\boldsymbol{l}}
+\newcommand\M{\boldsymbol{M}}
+\renewcommand\H{\boldsymbol{H}}
+\newcommand\dds{\mathcal{E}} %电动势
+\newcommand\delt{\text{\timesnewroman δ}}
+
+\newcommand\IssueNumber{16}
+\newcommand\Date{2024-1-3}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{大学物理 A2}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+{\scriptsize\Issue \textcolor[HTML]{C8BA83}{WEEKLY TIPS}}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{ISSUE.}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+\begin{center}\color{cyan!50!black}
+    《大学物理·下半》公式集锦
+
+    注：只是公式，不一定包括全部知识点。有的知识点没有公式。
+
+    带背景底色的公式需重点背诵。
+\end{center}
+
+\section{磁学篇}
+\subsection{恒定磁场}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $\boldsymbol{F} = q\boldsymbol{v}\times \B = qvB\sin\theta$ & 运动电荷所受洛伦兹力 \\
+    \hline
+    $\d\B = \dfrac{\mu_0}{4\pi}\cdot\dfrac{I \d\boldsymbol{l}\times\boldsymbol{r}}{r^3}$ & 磁感应强度定义式 \\
+    \hline
+    $\d B = \dfrac{\mu_0}{4\pi}\cdot \dfrac{I\d l\sin\theta}{r^2}$ & 磁感应强度定义·标量形式 \\
+    \hline
+    $\displaystyle \B = \int \d\B = \int \dfrac{\mu_0}{4\pi}\cdot\dfrac{I \d\boldsymbol{l}\times\boldsymbol{r}}{r^3}$ & 磁感应强度沿路径积分 \\
+    \hline
+    \Emph{$B = \dfrac{\mu_0 I}{2\pi a}$} & 无限长载流的直导线的磁场 \Example{（载流 $I$，考察点到导线的垂直距离为 $a$）} \\
+    \hline
+    $B = \dfrac{\mu_0 I}{2R}$ & 载流圆线圈轴线上的磁场 \Example{（载流 $I$，半径 $R$）}\\
+    \hline
+    \Emph{$B = \mu_0 n I$} & 载流螺线管轴线上的磁场 \Example{（载流 $I$，匝密度 $n$）}\\
+    \hline
+    $\displaystyle\oiint_S \B\cdot \d\S = 0$ & 磁场高斯定理 \\
+    \hline
+    \Emph{$\displaystyle\oint_L \B\cdot \d\l = \mu_0 \sum I_i$} & 安培环路定理 \Example{（$\sum I_i$ 表示正向穿过以 $L$ 为边界的曲面的电流和）} \\
+    \hline
+    $U_\mathrm{H} = \dfrac{1}{ne}\dfrac{IB}{d}$ & 霍尔电压 \Example{（$d$ 是沿 $\B$ 方向的厚度）} \\
+    \hline
+    $\boldsymbol{F} = I\l\times\B$ & 导线受到的安培力 \\
+    \hline
+    \Emph{$\boldsymbol{m} = I\boldsymbol{S}$} & 载流线圈的磁矩 \\
+    \hline
+    \Emph{$\boldsymbol{M} = \boldsymbol{m}\times \B$} & 载流线圈的磁力矩 \\
+    \hline
+    $A_{\mathrm{m}} = I(\varPhi_2 - \varPhi_1)$ & 磁力矩做功 \\
+    \hline
+    \Emph{$\B = \mu \H = \mu_0\mu_{\mathrm{r}}\H$} & 磁场强度与磁感应强度的关系 \\
+    \hline
+    $\M = (\mu_r - 1)\H$ & 磁场强度与磁化强度的关系 \\
+    \hline
+    $\displaystyle \oint _L \B\cdot\d\l = \mu_0 \left(\sum I_0 + \sum I'\right)$ & 安培环路定理\Example{（为与下二式区别，再写一次）} \\
+    \hline
+    \Emph{$\displaystyle \oint _L \H\cdot\d\l = \sum I_0$} & 磁场强度的环路定理 \\
+    \hline
+    $\displaystyle \oint _L \M\cdot\d\l = \sum I'$ & 磁化强度的环路定理 \\
+\end{longtable}
+
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\subsection{电磁感应}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    \Emph{$\dds = -\dfrac{\d\varPhi}{\d t}$} & 法拉第电磁感应定律\Example{（单匝线圈）} \\
+    \hline
+    $\dds = -\dfrac{\d\varPsi}{\d t} = -N\dfrac{\d\varPhi}{\d t}$ & 法拉第电磁感应定律\Example{（$N$ 匝线圈）} \\
+    \hline
+    \Emph{$\displaystyle \dds_{ab} = \int_a^b (\boldsymbol{v}\times\B)\cdot \d\l$} & 动生电动势公式 \\
+    \hline
+    $\displaystyle\oint_L \boldsymbol{E}\cdot\d\l = -\dfrac{\d}{\d t}\left(\iint_S \B\cdot \d\S\right)$ & 感生电场（涡旋电场）公式 \\
+    \hline
+    $\varPsi_{21} = M_{21} I_1$ & 线圈1对线圈2的全磁通 \\
+    \hline
+    $M_{21} = M_{12}$ & 互感系数是相等的 \\
+    \hline
+    $\dds_{21} = -M\dfrac{\d I_1}{\d t}$ & 线圈 1 电流变化导致线圈 2 产生互感电动势 \\
+    \hline
+    $\varPsi = LI$ & 线圈自身的全磁通 \\
+    \hline
+    $\dds = -L\dfrac{\d I}{\d t}$ & 线圈的自感电动势 \\
+    \hline
+    \Emph{$w_{\mathrm{m}}  = \dfrac12 \mu H^2 = \dfrac12 BH$} & 磁场能量密度 \\
+    \hline
+    $\displaystyle W_{\mathrm{m}} = \int w_{\mathrm{m}}\d V = \dfrac12 \int _V BH\d V$ & 磁场能量 \\
+    \hline
+    $W_\mathrm{m} = \dfrac12 LI^2$ & 磁场能量与自感系数的关系 \\
+\end{longtable}
+
+\subsection{麦克斯韦方程组}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $\displaystyle I_D = \oiint_S \dfrac{\partial \boldsymbol{D}}{\partial t}\cdot \d\S$ & 位移电流 \\
+    \hline
+    $\boldsymbol{J}_D = \dfrac{\partial \boldsymbol{D}}{\partial t}$ & 位移电流密度 \\
+    \hline
+    $\displaystyle\oint _L \H\cdot\d\boldsymbol{r} = I + I_D$ & 全电流安培环路定理\Example{（传导电流+位移电流）} \\
+    \hline
+    $c = \dfrac{1}{\sqrt{\mu_0\varepsilon_0}}$ & 真空中的光速与 $\mu_0$ 和 $\varepsilon_0$ 的关系 \\
+    \hline
+    $\sqrt{\mu} H = \sqrt{\varepsilon} E$ & $\boldsymbol{E}$ 与 $\H$ 的关系 \\
+    \hline
+    \Emph{$\sqrt{\mu_0} H = \sqrt{\varepsilon_0} E$} & $\boldsymbol{E}$ 与 $\H$ 的关系\Example{（真空中）} \\
+    \hline
+    $\overline{S} = \dfrac12 H_0 E_0  = c\varepsilon_0 \overline{\boldsymbol{E}^2} = I$ & 电磁波平均能流密度\Example{（也等于波强）} \\
+\end{longtable}
+
+麦克斯韦方程组的形式如下，分别为
+\begin{enumerate}[itemsep=0pt,parsep=0pt]
+    \item 电场高斯定理 （电场·通量）
+    \item 法拉第电磁感应定律  （电场·环流）
+    \item 磁场高斯定理 （磁场·通量）
+    \item 全电流安培环路定理 （磁场·环流）
+\end{enumerate}
+\begin{equation*}
+    \begin{cases}
+        \displaystyle\oiint_S \boldsymbol{D}\cdot \d\S = \sum q_0 \\
+        \displaystyle\oint_L \boldsymbol{E}\cdot\d\boldsymbol{r} = -\iint_S \dfrac{\partial \B}{\partial t}\cdot\d\S \\
+        \displaystyle\oiint_S \B\cdot\d\S = 0 \\
+        \displaystyle\oint_L \H\cdot\d\boldsymbol{r} = I + I_D \\
+    \end{cases}
+    \iff
+    \begin{cases}
+        \nabla\cdot\boldsymbol{D} = \rho \\
+        \nabla\times\boldsymbol{E} = -\dfrac{\partial \B}{\partial t} \\
+        \nabla\cdot\B = 0 \\
+        \nabla\times\H = \boldsymbol{j} + \dfrac{\partial \boldsymbol{D}}{\partial t} \\
+    \end{cases}
+\end{equation*}
+
+\section{光学篇}
+\subsection{几何光学}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $\displaystyle L = \int_A^B n(x)\d x$ & 光程公式 \\
+    \hline
+    $n = \dfrac{v_1}{v_2} = \dfrac{c}{v}$ & 折射率公式 \\
+    \hline
+    $n_1\sin i_1 = n_2\sin i_2$ & 折射定律 \\
+    \hline
+    $\dfrac{1}{s'} - \dfrac{1}{s} = \dfrac{1}{f'}$ & 薄透镜成像\Example{（物点距离 $s$，像点距离 $s'$，焦距 $f=-f'$）} \\
+    \hline
+\end{longtable}
+
+\subsection{光的干涉}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $I = \dfrac12 \boldsymbol{E}_0^2$ & 光矢量与光强 \\
+    \hline
+    $I = I_1 + I_2 + 2\sqrt{I_1I_2}\cos\Delta\varphi$ & 光强的相干叠加 \\
+    \hline
+    $\Delta\varphi = \pm 2k\pi $ & 干涉相长的相位差条件\Example{（$k=0,1,2,\dots$）} \\
+    \hline
+    $\Delta\varphi = \pm (2k-1)\pi$ & 干涉相消的相位差条件 \Example{（$k=1,2,\dots$）} \\
+    \hline
+    $\delta = \pm k\lambda$ & 干涉相长的光程差条件 \Example{（$k=0,1,2,\dots$）} \\
+    \hline
+    $\delta = \pm (2k-1)\dfrac{\lambda}{2}$ & 干涉相消的光程差条件 \Example{（$k=1,2,\dots$）} \\
+    \hline
+    \Emph{$\delta = \dfrac{xnd}{D}$} & 杨氏双缝干涉光程差 \Example{（条纹位置$x$，级数$n$，双缝间距$d$，双缝到屏的距离$D$）} \\
+    \hline
+    $\Delta x = \dfrac{D\lambda}{nd}$ & 杨氏双缝干涉的条纹宽度（即相邻条纹间隔） \\
+    \hline
+    $\delta = \dfrac{xnd}{D} + \dfrac{\lambda}{2}$ & 洛埃镜实验光程差 \\
+    \hline
+    $\delta = 2h\sqrt{n_2^2 - n_1^2\sin^2 i_1} + \dfrac{\lambda}{2}$ & 等倾干涉反射光光程差\Example{（当 $n_1<n_2>n_3$ 或 $n_1>n_2<n_3$ 有半波损失；透射光相反）} \\
+    \hline
+    \Emph{$\delta = 2hn_2 + \dfrac{\lambda}{2}$} & 等厚干涉反射光光程差\Example{（空气劈尖满足$n_1<n_2>n_3(=n_1)$，有半波损失）} \\
+    \hline
+    $\Delta h = \dfrac{\lambda}{2n_2}$ & 等厚干涉相邻明纹（暗纹）厚度差 \\
+    \hline
+    $\Delta l = \dfrac{\Delta h}{\sin\theta}\approx \dfrac{\lambda}{2n_2\theta}$ & 等厚干涉相邻明纹（暗纹）间距\Example{（$\theta < 5^\circ$）} \\
+    \hline
+    $r_k = \sqrt{\dfrac{kR\lambda}{n}}$ & 牛顿环第 $k$ 级暗环半径\Example{（牛顿环曲率半径为 $R$）} \\
+    \hline
+    $k_{\max} = \dfrac{2h}{\lambda}$ & 迈克尔孙干涉仪的中心级次\Example{（两反射镜的像距离为 $h$）}\\
+\end{longtable}
+
+\subsection{光的衍射}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    \Emph{$a\sin\theta_k = k\lambda $} & 单缝（夫琅禾费）衍射第 $k$ 级暗纹公式\Example{（$k=\pm 1,\pm 2,\dots$，缝宽$a$，衍射角$\theta_k$）} \\
+    \hline
+    $a\sin\theta_k' \approx (k+0.5)\lambda$ & 单缝衍射第 $k$ 级明纹公式\Example{（$k=\pm 1,\pm 2,\dots$，并不严格）} \\
+    \hline
+    $\delta = a\sin\theta_k = N\cdot\dfrac{\lambda}{2}$ & 单缝衍射半波带公式 \Example{（半波带个数 $N$）} \\
+    \hline
+    $x_k = k\dfrac{\lambda f}{a}$ & 单缝衍射第 $k$ 级暗纹中心位置\Example{（会聚透镜焦距 $f$）} \\
+    \hline
+    $\Delta x_0 = 2x_1 = \dfrac{2\lambda f}{a}$ & 单缝衍射中央明纹线宽度 \\
+    \hline
+    $\Delta \theta_0 = 2\theta_1 = \dfrac{2\lambda}{a}$ & 单缝衍射中央明纹角宽度 \\
+    \hline
+    $\delt \theta = 1.22\dfrac{\lambda}{D}$ & 瑞利判据：中心角距离等于角半径\Example{（衍射圆孔直径$D$；前提是光强相近）} \\
+    \hline
+    $A = \dfrac{1}{\delt\theta} = \dfrac{D}{1.22\lambda}$ & 光学仪器的分辨本领公式 \\
+    \hline
+    \Emph{$d\sin\theta = \pm m\lambda$} & 光栅衍射主极大位置公式\Example{（$m=0,1,2,\dots$）} \\
+    \hline
+    $d(\sin\theta - \sin\theta_0) = \pm m\lambda$ & 光栅衍射主极大，斜入射$\theta_0$ \\
+    \hline
+    $m = \dfrac{d}{a}k$ & 光栅衍射缺级位置 \\
+    \hline
+    $|m| < \dfrac{d}{a}$ & 光栅衍射显见主极大的位置 \\
+    \hline
+    $R = \dfrac{\lambda}{\d\lambda} = mN$ & 光栅分辨本领 \Example{（总刻线数$N$，级次$m$，最小可分辨波长之差 $\d\lambda$）} \\
+    \hline
+    $2d\sin\alpha = k\lambda$ & 布拉格定律：干涉相长条件 \Example{（晶格常数$d$，掠射角$\alpha$，级次为 $k$）} \\
+\end{longtable}
+
+\subsection{光的偏振、散射、吸收}
+\begin{longtable}{|p{0.35\textwidth}|p{0.59\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $P = \dfrac{I_{\mathrm{p}}}{I_{\mathrm{n}}+I_{\mathrm{p}}} = \dfrac{I_{\mathrm{M}}-I_{\mathrm{m}}}{I_{\mathrm{M}}+I_{\mathrm{m}}}$ & 光的偏振度\Example{（最大光强$I_{\mathrm{M}}$，最小光强$I_{\mathrm{m}}$）} \\
+    \hline
+    $I_x = I_y = \dfrac{I_0}{2}$ & 线偏振光光强是自然光的一半 \\
+    \hline
+    \Emph{$I = I_0\cos^2\theta$} & 马吕斯定律 \\
+    \hline
+    \Emph{$\tan i_{\mathrm{B}} = \dfrac{n_2}{n_1}$} & 布儒斯特定律\Example{（$i_{\mathrm{B}}$ 为布儒斯特角）} \\
+    \hline
+    $n_{\mathrm{e}} = \dfrac{c}{v_{\mathrm{e}}},\quad n_{\mathrm{o}} = \dfrac{c}{v_{\mathrm{o}}}$ & 垂直光轴方向的 o 光、e 光折射率 \\
+    \hline
+    $\delta = d|n_{\mathrm{o}} - n_{\mathrm{e}}| = \dfrac{\lambda}{2} (+k\lambda)$ & 半波片 \\
+    \hline
+    $\delta = d|n_{\mathrm{o}} - n_{\mathrm{e}}| = \dfrac{\lambda}{4} \left(+k\dfrac{\lambda}{2}\right)$ & 四分之一波片 \\
+    \hline
+    $\alpha = \dfrac{\psi}{l},\quad \alpha = \dfrac{\psi}{cl}$ & 晶体、液体的旋光率 \\
+    \hline
+    $I \varpropto \dfrac{1}{\lambda^4}$ & 散射光的强度与波长的 4 次方成反比 \\
+    \hline
+    $\nu_1 = \nu + \nu_0$ & 拉曼散射紫伴线频率 \Example{（$\nu$ 为入射光频率，$\nu_0$ 由介质分子决定）} \\
+    \hline
+    $\nu_1'= \nu - \nu_0$ & 拉曼散射红伴线频率 \\
+    \hline
+    $I = I_0\mathrm{e}^{-\beta x}$ & 朗伯特定律：光吸收后的光强 \\
+    \hline
+\end{longtable}
+
+\section{原子物理篇}
+\subsection{实验基础与基本原理}
+\begin{longtable}{|p{0.36\textwidth}|p{0.58\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $\dfrac{M_{\nu A}}{a_A} = \dfrac{M_{\nu B}}{a_B} = M_{\nu}$ & 基尔霍夫热辐射定律\Example{（单色辐射出射度为 $M_\nu$，单色吸收比为 $a$，最后一项为黑体）} \\
+    \hline
+    $M = \sigma T^4$ & 斯特藩—玻尔兹曼公式\Example{（总辐射出射度为 $M$，温度为 $T$）} \\
+    \hline
+    $\lambda_{\mathrm{M}}\cdot T = b$ & 维恩位移定律\Example{（辐射能量最大的光波长为 $\lambda_{\mathrm{M}}$，其温度为 $T$）} \\
+    \hline
+    $\varepsilon = h\nu$ & 光子的能量 \\
+    \hline
+    \Emph{$h\nu = A + \dfrac12 mv_{\mathrm{m}}^2$} & 光电效应方程 \\
+    \hline
+    $h\nu_0 = A$ & 红限频率\Example{（对应 $U_\mathrm{c}=0$ 的频率）} \\
+    \hline
+    $eU_\mathrm{c} = \dfrac12 mv_\mathrm{m}^2$ & 遏止电压 \\
+    \hline
+    \Emph{$\Delta \lambda = 2\lambda_\mathrm{C} \sin^2\dfrac{\varphi}{2}$} & 康普顿公式 \\
+    \hline
+    $\lambda_\mathrm{C} = \dfrac{h}{m_0 c}$ & 康普顿波长表达式\Example{（其中电子静质量为 $m_0$）} \\
+    \hline
+    \Emph{$p = \dfrac{h}{\lambda}$} & 德布罗意公式：光子及实物粒子动量 \\
+    \hline
+    $E^2 = E_0^2 + (pc)^2$ & 能量动量的相对论表达式 \\
+    \hline
+    $\hbar = \dfrac{h}{2\pi}$ & 约化普朗克常数 \\
+    \hline
+    $\Delta x\cdot \Delta p \geqslant \dfrac{\hbar}{2}$ & 位置、动量不确定性关系\Example{（有时取 $\dfrac{\hbar}{2}$ 为 $h$ 估算）} \\
+    \hline
+    $\Delta t\cdot \Delta E \geqslant \dfrac{\hbar}{2}$ & 时间、能量不确定性关系 \\
+\end{longtable}
+
+\subsection{薛定谔方程、一维无限深势阱}
+\begin{longtable}{|p{0.36\textwidth}|p{0.58\textwidth}|}
+    \multicolumn{2}{r}{\textit{（续表）}} \\
+    \hline
+\endhead
+    \hline
+\endfirsthead
+    %\hline
+\endfoot
+    \hline
+\endlastfoot
+
+    \textbf{公式} & \textbf{描述} \\
+    \hline
+    $-\dfrac{\hbar ^2}{2m}\dfrac{\partial^2 \psi}{\partial x^2} + U\psi = E\psi$ & 一维势场中的定态薛定谔方程\Example{（势能$U$，总能量$E$）} \\
+    \hline
+    $\displaystyle \int_V |\psi|^2 \d V = 1$ & 归一化条件 \\
+    \hline
+    $P(x) = |\psi(x)|^2$ & 概率密度函数 \\
+    \hline
+    $\psi_n(x) = \sqrt{\dfrac{2}{a}}\sin\dfrac{n\pi x}{a}$ & 一维无限深势阱的波函数 \\
+    \hline
+    $E_n = \dfrac{\pi^2 \hbar^2}{2ma^2} \cdot n^2$ & 一维无限深势阱的能量（动能） \\
+    \hline
+    $\dfrac{1}{\lambda} = R\left(\dfrac{1}{n^2} - \dfrac{1}{m^2}\right)$ & 氢原子光谱\Example{（莱曼系$n=1$，巴耳末系$n=2$，帕邢系$n=3$；$m>n$，里德伯常数为 $R$）} \\
+    \hline
+    $h\nu = |E_n - E_m|$ & 电子跃迁产生辐射 \\
+    \hline
+    \Emph{$E_n = -\dfrac{13.6}{n^2}\mathrm{(eV)}$} & 氢原子能量量子化 \\
+    \hline
+    \Emph{$L = \sqrt{l(l+1)}\hbar$} & 氢原子角动量量子化 \\
+    \hline
+    \Emph{$L_z = m\hbar$} & 氢原子角动量取向量子化 \\
+    \hline
+    $m_\mathrm{s} = \pm\dfrac12$ & 电子自旋磁量子数 \\
+\end{longtable}
+
+\end{document} 

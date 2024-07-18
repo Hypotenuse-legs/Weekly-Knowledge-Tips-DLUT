@@ -1,0 +1,129 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=0.8cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+\CTEXsetup[format = {\color{cyan!50!black}\bfseries\large}]{subsection}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\renewcommand\arraystretch{1.8}
+
+\renewcommand\pi{\text{\timesnewroman π}}
+\renewcommand\d{\mathrm{d}}
+\newcommand\B{\boldsymbol{B}}
+\renewcommand\S{\boldsymbol{S}}
+\renewcommand\l{\boldsymbol{l}}
+\newcommand\M{\boldsymbol{M}}
+\renewcommand\H{\boldsymbol{H}}
+\newcommand\dds{\mathcal{E}} %电动势
+\newcommand\delt{\text{\timesnewroman δ}}
+
+\newcommand\IssueNumber{17}
+\newcommand\Date{2024-1-10}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{大学物理 A2}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+{\scriptsize\Issue \textcolor[HTML]{C8BA83}{WEEKLY TIPS}}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{ISSUE.}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+
+一油轮漏出的油（$n_2=1.20$）污染了海域，在海水（$n_3=1.30$）表面形成了一层薄薄的油污（厚度 460nm）。
+\begin{enumerate}[itemsep=0pt,parsep=0pt]
+  \item 如果太阳位于海域上空，直升机驾驶员从机上向下观察，则他将观察到油层呈什么颜色？
+  \item 如果潜水员位于该区域水下，则他将观察到油层呈什么颜色？
+\end{enumerate}
+}
+
+\begin{figure}[htb]
+    \centering
+    \newcount\WL \unitlength.75pt
+    \begin{picture}(460,30)(355,-10)
+        \sffamily \tiny \linethickness{1.25\unitlength} \WL=380
+        \multiput(380,0)(1,0){400}%
+        {{\color[wave]{\the\WL}\line(0,1){30}}\global\advance\WL1}
+        \linethickness{0.25\unitlength}\WL=380
+        \multiput(380,0)(20,0){20}%
+        {\picture(0,0)
+        \line(0,-1){5} \multiput(5,0)(5,0){3}{\line(0,-1){2.5}}
+        \put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+        \endpicture}
+    \end{picture}
+
+    \caption{可见光光谱图（数字表示波长，单位：nm）}\label{fig:guangpu}
+\end{figure}
+
+【解答】本题有 $n_1=1$（空气）、$n_2$、$n_3$ 三个折射率，推知本题考察薄膜干涉。记 $h=460\mathrm{nm}$。
+
+\begin{enumerate}
+    \item 水上观察——\textbf{反射光}干涉相长。$n_1<n_2<n_3$——无半波损失。
+        \begin{equation}\label{eq:1}
+            \delta = 2hn_2 = k\lambda
+        \end{equation}
+        解出 $\lambda = \dfrac{2hn_2}{k} = \dfrac{1104}{k}\mathrm{nm}$。取 $k=2,\lambda=\textcolor{green!70!black}{552\mathrm{nm}}$。
+    \item 水下观察——\textbf{透射光}干涉相长。与反射光相反——有半波损失。
+        \begin{equation}\label{eq:2}
+            \delta = 2hn_2 + \dfrac{\lambda}2 =  k\lambda
+        \end{equation}
+        解出 $\lambda = \dfrac{2hn_2}{k-\frac12} = \dfrac{1104}{k-\frac12}\mathrm{nm}$。取 $k=2,\lambda=\textcolor{red}{736\mathrm{nm}}$；$k=3,\lambda=\textcolor{blue!90!white}{441.6\mathrm{nm}}$。
+\end{enumerate}
+
+\textcolor{cyan!80!black}{【结论】1. 绿色；2. 红色和蓝色（紫色）。}
+
+\textcolor{cyan!80!black}{【点评】本题考察薄膜干涉，但提示相对隐晦，可能难以识别。本题的坑在于反射光与透射光是否有半波损失的问题，做题时应留意。}
+
+\end{document}

@@ -1,0 +1,184 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption,subcaption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=0.3cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+\CTEXsetup[format = {\color{cyan!50!black}\bfseries\large}]{subsection}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+
+\renewcommand\d{\mathrm{d}}
+
+\newcommand\IssueNumber{20}
+\newcommand\Date{2024-3-21}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{概率与统计 A}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+已知随机变量 $X,Y$ 的联合密度函数为
+\begin{equation*}
+    f(x,y) = \begin{cases}
+               Ay^2, & 0<y<x<1 \\
+               0, & \text{其他} \\
+             \end{cases}
+\end{equation*}
+求：(1)$A$；(2)$f_{X|Y}(x|y)$。
+}
+
+【第 1 问】考察的是密度函数的归一性，直接用公式即可。
+\begin{align*}
+    \textcolor{blue}{1} &=\textcolor{blue}{ \iint_{\mathbb{R}^2} f(x,y)\d x\d y} \\
+    &= \int_0^1 \d x\int _0^x Ay^2\d y = \int_0^1 \dfrac{A}{3}x^3 \d x = \dfrac{A}{12}
+\end{align*}
+因此 $A=12$。
+
+【第 2 问】要求的是二维条件密度 $f_{X|Y} (x|y)$，给定 $y$ 求 $x$ 的密度，公式为
+\begin{equation*}
+    \textcolor{blue}{f_{X|Y}(x|y) = \dfrac{f(x,y)}{f_Y(y)} = \dfrac{\text{联合密度}}{y\text{的边缘密度}}}
+\end{equation*}
+联合密度已知，接下来求 $y$ 的边缘密度：
+\begin{align*}
+    \textcolor{blue}{f_Y(y)} &=\textcolor{blue}{\int_{-\infty}^{+\infty} f(x,y)\d x} \\
+    &= \int_y^1 (12y^2)\d x \\
+    &= 12y^2(1-y)\quad (0<y<x<1)
+\end{align*}
+因此得到条件密度（记得写范围）：
+\begin{equation*}
+    f_{X|Y}(x|y) = \dfrac{f(x,y)}{f_Y(y)} = \dfrac{12y^2}{12y^2(1-y)} = \dfrac{1}{1-y} \quad \textcolor{red}{(0<y<x<1)}
+\end{equation*}
+完整的写法是
+\begin{equation*}
+    f_{X|Y}(x|y) = \begin{cases}
+                     \dfrac{1}{1-y}, & 0<y<x<1 \\
+                     0, &\text{其他}
+                   \end{cases}
+\end{equation*}
+
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+至此这题就做完了。不过在积分方面还有些细节：
+
+在草稿纸上可以画出密度非 0 的区域，是一个直角三角形。
+
+第 1 问我们把它当成 $x$ 型域：如图 (a)，外层对 $x$ 积分；内层对 $y$ 积分，下限 0 上限 $x$。
+
+第 2 问求边缘密度时，$\displaystyle\int_{-\infty}^{+\infty} f(x,y)\d x$，积分变量是 $x$，因此定住 $y$ ，对 $x$ 积分。如图 (b)，$x$ 的下限 $y$，上限 1。
+
+
+\begin{figure}[htb]
+\begin{minipage}[b]{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[>=Stealth,scale=3]
+        \draw[->] (-0.2,0) -- (1.2,0) node[above] {$X$};
+        \draw[->] (0,-0.2) -- (0,1.2) node[right] {$Y$};
+        \filldraw[fill=cyan!10] (0,0) -- (1,0) -- (1,1) -- cycle;
+        \node[below left] at (0,0) {$O$};
+        \node[below] at (1,0) {1};
+        \draw (0.05,1) -- (0,1) node[left] {1};
+        \draw[dashed,cyan] (0.6,0.7) -- (0.6,-0.1) node[below] {$x$};
+        \fill[green!50!black] (0.6,0) circle (0.5pt) node[above] {$y_{\text{下}}=0$};
+        \fill[green!50!black] (0.6,0.6) circle (0.5pt) node[above] {$y_{\text{上}}=x$};
+    \end{tikzpicture}
+    \subcaption{第 1 问：$x$ 型域积分，外层 $x$ 内层 $y$}
+\end{minipage}
+\begin{minipage}[b]{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[>=Stealth,scale=3]
+        \draw[->] (-0.2,0) -- (1.2,0) node[above] {$X$};
+        \draw[->] (0,-0.2) -- (0,1.2) node[right] {$Y$};
+        \filldraw[fill=cyan!10] (0,0) -- (1,0) -- (1,1) -- cycle;
+        \node[below left] at (0,0) {$O$};
+        \node[below] at (1,0) {1};
+        \draw (0.05,1) -- (0,1) node[left] {1};
+        \draw[dashed,cyan] (1.1,0.6) -- (-0.1,0.6) node[left] {$y$};
+        \fill[green!50!black] (0.6,0.6) circle (0.5pt) node[left] {$x_{\text{下}}=y$};
+        \fill[green!50!black] (1,0.6) circle (0.5pt) node[right] {$x_{\text{上}}=1$};
+    \end{tikzpicture}
+    \subcaption{第 2 问：给定 $y$，对 $x$ 积分}
+\end{minipage}
+\end{figure}
+
+\vspace{1em}
+\textcolor{cyan!80!black}{【结论】
+\begin{enumerate}
+    \item $A=12$
+    \item $f_{X|Y}(x|y) = \begin{cases}
+                     \dfrac{1}{1-y}, & 0<y<x<1 \\
+                     0, &\text{其他}
+                   \end{cases}$
+\end{enumerate}
+}
+
+\textcolor{cyan!80!black}{【点评】本题考察二维连续性随机变量的相关知识点，包括密度函数的性质、条件密度的求解、由联合求边缘的方法等。主要难点可能在于不知道用哪条公式进行计算，或者二重积分计算有错误。本题在试卷中占据 15 分，同学们应掌握。}
+
+
+\end{document} 
