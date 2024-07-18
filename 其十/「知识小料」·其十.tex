@@ -1,0 +1,240 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption, subcaption}
+\usepackage{circuitikz}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fourier}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{pifont}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+
+
+
+%\backgroundsetup{contents=\includegraphics{示例.png}, center, scale=1, angle=0, opacity=1}
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+\captionsetup{font=small, labelfont=bf}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{cyan!10!}{\textcolor{cyan!50!black}{#1}}}
+\newcommand\Correct[1]{\colorbox{green!20}{\textcolor{green!50!black}{#1}}}
+\newcommand\mypi{\text{\timesnewroman π}}
+%这4个信息随“刊号”更新
+\newcommand\IssueNumber{10}
+\newcommand\Date{2023-11-20}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{模拟电子线路}
+\renewcommand\thefootnote{\ding{\numexpr171 + \value{footnote}}}
+\newcommand\xb[1]{_\mathrm{#1}}
+
+\ctikzset{
+    bipoles/length=0.8cm,
+    resistors/scale=0.6, % smaller R
+    capacitors/scale=0.6, % even smaller C
+    diodes/scale=0.5, % small diodes
+    transistors/scale=0.65,
+    sources/scale=0.7,
+    csources/scale=0.6,
+    batteries/scale=0.5,
+    grounds/scale=0.5,
+    amplifiers/scale=0.7, amplifiers/plus={\scriptsize $+$}, amplifiers/minus={\scriptsize $-$},
+    current arrow scale=24, % 数值越大箭头越小
+}
+\newcommand\multiplier[3]
+{
+    \ifnum #3=1
+    {
+        \draw[thick] (#1+0.6, #2) -- (#1+0.3, #2+0.3) -- (#1-0.3, #2+0.3) -- (#1-0.3, #2-0.3) -- (#1+0.3, #2-0.3) -- cycle;
+        \draw (#1+0.3, #2+0.3) -- (#1-0.3, #2-0.3);
+        \draw (#1-0.3, #2+0.3) -- (#1+0.3, #2-0.3);
+    }
+    \fi
+    \ifnum #3=2
+    {
+        \draw[thick]  (#1+0.3, #2+0.3) -- (#1-0.3, #2+0.3) -- (#1-0.6, #2) -- (#1-0.3, #2-0.3) -- (#1+0.3, #2-0.3) -- cycle;
+        \draw (#1+0.3, #2+0.3) -- (#1-0.3, #2-0.3);
+        \draw (#1-0.3, #2+0.3) -- (#1+0.3, #2-0.3);
+    }
+    \fi
+}
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+{\scriptsize\Issue \textcolor[HTML]{C8BA83}{WEEKLY TIPS}}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{ISSUE.}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+%此处以后填写正文
+
+{\color{cyan!50!black}
+已知输入电压信号有 1V、$V_1$和$V_2$。请从下表中选择一部分元件设计电路，使之输出 $V\xb{o} = \mathrm{1V} + V_1V_2 - 2V_1^2V_2$。要求画出电路并推导计算出电路中各电阻的值。（12分）
+
+\begin{table}[htb]
+    \color{cyan!50!black}
+    \centering
+    \begin{tabular}{ccccc}
+    \toprule
+        器件 & 运放 & 模拟乘法器 & 电阻 & 可调电阻 $R_P$ \\
+    \midrule
+        参数 & 理想运放 & 理想乘法器 $K=1$ & $\mathrm{10\Omega, 10k\Omega, 1M\Omega}$ & $0\sim 100\mathrm{k\Omega}$ \\
+        数量 & 2 只 & 4 只 & 若干 & 1 只 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+}
+
+结合我们学过的线性放大电路（下表 $k,k_1,k_2$ 均大于 0）：
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{cccc}
+    \toprule
+        反相放大器 & 反相加法器 & 差动减法器 & 乘法器 \\
+    \midrule
+        $v\xb{o} = -k v\xb{i}$ & $v\xb{o} = -k_1v_1 - k_2v_2$ & $v\xb{o} = k(v_2 - v_1)$ & $v\xb{o} = v_1 v_2$（本题 $K=1$） \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+分析输出表达式，可以构思出以下的方案：
+\begin{itemize}[itemsep=0pt, parsep=0pt]
+    \item \colorbox{cyan!10}{\textcolor{cyan!50!black}{$V\xb{o} = -2V_1^2 V_2 - (-1-V_1V_2)$}}——先用反相加法器得到 $-1-V_1V_2$ 的信号，再用一次反相加法器把 $V_1^2V_2$ 和 $-1-V_1V_2$ 的信号反相加起来。
+    \item $V\xb{o} = (-1-V_1V_2) - V_1^2V_2 - V_1^2V_2$——同样先用反相加法器得到 $-1-V_1V_2$ 的信号，再用反相加法器把三个信号反相相加。
+\end{itemize}
+这两种方法都能完成要求，但第一种更简洁，故本题采用第一种方法。
+
+首先把反相加法器的两层框架搭起来：
+\begin{figure}[htb]
+\begin{minipage}[t]{.5\textwidth}
+    \centering
+    \begin{circuitikz}[european,scale=1.1]
+        \draw (0,0) node[op amp] (A) {};
+        \draw (A.-) to[short, -o, R, l_=$R_2$] ++(-1,0) node[left] (Vi) {$V_1V_2$};
+        \draw (A.out) to[short, -o] ++(0.6,0) node[right] (Vo) {$-1-V_1V_2$};
+        \draw (A.+) to ++(-0.3,0) to[R, l=$R'$] ++(0,-0.8) node[rground] {};
+        \draw (0.6,0) to[short, *-] (0.6,0.8) to[R, l_=$R\xb{f}$] (-0.6,0.8) to[short, -*] (-0.6,0.8 |- A.-);
+        \draw (-0.6,0.8) to[ short,*-o, R, l_=$R_1$] (-1.48,0.8) node[left] {1V};
+        %\draw (0.6,0) to[R, l=$R\xb{L}$] (0.6,-1) node[rground] {};
+    \end{circuitikz}\\
+    \colorbox{green!10}{\textcolor{green!50!black}{内层}}（得到 $-1-V_1V_2$ 的信号）
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+    \centering
+    \begin{circuitikz}[european,scale=1.1]
+        \draw (0,0) node[op amp] (A) {};
+        \draw (A.-) to[short, -o, R, l_=$R_2$] ++(-1,0) node[left] (Vi) {$V_1^2V_2$};
+        \draw (A.out) to[short, -o] ++(0.6,0) node[right] (Vo) {$V\xb{o}$};
+        \draw (A.+) to ++(-0.3,0) to[R, l=$R'$] ++(0,-0.8) node[rground] {};
+        \draw (0.6,0) to[short, *-] (0.6,0.8) to[R, l_=$R\xb{f}$] (-0.6,0.8) to[short, -*] (-0.6,0.8 |- A.-);
+        \draw (-0.6,0.8) to[ short,*-o, R, l_=$R_1$] (-1.48,0.8) node[left] {$-1-V_1V_2$};
+        %\draw (0.6,0) to[R, l=$R\xb{L}$] (0.6,-1) node[rground] {};
+    \end{circuitikz} \\
+    \colorbox{violet!10}{\textcolor{violet}{外层}}（得到最终信号）
+\end{minipage}
+\end{figure}
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+有了框架，就可以通过输出表达式推导这些电阻的值。
+
+在\colorbox{green!10}{\textcolor{green!50!black}{内层电路}}中，相当于 $v\xb{o} = -v\xb{i1}-v\xb{i2}$\textcolor{cyan}{（默认取上方的输入端为 $v\xb{i1}$，下同）}，两个系数都是 $-1$，即 $\dfrac{R\xb{f}}{R_1}=\dfrac{R\xb{f}}{R_2}=1$，即 $R\xb{f}=R_1=R_2$，按照题目阻值要求取 $\mathrm{10k\Omega}$ 好一些。至于平衡电阻，则有 $R'=R_1\parallel R_2\parallel R\xb{f} = \dfrac{10}{3}\mathrm{k\Omega}$，直接用三个 $\mathrm{10k\Omega}$ 的电阻并联即可。
+
+在\colorbox{violet!10}{\textcolor{violet}{外层电路}}中，相当于 $v\xb{o} = -v\xb{i1} -2v\xb{i2}$，即 $\dfrac{R\xb{f}}{R_1}=1$，$\dfrac{R\xb{f}}{R_2}=2$，可以取 $R\xb{f}=10\mathrm{k\Omega}$，$R_1=10\mathrm{k\Omega}$，$R_2=5\mathrm{k\Omega}$（两个 $10\mathrm{k\Omega}$ 并联），平衡电阻取 $R'=R_1\parallel R_2\parallel R\xb{f} = 2.5\mathrm{k\Omega}$（用可调 $R_P$ 实现即可）。
+
+至于如何得到 $V_1V_2$，以及 $V_1^2V_2$，则可用乘法器来实现。以下直接贴出完整电路图，供参考。
+
+\begin{figure}[htb]
+    \centering
+    \begin{circuitikz}[european, scale=1.1, font=\footnotesize]
+        \fill[green!10] (-3.5, -1) rectangle (1, 1.5);
+        \node[below right, green!50!black] at (-3.5, 1.5)  {内层};
+        \fill[violet!10] (-3.5, -2.5) rectangle (1, -1);
+        \fill[violet!10] (1, -2.5) rectangle (4, 1.5) node[below left, violet] {外层};
+        \draw (0,0) node[op amp] (A) {};
+        \draw (2.5, -0.8) node[op amp] (A2) {};
+        \draw (A.-) to[R, l_=$10\mathrm{k\Omega}$] (-1.4,0.19);
+        \draw (A.out) to (1, 0) to[R, l=$10\mathrm{k\Omega}$] (2.1,0);
+        \draw (A.+) to ++(-0.3,0) to[R, l=$\dfrac{10}{3}\mathrm{k\Omega}$] ++(0,-0.7) node[rground] {};
+        \draw (0.6,0) to[short, *-] (0.6,0.8) to[R, l_=$10\mathrm{k\Omega}$] (-0.6,0.8) to[short, -*] (-0.6,0.8 |- A.-);
+        \draw (-0.6,0.8) to[ short,*-o, R, l_=$10\mathrm{k\Omega}$] (-1.3,0.8) node[left] {1V};
+        \multiplier{-2}{0.19}{1}
+        \draw (-2.3,0.39) to[short, -o] ++(-0.7,0) node[left] {$V_1$};
+        \draw (-2.3,-0.01) to[short, -o] ++(-0.7,0) node[left] {$V_2$};
+        \multiplier{-2}{-1.5}{1}
+        \multiplier{-0.5}{-1.7}{1}
+        \draw (-3,-1.5) node[left] {$V_1$} to[short, o-*] (-2.7,-1.5) to (-2.7,-1.3) to (-2.3,-1.3);
+        \draw (-2.7,-1.5) to (-2.7,-1.7) to (-2.3, -1.7);
+        \draw (-1.4,-1.5) to (-0.8,-1.5);
+        \draw (-0.8,-1.9) to[short, -o] (-3,-1.9) node[left] {$V_2$};
+        %\coordinate (X) at (1, -1.7 |- A2.-);
+        \draw (0.1, -1.7) to (1, -1.7) to (1, -1.7 |- A2.-) to[R, l=$5\mathrm{k\Omega}$] (A2.-);
+        %第二部分
+        \draw (A2.+) to ++(-0.3,0) to[R, l=$2.5\mathrm{k\Omega}$] ++(0,-0.8) node[rground] {};
+        \draw (A2.-) to ++(-0.1,0) coordinate(X) to[short, *-*] (X |- 1,0) coordinate(Y) to[R, l=$10\mathrm{k\Omega}$] (3.3,-0.8 |- Y) to[short, -*] (3.3,-0.8);
+        \draw (A2.out)[short, -o] to (3.6,-0.8) node[right] {$V\xb{o}$};
+        %乘法器注释
+        \node[above] at (-2,0.44) {$V_1\cdot V_2$};
+        \node[above] at (-2,-1.25) {$V_1\cdot V_1$};
+        \node[above] at (-0.5,-1.45) {$V_1^2\cdot V_2$};
+        \fill[darkcyan] (1,0) circle (1pt) node[above] {$V\xb{o1}$};
+        \fill[darkcyan] (1, -1.7 |- A2.-) circle (1pt) node[above] {$V\xb{o2}$};
+    \end{circuitikz}\\
+    （注：\textcolor{darkcyan}{$V\xb{o1}$}$=-1\mathrm{V}-V_1V_2$，\textcolor{darkcyan}{$V\xb{o2}$}$=V_1^2V_2$）
+\end{figure}
+
+另外，题中给出的电阻只有 $\mathrm{10\Omega, 10k\Omega, 1M\Omega}$，所以对图上 $\mathrm{5k\Omega,\dfrac{10}{3}k\Omega, 2.5k\Omega}$ 的电阻需要\underline{额外说明获取方法}，即通过若干个 $10\mathrm{k\Omega}$ 的电阻并联得到，或者使用一个可调电阻代替。
+
+经检查，这个电路没有超出题目器件的限制，而且模拟乘法器只用到了 3 只，是一种有效的设计方案。
+
+\vspace{0.3cm}
+
+\textcolor{cyan!80!black}{【结论】即上述完整电路图。}
+
+\textcolor{cyan!80!black}{【点评】本题是一道典型的设计题，考察多种运算模块的综合应用。根据输出表达式构思方案，分内、外层搭接电路，求出电阻阻值，再把电路拼合，是一种可行的解决方案。}
+
+\textcolor{cyan!80!black}{【制作花絮】完整电路图大约绘制了 40min，实属不易……}
+
+\end{document} 
