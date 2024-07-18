@@ -1,0 +1,762 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{booktabs}
+\usepackage{caption,subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{makecell}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, raster}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.6cm, marginparsep=0.1cm}
+
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+\captionsetup{font=small, labelfont=bf}
+\setlist[itemize]{itemsep=0pt, parsep=0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\ttfamily\footnotesize{-\ \thepage\ -}}
+%\reversemarginpar
+
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+\CTEXsetup[format = {\color{cyan!50!black}\bfseries\large}]{subsection}
+
+\newtcolorbox{mybox}{colback=cyan!10, colframe=cyan!50!black, boxrule=0.5pt, breakable}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Concept[1]{\textcolor{cyan!70!black}{#1}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\newcommand\means[1]{\textcolor{cyan!70!black}{#1}}
+
+\newcommand\C{\mathrm{C}}
+\newcommand\e{\mathrm{e}}
+\renewcommand\d{\mathrm{d}}
+\newcommand\Cov{\mathrm{Cov}}
+\renewcommand\pi{\text{\timesnewroman π}}
+
+\newcommand\IssueNumber{25}
+\newcommand\Date{2024-4-22}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{概率与统计 A}
+%\newcommand\Source{2022 考研 408 第 5 题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\small
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+%\vspace{-0.1cm}
+%    \Brown{来源：\Source}
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+本文档用于对《概率与统计A》课程作出简明复习。}
+
+\section{常见的分布}
+%1-2
+\begin{tcbitemize}[raster columns=2, raster equal height=rows, colframe=cyan!75!black, colback=cyan!5!white, fonttitle=\bfseries]
+\tcbitem[squeezed title={二项分布 $X\sim B(n,p)$}]
+\phantom{...}
+\vspace{-1.2em}
+\begin{equation*}
+    P(X=k) = \C{}_n^k p^k (1-p)^{n-k}
+\end{equation*}
+
+$E(X)=\means{np}$
+
+$D(X)=\means{np(1-p)}$
+
+特殊性质：无
+\tcbitem[squeezed title={泊松分布 $X\sim P(\lambda)$}]
+\[P(X=k) = \dfrac{\lambda^k}{k!}\e^{-\lambda}\]
+
+$E(X)=\means{\lambda}$
+
+$D(X)=\means{\lambda}$
+
+特殊性质：泊松逼近定理
+\end{tcbitemize}
+
+%3-4
+\begin{tcbitemize}[raster columns=2, raster equal height=rows, colframe=cyan!75!black, colback=cyan!5!white, fonttitle=\bfseries]
+\tcbitem[squeezed title={几何分布 $X\sim G(p)$}]
+\[P(X=k) = (1-p)^{k-1}\cdot p\]
+
+$E(X)=\means{\dfrac1p}$
+
+\vspace{0.7em}
+$D(X)=\means{\dfrac{1-p}{p^2}}$
+
+特殊性质：无记忆性
+\tcbitem[squeezed title={均匀分布 $X\sim U(a,b)$}]
+\[f(x)=\dfrac{1}{b-a} (a<x<b)\]
+
+$E(X)=\means{\dfrac{a+b}2}$
+
+\vspace{0.7em}
+$D(X)=\means{\dfrac{(b-a)^2}{12}}$
+
+特殊性质：无
+\end{tcbitemize}
+
+%5-6
+\begin{tcbitemize}[raster columns=2, raster equal height=rows, colframe=cyan!75!black, colback=cyan!5!white, fonttitle=\bfseries]
+\tcbitem[squeezed title={指数分布 $X\sim e(\theta)$}]
+\[f(x) = \theta \e^{-\theta x} (x>0)\]
+
+$E(X)=\means{\dfrac1{\theta}}$
+
+\vspace{0.7em}
+$D(X)=\means{\dfrac1{\theta^2}}$
+
+特殊性质：无记忆性；极小分布 $W=\min\{X_i\}\sim e(n\theta)$
+\tcbitem[squeezed title={正态分布 $X\sim N(\mu,\sigma^2)$}]
+\[f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
+
+$E(X)=\means{\mu}$
+
+$D(X)=\means{\sigma^2}$
+
+特殊性质：太多了
+\end{tcbitemize}
+
+\newpage
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+%7-8
+\begin{tcbitemize}[raster columns=2, raster equal height=rows, colframe=cyan!75!black, colback=cyan!5!white, fonttitle=\bfseries]
+\tcbitem[squeezed title={$\boldsymbol{\chi^2}$ 分布—— $\chi^2\sim \chi^2(n)$}]
+$(X_1,X_2,\dots,X_n)\sim N(0,1)$ 独立
+
+\[\means{\chi^2 = X_1^2 + X_2^2 + \cdots + X_n^2}\]
+
+特殊性质：$E(\chi^2)=n$，$D(\chi^2)=2n$，$\chi^2(n)+\chi^2(m)\sim \chi^2(n+m)$
+
+\tcbitem[squeezed title={$\boldsymbol{t}$ 分布—— $t\sim t(n)$}]
+$X\sim N(0,1), \ Y\sim \chi^2(n)$ 独立
+
+\[\means{t=\dfrac{X}{\sqrt{\dfrac{Y}{n}}}}\]
+
+特殊性质：$t^2\sim F(1,n)$
+\end{tcbitemize}
+
+%9-10
+\begin{tcbitemize}[raster columns=2, raster equal height=rows, colframe=cyan!75!black, colback=cyan!5!white, fonttitle=\bfseries]
+\tcbitem[squeezed title={$\boldsymbol{F}$ 分布—— $F\sim F(n,m)$}]
+$X\sim \chi^2(n), \ Y\sim \chi^2(m)$ 独立
+
+\[\means{F=\dfrac{\quad \dfrac{X}{n}\quad }{\dfrac{Y}{m}}}\]
+
+特殊性质：$\dfrac1F\sim F(m,n)$
+
+\tcbitem[squeezed title={「实例12」}]
+$X_1,X_2,\dots,X_n$ 相互独立同分布，$E(X_i)=\mu$，$D(X_i)=\sigma^2$，
+
+\begin{equation*}
+\begin{aligned}
+   \bar{X} &=\dfrac1n\sum\limits_{i=1}^n X_i \\
+   S^2 &=\dfrac1{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2
+\end{aligned}
+\end{equation*}
+
+$E(\bar{X}) = \means{\mu}$，$D(\bar{X}) = \means{\dfrac{\sigma^2}{n}}$
+
+$E(S^2) = \means{\sigma^2}$
+
+\end{tcbitemize}
+
+\section{概率论基本概念}
+\subsection{随机事件与运算}
+样本空间 $\varOmega$，样本点 $\omega$，随机事件 $A,B\dots$，随机变量 $X,Y\dots$
+
+随机事件关系：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 子事件：$A\subset B$
+  \item 并事件：$C=A+B=A\cup B$
+  \item 交事件：$C=AB=A\cap B$
+  \item 差事件：$C=A-B = A\bar{B}$
+  \item 互不相容：$AB=\varnothing$
+  \item 分配律、德摩根律
+\end{itemize}
+
+概率定义的三个基本方面：非负性、归一性、可列可加性。
+\begin{itemize}
+  \item 减法公式：$P(A-B) = P(A\bar{B}) = P(A) - P(AB)$
+  \item 加法公式：$P(A+B) = P(A) + P(B) - P(AB)$
+  \item 单调性：$B\subset A \implies P(B)\leqslant P(A)$
+  \item $A=\varnothing\implies P(A)=0$，$B=\varOmega\implies P(B)=1$，但反之不然
+\end{itemize}
+
+古典概型：$P(A) = \dfrac{n_A}{n_\varOmega} = \dfrac{A \text{的样本点数}}{\text{样本点总数}}$
+
+\vspace{0.6em}
+几何概型：$P(A) = \dfrac{|A|}{|\varOmega|} = \dfrac{A \text{的度量}}{\text{全部度量}}$
+
+相关实例：摸球问题、抽签问题、生日问题等，先定位后挑选；分组法应用
+
+\subsection{条件概率与公式}
+条件概率：$P(A|B) = \dfrac{P(AB)}{P(B)}$
+
+乘法公式：$P(AB) = P(B)\cdot P(A|B)$
+
+全概率公式：设 $A_1,A_2,\dots$ 是 $\varOmega$ 的剖分，$P(A_i)>0$，对任意 $B$：
+\begin{equation}\label{eq:全概率公式}
+    P(B) = \sum\limits_{i} P(A_i)\cdot P(B|A_i)
+\end{equation}
+贝叶斯公式：
+\begin{equation}\label{eq:贝叶斯公式}
+    P(A_k|B) = \dfrac{P(A_k)\cdot P(B|A_k)}{\sum\limits_{i} P(A_i)\cdot P(B|A_i)}
+\end{equation}
+
+\subsection{事件独立性}
+事件独立性的原初定义：$P(AB)=P(A)\cdot P(B)$
+
+互不相容：$P(A+B)=P(A)+P(B)$
+
+多个事件相互独立定义（略）
+
+\begin{mybox}
+\textbf{关于事件独立性…}
+\begin{enumerate}
+    \item $A_1,A_2,\dots$ 独立，则对它们做任意种类运算后得到的事件仍然相互独立。
+    \item $X,Y$ 独立：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item $P(X=x_i,Y=y_j) = P(X=x_i)\cdot P(Y=y_j)$
+        \item $P(X\leqslant x, Y\leqslant y) = P(X\leqslant x)\cdot P(Y\leqslant y)$
+        \item $F(x,y) = F_X(x)\cdot F_Y(y)$
+        \item $f(x,y) = f_X(x)\cdot f_Y(y)$
+    \end{itemize}
+    \item $X,Y$ 独立：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item $(X,Y)\sim N(\mu_1, \mu_2,\sigma_1^2, \sigma_2^2,\rho) \iff \rho=0$
+    \end{itemize}
+    \item $X,Y$ 独立：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item $g(x),h(y)$ 为连续函数 $\iff g(X),h(Y)$ 独立
+    \end{itemize}
+    \item $X,Y$ 独立：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item $E(XY)=E(X)E(Y)$
+        \item $D(X+Y)=D(X)+D(Y)$
+        \item $\Cov(X,Y)=0$
+        \item $\rho_{XY}=0$（注：互不相关不一定相互独立）
+    \end{itemize}
+\end{enumerate}
+\end{mybox}
+
+\section{一维、二维随机变量及其分布}
+\subsection{一维随机变量}
+\Concept{随机变量}：从样本空间 $\varOmega$ 到实数集 $\mathbb{R}$ 的映射，记为 $X=X(\omega)$。
+
+\Concept{分布函数}：$F(x) := P(X\leqslant x)$\textcolor{cyan}{（借用离散数学符号 $:=$ 表示定义）}
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 单调递增：$x_1<x_2 \implies F(x_1)\leqslant F(x_2)$
+  \item 收敛性：$F(-\infty) = 0$，$F(+\infty) = 1$
+  \item 右连续性：$\lim\limits_{h\to 0^+} F(x+h) = F(x)$，对任意 $x$
+\end{itemize}
+
+离散型随机变量\Concept{分布列}：$p_i := P(X=x_i)$（$i=1,2,\dots$）
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 非负性：$P(X=x_i)\geqslant 0$
+  \item 归一性：$\sum_{i=1}^\infty  P(X=x_i) = 1$
+\end{itemize}
+
+连续性随机变量\Concept{密度函数}：$f(x)$ 满足 $\displaystyle F(x)=\int_{-\infty}^t f(t)\d t$（$\forall x\in \mathbb{R}$）
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 非负性：$f(x)\geqslant 0$，对任意 $x$
+  \item 归一性：$\displaystyle\int_{-\infty}^{+\infty} f(x)\d x=1$
+  \item 求导：若 $f(x)$ 连续，则 $F(x)$ 可微且 $f(x)=F'(x)$
+\end{itemize}
+分布函数 $F(x)$ 须写成左闭右开形式，密度函数 $f(x)$ 不要求。
+
+\Concept{随机变量函数}：随机变量 $X:\varOmega\to\mathbb{R}$ 与函数 $g:\mathbb{R}\to\mathbb{R}$ 的复合，记为 $Y=g(X)$。
+
+\subsection{一维随机变量的其他内容}
+常见随机变量的分布，详见第一页。
+
+求随机变量函数的密度函数的方法：写取值范围—列平凡情况—解非平凡情况/转化反解—求导
+
+泊松逼近定理的应用：$X\sim B(n,p)$，$n$ 很大，但 $np$ 不太大，通常 $np\leqslant 5$（有时是 $n(1-p)\leqslant 5$），则有
+\begin{equation}\label{eq:泊松逼近定理}
+    P(X=k) = \C_n^k p^k (1-p)^{n-k} \approx \dfrac{(np)^k}{k!}\e^{-np}
+\end{equation}
+即让 $\lambda=np$。
+
+几何分布的无记忆性：$X\sim G(p)$，对任意自然数 $m,n$ 均有 $P(X>n+m|X>n) = P(X>m)$。
+
+指数分布的无记忆性：$X\sim e(\theta)$，对任意 $s,t>0$ 均有 $P(X>s+t|X>s) = P(X>t)$。
+
+正态分布的标准化：$X\sim N(\mu,\sigma^2)$ 经过 $Y=\dfrac{X-\mu}{\sigma}$ 得到 $Y\sim N(0,1)$。
+
+标准正态分布密度函数：
+\begin{equation}\label{eq:标准正态分布密度函数}
+    \varphi(x) = \dfrac{1}{\sqrt{2\pi}} \e^{-\frac{x^2}{2}}\qquad X\sim N(0,1)
+\end{equation}
+分布函数 $\varPhi(x)$ 是偶函数，$\varPhi(0)=\frac12$。
+
+若 $X\sim N(\mu,\sigma^2)$，$Y=aX+b$，则 $Y\sim N(a\mu + b, a^2\sigma^2)$。正态分布标准化 $Y=\frac{X-\mu}{\sigma}$ 是特例，取 $a=\frac1{\sigma}$，$b=-\frac{\mu}{\sigma}$。
+
+\subsection{二维随机变量}
+\Concept{二维随机变量}：从 $\varOmega$ 到 $\mathbb{R}^2$ 的映射，记为 $(X,Y)=(X(\omega), Y(\omega))$。
+
+\Concept{联合分布函数}：$F(x,y) := P(X\leqslant x, Y\leqslant y)$
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+\color{gray!80!white}
+    \item 单调递增：给定$y$，$x_1<x_2\implies F(x_1,y)\leqslant F(x_2,y)$（给定$x$类似）
+    \item 收敛性：$F(-\infty,y) = F(x,-\infty) = F(-\infty,-\infty) = 0$，$F(+\infty,+\infty)=1$。
+    \item 右连续性：给定$y$，$\lim\limits_{h\to 0^+} F(x+h,y) = F(x,y)$（给定$x$类似）
+    \item 矩形法则：设$x_1<x_2,y_1<y_2$，则 $F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1)\geqslant 0$
+\end{itemize}
+
+\Concept{边缘分布函数}：$F_X(x) := F(x,+\infty)$，$F_Y(y) = F(+\infty,y)$
+
+离散型随机变量\Concept{联合分布列}：$p_{ij} := P(X=x_i,Y=y_j)$
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+\color{gray!80!white}
+    \item 非负性：$p_{ij}\geqslant 0$
+    \item 归一性：$\sum\limits_{i} \sum\limits_{j} p_{ij} =1$
+\end{itemize}
+
+\Concept{边缘分布列}见表 \ref{tab:2-d   discrete}。
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{ccc}
+  \toprule
+    种类 & 表达式 & 简记 \\
+  \midrule
+    联合 $(X,Y)$ & $P(X=x_i,\quad Y=y_j)$ & $p_{ij}$ \\
+    边缘 $X$ & $P(X=x_i) = P\left(X=x_i,\quad  \bigcup\limits_{j=1}^m \{Y=y_j\} \right)$ & $p_{i\text{\textbullet}}$ \\
+    边缘 $Y$ & $P(Y=y_j) = P\left(\bigcup\limits_{i=1}^n\{X=x_i\},\quad  Y=y_j \right)$ & $p_{\text{\textbullet}j}$ \\
+  \bottomrule
+  \end{tabular}
+  \caption{二维离散型随机变量的三种分布列\textcolor{cyan}{（\textbullet 相当于通配符）}}\label{tab:2-d discrete}
+\end{table}
+
+\Concept{条件分布列}：给定 $x_i$ 及 $p_{i\text{\textbullet}}>0$，称一列数：$P(Y=y_j|X=x_i) = \dfrac{P(X=x_i,Y=y_j)}{P(X=x_i)}$ 为 $X=x_i$ 发生条件下的 $y$ 的条件分布列。简记：$p_{j|i} = \dfrac{p_{ij}}{p_{i\text{\textbullet}}}$
+
+连续性随机变量\Concept{联合密度函数}：$f(x,y)$ 满足 $\displaystyle F(x,y)=\int_{-\infty}^x \int_{-\infty}^y  f(u,v)\d u\d v$（$\forall x,y\in\mathbb{R}$）
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+\color{gray!80!white}
+    \item 非负性：$f(x,y)\geqslant 0$
+    \item 归一性：$\displaystyle\iint_{\mathbb{R}^2} f(x,y)\d x\d y = 1$
+    \item 求偏导：若 $f$ 连续，则 $F$ 二阶可微且 $f(x,y)=F_{xy}''(x,y)$
+\end{itemize}
+
+\Concept{边缘密度函数}见下框。
+\begin{mybox}
+\textbf{关于联合确定边缘…}
+
+$\displaystyle f_X(x) = f(x,+\infty) = \int_{-\infty}^{+\infty} f(x,y)\d y$
+
+\vspace{1em}
+$\displaystyle f_Y(y) = f(+\infty,y) = \int_{-\infty}^{+\infty} f(x,y)\d x$
+
+\end{mybox}
+
+\Concept{条件密度函数}：
+
+对给定 $Y=y$，$f_Y(y)>0$，则 $f_{X|Y}(x|y) = \dfrac{f(x,y)}{f_Y(y)}$ 是 $X$ 的条件密度函数；
+
+对给定 $X=x$，$f_X(x)>0$，则 $f_{Y|X}(y|x) = \dfrac{f(x,y)}{f_X(x)}$ 是 $Y$ 的条件密度函数。
+
+\Concept{二维随机变量函数}：随机变量 $(X,Y):\varOmega\to \mathbb{R}^2$ 与二元函数 $g:\mathbb{R}^2\to\mathbb{R}$ 的复合，记为 $Z=g(X,Y)$。
+
+\subsection{二维随机变量的其他内容}
+二维均匀分布：$(X,Y)$，$D$ 是 $\mathbb{R}^2$ 的有界区域，$|D|$ 为面积。若
+\begin{equation}\label{eq:二维均匀分布}
+    f(x,y) = \begin{cases}
+                    \frac{1}{|D|},\quad &(x,y)\in D \\
+                    0,&\text{其他}
+              \end{cases}
+\end{equation}
+则称 $(X,Y)$ 服从$D$上的二维均匀分布。
+
+二维正态分布：$(X,Y)$，若
+\begin{equation}\label{eq:二维正态分布}
+    f(x,y) = \dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \e^{-\frac{1}{2(1-\rho^2)} \left[\frac{(x-\mu_1)^2}{\sigma_1^2} - \frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \frac{(y-\mu_2)^2}{\sigma_2^2}\right]}
+\end{equation}
+则称 $(X,Y)$ 服从二维正态分布，记为 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$。
+
+相关系数 $\rho=0$（即 $X,Y$ 独立），且均值 $\mu_1=\mu_2=0$，方差 $\sigma_1^2 = \sigma_2^2 = 1$ 时：
+\begin{equation}\label{eq:二维正态分布-rou=0}
+    \color{cyan!70!black} f(x,y) = \dfrac{1}{2\pi} \e^{-\frac{x^2+y^2}{2}} \qquad (X,Y)\sim N(0,0,1,1,0)
+\end{equation}
+这与一维标准正态分布 \textcolor{cyan!70!black}{$f(x) = \dfrac{1}{\sqrt{2\pi}} \e^{-\frac{x^2}{2}}\qquad X\sim N(0,1)$} 很相似。
+
+$X$ 与 $Y$ 有相同分布列：指 $X,Y$ 取值相同，且取到对应值的概率也相同。
+
+极小分布与指数分布：若 $X_i\sim e(\theta)$ 且相互独立，$W=\min\limits_{1\leqslant i\leqslant n} \{X_i\}$，则 $W\sim e(n\theta)$。
+
+泊松分布可加性：$X,Y$独立，$X\sim P(\lambda_1)$，$Y\sim P(\lambda_2)$，则 $Z=X+Y\sim P(\lambda_1+\lambda_2)$。
+
+\begin{mybox}
+\textbf{关于正态分布…}
+\begin{enumerate}
+    \item 一维线性组合：$X\sim N(\mu_1,\sigma_1^2)$，$Y\sim N(\mu_2,\sigma_2^2)$，且 $X,Y$ \Concept{相互独立}，则
+    \begin{equation*}
+        aX+bY+c\sim N(a\mu_1+b\mu_2+c, \quad a^2\sigma_1^2+b^2\sigma_2^2)
+    \end{equation*}
+    $X_i\sim N(\mu_i, \sigma_i^2)$（$i=1,2,\dots,n$），且各个 $X_i$ \Concept{相互独立}，则
+    \begin{equation*}
+        b+\sum\limits_{i=1}^n  a_iX_i \sim N\left(b+\sum\limits_{i=1}^n  a_i\mu_i, \quad \sum\limits_{i=1}^n a_i^2\sigma_i^2\right)
+    \end{equation*}
+    \item 一维化二维：$X\sim N(\mu_1,\sigma_1^2)$，$Y\sim N(\mu_2,\sigma_2^2)$，且 $X,Y$ \Concept{相互独立}
+    \begin{equation*}
+        \iff (X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\textcolor{cyan!70!black}{0})
+    \end{equation*}
+    \item 二维化一维：若 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$，则 $X,Y$ 的任意线性组合 $aX+bY+c$ 服从一维正态分布 $N(\hat{\mu},\hat{\sigma}^2)$，其中参数
+    \begin{equation*}
+    \begin{aligned}
+        \hat{\mu} &= E(aX+bY+c) = a\mu_1+b\mu_2+c \\
+        \hat{\sigma}^2 &= D(aX+bY+c) = D(aX+bY) = \Cov(aX+bY,aX+bY) \\
+        %&= D(aX)+D(bY)+2\Cov(aX+bY) = a^2\sigma_1^2 + b^2\sigma_2^2 + 2\rho\sqrt{D(aX)\cdot D(bY)} \\
+         &= a^2\sigma_1^2 + b^2\sigma_2^2 + 2\rho ab\sigma_1\sigma_2
+    \end{aligned}
+    \end{equation*}
+    \item 二维协方差：若 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$，则
+    \begin{equation*}
+    \begin{aligned}
+        \Cov(X,Y) &= \rho_{XY}\cdot \sqrt{D(X)\cdot D(Y)} = \rho \sigma_1 \sigma_2 \\
+        E(XY) &= \Cov(X,Y)+E(X)E(Y) = \rho\sigma_1\sigma_2 + \mu_1\mu_2 \\
+    \end{aligned}
+    \end{equation*}
+\end{enumerate}
+
+\end{mybox}
+
+\section{随机变量数字特征}
+\subsection{均值/数学期望}
+以下当所属求和式或积分式绝对收敛时，\Concept{均值}存在。
+\begin{enumerate}
+  \item 一维随机变量：
+  \begin{itemize}
+    \item 离散 $X$，分布列 $p_i=P(X=x_i)$，则 $\displaystyle E(X) = \sum\limits_{i=1}^{\infty} x_ip_i$
+    \item 连续 $X$，密度 $f(x)$，则 $\displaystyle E(X) = \int_{-\infty}^{+\infty}  xf(x)\d x$
+  \end{itemize}
+  \item 随机变量函数 $Y=g(X)$：
+  \begin{itemize}
+    \item 离散 $X$，分布列 $p_i=P(X=x_i)$，则 $\displaystyle E(Y) = E(g(X)) = \sum\limits_{i=1}^{\infty} g(x_i) \cdot P(X=x_i)$
+    \item 连续 $X$，密度 $f(x)$，则 $\displaystyle E(Y) = E(g(X)) = \int_{-\infty}^{+\infty}  g(x) f(x)\d x$
+  \end{itemize}
+  \item 二维随机变量函数 $Z=g(X,Y)$：
+  \begin{itemize}
+    \item 离散 $(X,Y)$，分布列 $p_{ij}=P(X=x_i,Y=y_j)$，则 $\displaystyle E(Z) = E(g(X,Y)) = \sum\limits_{i=1}^\infty \sum\limits_{j=1}^\infty  g(x_i,y_j)\cdot p_{ij}$
+    \item 连续 $(X,Y)$，密度 $f(x,y)$，则 $\displaystyle E(Z) = E(g(X,Y)) = \iint_{\mathbb{R}^2} g(x,y)f(x,y)\d x\d y$
+  \end{itemize}
+\end{enumerate}
+
+$k$阶原点矩：$E(X^k)$
+
+$k$阶中心矩：$E\left\{[X-E(X)]^k\right\}$
+
+\subsection{方差}
+\Concept{方差}定义为二阶中心矩：$D(X) := E\left\{[X-E(X)]^2\right\}$
+
+\Concept{标准差}：$\sqrt{D(X)}$
+
+计算方差：$D(X) = E(X^2) - [E(X)]^2$
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{ccc}
+  \toprule
+   & 均值 & 方差 \\
+  \midrule
+  常数 & $E(c)=c$ & $D(c)=0$ \\
+  数乘 & $E(aX)=aE(X)$ & $D(aX)=a^2D(X)$ \\
+  加常数 & $E(X+b)=E(X)+b$ & $D(X+b) = D(X)$ \\
+  可加性 & $E(X+Y)=E(X)+E(Y)$ & 【独立】$D(X+Y)=D(X)+D(Y)$ \\
+  可乘性 & 【独立】$E(XY)=E(X)E(Y)$ & — \\
+  \bottomrule
+  \end{tabular}
+  \caption{均值和方差的性质}\label{tab:characteristic of mean and varience}
+\end{table}
+
+\subsection{协方差、相关系数}
+\Concept{协方差}：$\Cov(X,Y) = E(XY)-E(X)E(Y)$
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 自反性：$\Cov(X,X) = D(X)$
+  \item 对称性：$\Cov(X,Y) = \Cov(Y,X)$
+  \item 数乘：$\Cov(aX,bY) = ab\Cov(X,Y)$
+  \item 加常数：$\Cov(X+a,Y+b) = \Cov(X,Y)$
+  \item 分配律：$\Cov(X_1+X_2, Y) = \Cov(X_1,Y) + \Cov(X_2,Y)$
+  \item 独立：若 $X,Y$ 独立，则 $\Cov(X,Y)=0$
+  \item 与方差的关系：
+\end{itemize}
+\begin{equation*}
+    D(aX+bY) = \Cov(aX+bY,aX+bY) = a^2D(X) + 2ab\Cov(X,Y) + b^2D(Y)
+\end{equation*}
+
+\Concept{相关系数}：
+\begin{equation}\label{eq:rho}
+    \rho_{XY} := \dfrac{\Cov(X,Y)}{\sqrt{D(X)}\cdot \sqrt{D(Y)}}
+\end{equation}
+它总是 $[-1,1]$ 之间的实数。
+
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item $\rho=1$ 为正线性相关，即存在 $a>0,b\in\mathbb{R}$ 使得 $P(Y=aX+b)=1$
+  \item $\rho=-1$ 为负线性相关，即存在 $a<0,b\in\mathbb{R}$ 使得 $P(Y=aX+b)=1$
+  \item $\rho=0$ 为互不相关，此时 $\Cov(X,Y)=0$。相互独立 $\implies$ 互不相关。
+\end{itemize}
+
+\subsection{其他内容}
+随机变量\Concept{标准化}：$X$为均值和方差都存在的随机变量，$Y=\dfrac{X-E(X)}{\sqrt{D(X)}}$，则 $E(Y)=0$，$D(Y)=1$。
+
+\Concept{切比雪夫不等式}：对任意 $a>0$，
+\begin{equation}\label{eq:切比雪夫不等式}
+  P\left(|X-E(X)|\geqslant a\right) \leqslant \dfrac{D(X)}{a^2}
+\end{equation}
+推论：$D(X)=0 \iff P(X=E(X))=1$。用于估计随机变量偏离中心的程度。
+
+辛钦大数定律：设 $X_1,X_2,\dots,X_n$ 相互独立同分布，均值为 $\mu$，方差可以不存在，则 $\frac1n\sum_{i=1}^n X_i \xrightarrow{P} \mu$。样本均值依概率收敛到总体均值。
+
+\section{数理统计、区间估计、点估计}
+\subsection{数理统计、抽样分布}
+总体：研究对象的全体。
+
+样本：抽取的部分个体。
+
+简单随机样本：相互独立且与总体 $X$ 同分布的样本 $(X_1,X_2,\dots,X_n)$。
+
+统计量：关于样本的函数 $T(X_1,X_2,\dots,X_n)$，不含未知参数。
+\begin{table}[htb]
+\renewcommand\arraystretch{1.7}
+  \centering
+  \begin{tabular}{cc}
+  \toprule
+  名称 & 表达式 \\
+  \midrule
+  样本均值 & $\displaystyle \bar{X} = \dfrac1n\sum\limits_{i=1}^n X_i$ \\
+  样本方差 & $\displaystyle S^2 = \dfrac{1}{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2$ \\
+  样本标准差 & $\displaystyle S = \sqrt{\dfrac{1}{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2}$ \\
+  样本$k$阶原点矩 & $\displaystyle A_k = \dfrac1n\sum\limits_{i=1}^n X_i^k$ \\
+  极大次序统计量 & $X_{(n)} = \max\{X_1,X_2,\dots,X_n\}$ \\
+  极小次序统计量 & $X_{(1)} = \min\{X_1,X_2,\dots,X_n\}$ \\
+  \bottomrule
+  \end{tabular}
+  \caption{常见的统计量}\label{tab:统计量}
+\end{table}
+
+统计量的常用分布：标准正态分布、$\chi^2$分布、$t$分布、$F$分布。详见第二页。
+
+\Concept{单正态总体抽样分布}：总体 $X\sim N(\mu,\sigma^2)$，样本 $(X_1,X_2,\dots,X_n)$，样本均值 $\bar{X} = \frac1n\sum_{i=1}^n X_i$，样本方差 $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X})^2$，则有
+\begin{mybox}
+\begin{enumerate}
+  \item $\dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)$
+  \item $\dfrac{n-1}{\sigma^2}S^2 \sim \chi^2(n-1)$，且 $\bar{X}$ 与 $S^2$ 独立
+  \item $\dfrac{\bar{X}-\mu}{S/\sqrt{n}} \sim t(n-1)$
+\end{enumerate}
+\end{mybox}
+
+\Concept{双正态总体抽样分布}：$X,Y$ 相互独立
+\begin{table}[htb]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{ccccc}
+    总体 & 样本 & 样本均值 & 样本方差 & 样本容量 \\
+    $X\sim N(\mu_1,\sigma_1^2)$ & $(X_1,\dots,X_n)$ & $\bar{X} = \frac1n\sum_{i=1}^n X_i$ & $S_1^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X})^2$ & $n$ \\
+    $Y\sim N(\mu_2,\sigma_2^2)$ & $(Y_1,\dots,Y_m)$ & $\bar{Y} = \frac1m\sum_{i=1}^m Y_i$ & $S_2^2 = \frac{1}{m-1}\sum_{i=1}^m (Y_i-\bar{Y})^2$ & $m$ \\
+\end{tabular}
+\end{table}
+\begin{mybox}
+\begin{enumerate}
+  \item $\dfrac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{n} + \dfrac{\sigma_2^2}{m}}} \sim N(0,1)$
+  \item $\dfrac{S_1^2}{S_2^2}\cdot \dfrac{\sigma_2^2}{\sigma_1^2} \sim F(n-1,m-1)$
+  \item 当 $\sigma_1^2=\sigma_2^2$ 时有 $\dfrac{\bar{X}-\bar{Y}- (\mu_1-\mu_2)}{\sqrt{\dfrac{(n-1)S_1^2 + (m-1)S_2^2}{n+m-2}}\cdot\sqrt{\dfrac1n+\dfrac1m}} \sim t(n+m-2)$
+\end{enumerate}
+\end{mybox}
+
+\Concept{上 $\alpha$ 分位点}：满足 $P(Y>Y_{\alpha}) = \alpha$ 的分位点 $Y_{\alpha}$。
+
+构造上 $\alpha$ 分位点：
+\begin{enumerate}
+  \item 大概率区间
+  \begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item $P(Y_{1-\frac{\alpha}2} < Y < Y_{\frac{\alpha}2}) = 1-\alpha$
+    \item $P(Y<Y_{\alpha}) = 1-\alpha$
+    \item $P(Y>Y_{1-\alpha}) = 1-\alpha$
+  \end{itemize}
+  \item 小概率区间
+  \begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item $P(Y<Y_{1-\frac{\alpha}2} \text{或} Y>Y_{\frac{\alpha}2}) = \alpha$
+    \item $P(Y>Y_\alpha)  = \alpha$
+    \item $P(Y<Y_{1-\alpha})  = \alpha$
+  \end{itemize}
+\end{enumerate}
+
+常用的统计量上 $\alpha$ 分位点如表所示。
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{cccc}
+  \toprule
+  分布类型 & $Y_\alpha$ & 概率 & 特殊性质 \\
+  \midrule
+  $Z\sim N(0,1)$ & $z_{\alpha}$ & $P(Z>z_\alpha) = \alpha$ & $z_{1-\alpha} = -z_\alpha$ \\
+  $t\sim t(n)$ & $t_\alpha(n)$ & $P(t>t_{\alpha}(n)) = \alpha$ & $t_{1-\alpha}(n) = -t_\alpha(n)$ \\
+  $\chi^2\sim \chi^2(n)$ & $\chi_\alpha^2(n)$ & $P(\chi^2 > \chi_\alpha^2(n)) = \alpha$ & 无\\
+  $F\sim F(n,m)$ & $F_\alpha (n,m)$ & $P(F > F_\alpha(n,m)) = \alpha$ & $F_{1-\alpha}(n,m) = \dfrac{1}{F_{\alpha}(m,n)}$  \\
+  \bottomrule
+  \end{tabular}
+  \caption{常用的统计量上 $\alpha$ 分位点}\label{tab:统计量上alpha分位点}
+\end{table}
+
+另外，对于带有对称性的 $Z\sim N(0,1)$ 和 $t\sim t(n)$，还有：
+\begin{equation*}
+\begin{aligned}
+    P(z_{1-\frac{\alpha}{2}} < Z < z_{\frac{\alpha}{2}} ) = 1-\alpha 
+    &\iff P(|Z|<z_{\frac{\alpha}{2}}) = 1-\alpha \\
+    P(Z<z_{1-\frac{\alpha}{2}} \text{或} Z>z_{\frac{\alpha}{2}}) = \alpha
+    &\iff P(|Z|>z_{\frac{\alpha}{2}}) = \alpha 
+\end{aligned}
+\end{equation*}
+$t$ 分布同理。
+
+\subsection{置信区间与假设检验}
+总体 $X$，分布 $F(x;\theta)$，其中 $\theta$ 待估，样本 $(X_1,X_2,\dots,X_n)$。$T_1,T_2$ 是关于样本的统计量。
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item $P(T_1\leqslant \theta\leqslant T_2) = 1-\alpha$，\Concept{置信区间}为 $[T_1,T_2]$
+  \item $P(T_1\leqslant \theta)=1-\alpha$，置信下限为 $T_1$
+  \item $P(\theta\leqslant T_2)=1-\alpha$，置信上限为 $T_2$
+\end{itemize}
+其中置信度是 $1-\alpha$。
+
+求置信区间的解法：
+\begin{enumerate}[itemsep=0pt,parsep=0pt]
+  \item 构造样本函数（单参数）
+  \item 构造对应的大概率事件
+  \item 解出置信区间
+  \item 代值计算
+\end{enumerate}
+
+\Concept{假设检验}：认为「一次试验中小概率事件不会发生」。若发生了，就拒绝原假设 $H_0$；否则接受 $H_0$。
+
+两种错误：一为弃真，概率为 $\alpha$；二为采伪，概率为 $\beta$。$\alpha,\beta$ 相互制约，要同时降低它们只能增加样本容量。这里只考虑弃真错误，减小 $\alpha$，称为「显著性检验」。$\alpha$ 称为显著性水平。
+
+假设检验方法：
+\begin{enumerate}[itemsep=0pt,parsep=0pt]
+  \item 提出假设
+  \item 选取检验统计量
+  \item 构造对应的小概率事件
+  \item 代值计算，判定统计量是否落入拒绝域
+\end{enumerate}
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{c|c|c}
+  $H_0:\theta=\theta_0$ & $H_0:\theta=\theta_0$ & $H_0:\theta=\theta_0$ \\
+  $H_1:\theta\ne\theta_0$ & $H_1:\theta<\theta_0$ & $H_1:\theta>\theta_0$ \\
+  $P(Y<Y_{1-\frac{\alpha}2} \text{或} Y>Y_{\frac{\alpha}2}) = \alpha$ & $P(Y<Y_{1-\alpha})  = \alpha$ & $P(Y>Y_\alpha)  = \alpha$ \\
+  \end{tabular}
+\end{table}
+
+\subsection{点估计与优良性}
+总体 $X$，分布 $F(x;\theta)$，其中 $\theta$ 待估，则 $E(X)=h(\theta)$。
+
+\Concept{矩估计}：令样本原点矩等于总体原点矩，如一阶 $\frac1n\sum_{i=1}^n X_i = E(X)= h(\theta)$。解出来 $\hat{\theta} = \hat{\theta}(X_1,X_2,\dots,X_n)$ 是 $\theta$ 的矩估计量，代样本观测值得到的 $\hat{\theta} = \hat{\theta}(x_1,x_2,\dots,x_n)$ 则是 $\theta$ 的矩估计值。（依据：辛钦大数定律）
+\begin{equation*}
+  \dfrac1n\sum_{i=1}^n X_i^k \xrightarrow[\text{\footnotesize 依概率收敛}]{P} E(X^k)
+\end{equation*}
+
+如果是多参数（$m$ 个），则让一阶、二阶、……、$m$阶样本原点矩等于总体原点矩，解方程组。 
+
+\Concept{极大似然估计}：样本似然函数 $\displaystyle L(\theta) = \prod_{i=1}^{n} p(x_i;\theta)$ 的最大值点 $\hat{\theta}$ 就是极大似然估计量/估计值。
+
+似然函数中的 $p(x_i,\theta)$ 为分布列或者密度函数：
+\begin{itemize}
+  \item 对离散型 $X$，$\displaystyle L(\theta) = \prod_{i=1}^{n} p(x_i;\theta) = \prod_{i=1}^n P(X=x_i)$
+  \item 对连续型 $X$，$\displaystyle L(\theta) = \prod_{i=1}^{n} p(x_i;\theta) = \prod_{i=1}^{n} f(x_i;\theta)$
+\end{itemize}
+
+为了确定最大值点 $\hat{\theta}$，一般采用取对数法或者利用单调性等。
+
+\Concept{无偏性}：若总体参数 $\theta$ 的估计量 $\hat{\theta}$ 满足 $E(\hat{\theta})=\theta$，则称 $\hat{\theta}$ 是无偏估计量。
+
+\Concept{有效性}：在参数 $\theta$ 的所有无偏估计量中，称方差小者更有效。
+
+\newpage
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\section{可能用到的工数知识}
+\begin{enumerate}
+  \item 求多元函数极值——拉格朗日乘数法。
+  
+  在约束条件 $\varphi(x,y,z)=0$ 下，求函数 $f(x,y,z)$ 的极值。令 $L(x,y,z;\lambda) = f(x,y,z) + \lambda\cdot\varphi(x,y,z)$，同时解四元方程组
+  \begin{equation}\label{eq:拉格朗日乘数法}
+    \dfrac{\partial L}{\partial x} = \dfrac{\partial L}{\partial y} = \dfrac{\partial L}{\partial z} =\dfrac{\partial L}{\partial \lambda} = 0
+  \end{equation}
+  解得的 $(x_0,y_0,z_0)$ 就是函数 $f(x,y,z)$ 的可能极值点。
+  
+  \item 直角坐标与极坐标积分互化。
+  \begin{equation}\label{eq:直角坐标与极坐标积分互化}
+    \iint\limits_{D} f(x,y)\d x\d y = \iint\limits_{D_{r\theta}} f(r\cos\theta,r\sin\theta)\cdot \Concept{r}\d r\d \theta
+  \end{equation}
+  
+  \item 分部积分。
+  \begin{equation}\label{eq:分部积分}
+    \int f'(x)g(x)\d x = f(x)g(x) - \int g'(x)f(x)\d x
+  \end{equation}
+  
+  \item 变限积分求导。当 $f(x)$ 连续时，
+  \begin{equation}\label{eq:变上限积分}
+    \left(\int_{\alpha(x)}^{\beta(x)} f(t)\d t\right)' = f(\beta(x))\cdot \beta'(x) - f(\alpha(x))\cdot \alpha'(x)
+  \end{equation}
+\end{enumerate}
+
+
+\end{document} 
