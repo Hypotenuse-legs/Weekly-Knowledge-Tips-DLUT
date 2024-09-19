@@ -118,9 +118,9 @@
   & & \littleword{$\frac12$} &  \littleword{$\frac14$} &  \littleword{$\frac18$} &  \littleword{$\frac{1}{16}$} & \littleword{$\frac{1}{32}$} & \littleword{$\frac{1}{64}$} \\
   $x=$ & $0.$ & 1 & 1 & 0 & 0 & 0 & 0 & $\times 2^{011}$ & \textcolor{violet}{$\frac34\times 2^3$}\\
   $y=$ & $-0.$ & 0 & 1 & 1 & 0 & 0 & 0 & $\times 2^{110}$ & \textcolor{violet}{$-\frac{3}{8}\times 2^6$}\\
-  \end{tabular} 
-  
-  
+  \end{tabular}
+
+
   \begin{tabular}{cc@{\ ,\ }c@{\quad ;\quad }c@{\ ,\ }c}
     & \multicolumn{2}{c}{\littleword{阶码}} & \multicolumn{2}{c}{\littleword{尾数}} \\
     $[x]_{\text{补}} = $ & 00 & 011 & 00 & 110000 \\
@@ -131,7 +131,7 @@
 （注：$y$ 的原码 $11,011000$ $\to$ 反码 $11,100111$ $\to$ 补码 $11,101000$。）
 
 
-\paragraph{第一步：对阶} 
+\paragraph{第一步：对阶}
 用 $j$ 表示阶码，$j_x = (011)_2 = 3$，$j_y = (110)_2 = 6$，很明显 $j_x-j_y=-3$。当然也可以用补码竖式计算：
 
 $[j_x]_{\text{补}} = 00,011$，$[j_y]_{\text{补}} = 00,110$，$[-j_y]_{\text{补}} = 11,010$——
@@ -155,7 +155,7 @@ $[j_x]_{\text{补}} = 00,011$，$[j_y]_{\text{补}} = 00,110$，$[-j_y]_{\text{�
   & & & & \littleword{$\frac12$} & \littleword{$\frac14$} & \littleword{$\frac18$} & \littleword{$\frac1{16}$} & \littleword{$\frac1{32}$} & \littleword{$\frac1{64}$} & & &\\
   $[x]_{\text{补}}=$ & 00 ,& 011 ;& 00 ,& 1&1&0&0&0&0 & \textcolor{violet}{$\frac34$} & \textcolor{violet}{$\times$} & \textcolor{violet}{$2^3$} \\
   & & $(+3)$ & & \multicolumn{6}{c}{$(>>3)$} & \textcolor{violet}{$(\div 2^3)$} & & \textcolor{violet}{$(\times 2^3)$}\\
-  $[x]_{\text{补}}=$ & 00 ,& 100 ;& 00 ,& 0&0&0&1&1&0 & \textcolor{violet}{$\frac{3}{32}$} & \textcolor{violet}{$\times$} & \textcolor{violet}{$2^6$} \\
+  $[x]_{\text{补}}=$ & 00 ,& 110 ;& 00 ,& 0&0&0&1&1&0 & \textcolor{violet}{$\frac{3}{32}$} & \textcolor{violet}{$\times$} & \textcolor{violet}{$2^6$} \\
   \end{tabular}
 \end{table}
 
@@ -214,4 +214,4 @@ $[j_x]_{\text{补}} = 00,011$，$[j_y]_{\text{补}} = 00,110$，$[-j_y]_{\text{�
 【点评】本题用于复习浮点数的加减法问题，综合使用了小数二进制的转换、原反补三码的转换、求相反数补码、浮点数的规格化等知识。本文档旨在给出每一步的十进制表示，便于同学们理解这种方法的「原始数值」的不变性。
 }
 
-\end{document}
+\end{document} 
