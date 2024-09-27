@@ -1,0 +1,250 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption,subcaption}
+\usepackage{CJKfntef}
+\usepackage{cprotect}
+\usepackage{enumitem}
+\usepackage{extarrows}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+%\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[table]{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhf{}
+%\cfoot{\sffamily\footnotesize{-\ \thepage\ -}} 本次知识小料不使用页码
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\newcommand\keyword[1]{\textcolor{violet}{\textbf{\texttt{#1}}}}
+
+\newcommand\AND{\  \textrm{AND}\ }
+\newcommand\OR{\  \textrm{OR}\ }
+\newcommand\IF{\quad\textrm{IF}\quad}
+\newcommand\THEN{\quad\textrm{THEN}\quad}
+\newcommand\CF{{C\hspace{-0.2em}F}}
+
+\lstset{
+    basicstyle=\small\ttfamily, %注意行末有逗号！
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\color{cyan!90!black},
+    stringstyle=\color{green!40!black},
+    columns=flexible,
+    numbers=left,
+    numberstyle=\footnotesize,
+    escapechar=`,
+    frame=shadowbox,
+    %rulesepcolor=\color{red!20!blue!20!green!20}
+    backgroundcolor=\color{cyan!5!white},
+    language = C++,
+    tabsize = 4,
+    breaklines = true,
+    showstringspaces = false,
+}
+
+\newcommand\IssueNumber{35}
+\newcommand\Date{2024-9-27}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{人工智能}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+设有如下一组知识：
+\begin{table}[htb]
+\color{cyan!50!black}
+  \centering
+  \begin{tabular}{c@{\quad IF\quad }l@{\quad THEN\quad }cc}
+  $r_1:$ & 头痛 \AND 免疫力低 & 感冒 & ($0.8$) \\
+  $r_2:$ & 感冒 \AND (流清鼻涕 \OR 喉咙干痒) & 风寒感冒 & ($0.85$) \\
+  $r_3:$ & 感冒 \AND 流黄鼻涕 & 风热感冒 & ($0.8$) \\
+  $r_4:$ & 感冒 \AND 喉咙肿痛 & 风热感冒 & $(0.9)$ \\
+  \end{tabular}
+\end{table}
+
+某同学对以下症状的可信度分别如下表，请你帮忙分别算出该同学患风寒感冒和风热感冒的可信度。
+
+\begin{table}[htb]
+  \centering
+  \color{cyan!50!black}
+  \begin{tabular}{cccc}
+  \toprule
+    症状 & 可信度 & 症状 & 可信度 \\
+  \midrule
+    头痛 & $0.8$ & 免疫力低 & $0.75$ \\
+    流清鼻涕 & $0.6$ & 流黄鼻涕 & $0.2$ \\
+    喉咙干痒 & $0.3$ & 喉咙肿痛 & $0.5$ \\
+  \bottomrule  
+  \end{tabular}
+\end{table}
+}
+
+本题考察的是可信度方法与 C-F 模型，详见《人工智能》课本第 4 章第 117 页。
+
+具体包括以下规则：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item 合取规则：$\CF(E_1\AND E_2) = \min\{\CF(E_1),\ \CF(E_2)\}$
+  \item 析取规则：$\CF(E_1\OR E_2) = \max\{\CF(E_1),\ \CF(E_2)\}$
+  \item 传递规则：$\CF(H) = \CF(H,E)\cdot \max\{0,\CF(E)\}$
+  \item 合成规则：若有 $\begin{cases}
+  \IF E_1 \THEN H\quad  (\CF(H,E_1))\\
+  \IF E_2 \THEN H\quad  (\CF(H,E_2))
+   \end{cases}$
+    ，须先由传递规则算出 $a=\CF_1(H)$、$b=\CF_2(H)$。设 $S=\CF_{12}(H)$，则
+      \begin{enumerate}[itemsep=2pt,parsep=0pt]
+        \item 当 $a\geqslant 0,b\geqslant 0$ 时，$S = a+b-ab$
+        \item 当 $a<0,b<0$ 时，$S = a+b+ab$
+        \item 当 $a,b$ 异号时，$S = \dfrac{a+b}{1-\min\{|a|,|b|\}}$
+      \end{enumerate}
+\end{itemize}
+
+可以形式化地把头痛、免疫力低、流清鼻涕、流黄鼻涕、喉咙干痒、喉咙肿痛分别设为 $E_1\sim E_6$，把感冒、风寒感冒、风热感冒分别设为 $H,H_1,H_2$。如此，原始知识整理为
+
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{c@{\quad IF\quad }l@{\quad THEN\quad }cc}
+  $r_1:$ & $E_1$ \AND $E_2$ & $H$ & ($0.8$) \\
+  $r_2:$ & $H$ \AND ($E_3$ \OR $E_5$) & $H_1$ & ($0.85$) \\
+  $r_3:$ & $H$ \AND $E_4$ & $H_2$ & ($0.8$) \\
+  $r_4:$ & $H$ \AND $E_6$ & $H_2$ & ($0.9$) \\
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{cccc}
+  \toprule
+    症状 & 可信度 & 症状 & 可信度 \\
+  \midrule
+    $\CF(E_1)$ & $0.8$ & $\CF(E_2)$ & $0.75$ \\
+    $\CF(E_3)$ & $0.6$ & $\CF(E_4)$ & $0.2$ \\
+    $\CF(E_5)$ & $0.3$ & $\CF(E_6)$ & $0.5$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+计算感冒 $H$ 的可信度：
+\begin{equation*}
+\begin{aligned}
+    \CF(E_1\AND E_2) &\xlongequal{\text{合取}} \min\{\CF(E_1),\CF(E_2)\} = \min\{0.8,\ 0.75\} = 0.75 \\
+    \CF(H) &\xlongequal{\text{传递}} 0.8\times \max\{0, \ \CF(E_1\AND E_2)\} = \mathbf{0.6}
+\end{aligned}
+\end{equation*}
+
+计算风寒感冒 $H_1$ 的可信度：
+\begin{equation*}
+\begin{aligned}
+    \CF(H_1) &\xlongequal{\text{传递}} 0.85\times \max\{0,\ \CF\big(H \AND (E_3\OR E_5)\big)\} \\
+    &\xlongequal{\text{合取}} 0.85\times \max\{0, \min\{\CF(H), \CF\big( E_3\OR E_5 \big)\}\} \\
+    &\xlongequal{\text{析取}} 0.85\times \max\{0, \min\{0.6, \max\{\CF(E_3),\ \CF(E_5)\} \}\} \\
+    &= 0.85\times \max\{0, \min\{0.6, \max\{0.6,0.3\} \}\} \\
+    &= 0.85\times 0.6 = \mathbf{0.51}
+\end{aligned}
+\end{equation*}
+
+由 $r_3$ 计算风热感冒 $H_2$ 的可信度 $\CF_1(H_2)$，记为 $a$：
+\begin{equation*}
+\begin{aligned}
+    \CF(H \AND E_4) &\xlongequal{\text{合取}} \min\{\CF(H), \ \CF(E_4)\} = \min\{0.6, 0.2\} = 0.2 \\
+    a = \CF_1(H_2) &\xlongequal{\text{传递}} 0.8\times \max\{0, \CF(H\AND E_4)\} = 0.16
+\end{aligned}
+\end{equation*}
+
+由 $r_4$ 计算风热感冒 $H_2$ 的可信度 $\CF_2(H_2)$，记为 $b$：
+\begin{equation*}
+\begin{aligned}
+    \CF(H\AND E_6) &\xlongequal{\text{合取}} \min\{\CF(H),\ \CF(E_6)\} = \min\{0.6, 0.5\} = 0.5 \\
+    b = \CF_2(H_2) &\xlongequal{\text{传递}} 0.9\times \max\{0, \CF(H \AND E_6)\} = 0.45 \\
+\end{aligned}
+\end{equation*}
+
+
+通过 $a$ 和 $b$ 由结论不确定性合成规则算出 $S=CF_{12}(H_2)$，由 $a>0,b>0$ 故使用第 1 条规则：
+\begin{equation*}
+    S = CF_{12}(H_2) = a + b - ab = 0.16 + 0.45 - 0.072 = \mathbf{0.538}
+\end{equation*}
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+因此该同学患风寒感冒和风热感冒的可信度分别是 $0.51$ 和 $0.538$。采用可信度方法推断该同学更有可能患风热感冒。
+
+\vspace{1em}
+{\color{cyan!80!black} 
+【结论】该同学患风寒感冒和风热感冒的可信度分别是 0.51 和 0.538。
+
+【点评】本题考察了可信度方法，综合运用了 C-F 模型的相关规则。由于人工智能这个学科实在找不到什么合适的考题，结合可信度方法可能是大题考点这一信息，自编了这一题。题中的情景可能与真实情况有一定差异，请勿全信。
+
+\begin{quote}
+\IF 期末考试 \THEN 考可信度方法大题 (0.7)
+\end{quote}
+
+$\CF(\text{期末考试})=1$，$\CF(\text{考可信度方法大题}) \xlongequal{\text{传递}} 0.7\times \max\{0,1\} = 0.7$，果然考可信度方法大题的可信度是 0.7，实在不小。
+}
+
+\end{document} 
