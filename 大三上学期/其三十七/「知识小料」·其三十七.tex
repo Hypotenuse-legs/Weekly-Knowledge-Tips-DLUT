@@ -1,0 +1,482 @@
+\documentclass[UTF8]{ctexart}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+%\usepackage{caption,subcaption}
+%\usepackage{CJKfntef}
+%\usepackage{cprotect}
+\usepackage{enumitem}
+\usepackage{extarrows}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+%\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{pdflscape}
+%\usepackage{tasks}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[table]{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={汉仪文黑-55W}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}} 
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\newcommand\keyword[1]{\textcolor{violet}{\textbf{\texttt{#1}}}}
+
+\newcommand\FIRST{\textsc{First}}
+\newcommand\FOLLOW{\textsc{Follow}}
+\newcommand\NULLABLE{\textsc{Nullable}}
+\newcommand\FIRSTS{\textsc{First\_s}}
+\newcommand\VN{V_{\mathrm{N}}} %非终结符
+\newcommand\VT{V_{\mathrm{T}}} %终结符
+\newcommand\deduceone{\overset{+}{\implies}} %至少一次推导
+\newcommand\deduce{\overset{*}{\implies}} %任意次推导
+
+\lstset{
+    basicstyle=\small\ttfamily, %注意行末有逗号！
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\color{cyan!90!black},
+    stringstyle=\color{green!40!black},
+    columns=flexible,
+    numbers=left,
+    numberstyle=\footnotesize,
+    escapechar=`,
+    frame=shadowbox,
+    %rulesepcolor=\color{red!20!blue!20!green!20}
+    backgroundcolor=\color{cyan!5!white},
+    tabsize = 4,
+    breaklines = true,
+    showstringspaces = false,
+}
+
+\newcommand\IssueNumber{37}
+\newcommand\Date{2024-10-18}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{编译原理}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+已知文法 $G[S]$：
+\begin{align*}
+  S &\to MH \ |\  a \\
+  H &\to LSo \ |\  \varepsilon \\
+  K &\to dML \ |\  \varepsilon \\
+  L &\to eHf \\
+  M &\to K \ |\  bLM
+\end{align*}
+\begin{enumerate}[itemsep=0pt,parsep=0pt]
+    \item 求每一非终结符的 \FIRST 集和 \FOLLOW 集。
+    \item 填写该文法的 LL(1) 分析表。
+    \item 该文法是否为 LL(1) 文法？请解释你的回答。 
+\end{enumerate}
+}
+
+\begin{tcolorbox}[colback=violet!5, colframe=violet, boxrule=1pt, ]
+%\begin{description}[itemsep=0pt,parsep=0pt]
+%  \item[$\VN$] 非终结符
+%  \item[$\VT$] 终结符
+%  \item[$V$] 所有单词，即 $\VN\cup\VT$
+%  \item[$V^*$] 任意单词串，即 $V$ 的闭包
+%  \item[$\to$] 定义为，如 $N\to s|t|g|w$
+%  \item[$\implies$] 直接推导
+%  \item[$\deduceone$] 长度 $n\geqslant 1$ 的推导。若 $w_0\implies w_1\implies w_2\implies \cdots\implies w_n(n\geqslant 1) $，则称 $w_0\deduceone w_n$
+%  \item[$\deduce$] 长度 $n\geqslant 0$ 的推导。若 $w_0=w_n$ 或 $w_0\deduceone w_n$，则称 $w_0\deduce w_n$
+%\end{description}
+%
+%平时我们所说的「非终结符 $A$ 能推空 $\varepsilon$」就是指 $A\deduce \varepsilon$。
+
+对于 \FIRST、\FOLLOW、\NULLABLE 集，定义表示如下：
+\begin{enumerate}
+  \item \FIRST 集：
+    \begin{equation*}
+      \FIRST(A) = \{a\ |\ A\deduce aB\}
+    \end{equation*}
+    其中，$a\in \VT$（终结符），$B \in V^*$ （任意符号串），$\deduce$ 表示「经由任意次推导」。
+  \item \FOLLOW 集：
+    \begin{equation*}
+      \FOLLOW(A) = \{a\ |\ S\deduce \cdots Aa\cdots \}
+    \end{equation*}
+    其中 $S$ 为开始符号，$a\in \VT$（终结符）。
+  \item \NULLABLE 集：
+    假设 $X$ 为非终结符。$X\in \NULLABLE$，当且仅当 $X\to \varepsilon$ 或者 $X\to \beta_1\beta_2\cdots\beta_n$（其中每个 $\beta_i$ 均属于 \NULLABLE）。
+\end{enumerate}
+
+\textcolor{cyan}{\FIRST$(A)$ 就是非终结符 $A$ 经任意次推导后，可能得到的开头终结符的集合。\FOLLOW$(A)$ 就是开始符 $S$ 经任意次推导后，$A$ 可能紧接着的终结符的集合。}
+
+\end{tcolorbox}
+
+
+\newpage
+\section{求 \NULLABLE 集、\FIRST 集}
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+容易看出这里面有可能推出空单词 $\varepsilon$ 的非终结符，需要先把可推空单词的非终结符之集合：\Emph{\NULLABLE 集}求出来。
+
+第一遍迭代容易看出，$H, K\in \NULLABLE$。第二遍迭代，因为 $K\in \NULLABLE$，所以由规则 5，$M\in \NULLABLE$。第三遍迭代，因为 $M,H\in\NULLABLE$，所以由规则 1， $S\in \NULLABLE$。因此：
+\begin{equation}\label{eq:NULLABLE}
+    \NULLABLE = \{S, H, K, M\}
+\end{equation}
+
+接下来是 \Emph{\FIRST 集}，算法如下：
+
+
+\begin{algorithm}[H]
+%\SetAlgoLined
+\DontPrintSemicolon
+初始化：对所有非终结符 $N$，$\FIRST(N)\gets\varnothing$  \textcolor{cyan}{\tcc*[h]{「$\gets$」 表示赋值}}\;
+\While{some sets changed}{
+    \For{production $p: \textcolor{violet}{N\to \beta_1\beta_2\cdots\beta_n}$}{
+        \For(\textcolor{cyan}{\tcc*[h]{顺序遍历产生式的每个符号}}){$\beta_i \gets \beta_1 $\ \KwTo\ $ \beta_n$} {
+            \If{$\beta_i = a$}{
+                $\FIRST(N) \gets \FIRST(N) \cup \{a\}$\;
+                \textbf{break}\;
+            }
+            \If{$\beta_i = M$}{
+                $\FIRST(N) \gets \FIRST(N) \cup \FIRST(M)$ \;
+                \If{$M \notin \NULLABLE$}{
+                    \textbf{break}\;
+                }
+            }
+        }
+    }
+}
+\caption{\FIRST 集的计算}  
+\end{algorithm}
+
+由 \NULLABLE 集信息，得到：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item $\FIRST(S) = \FIRST(M)\cup \FIRST(H)\cup \{a\}$
+  \item $\FIRST(H) = \FIRST(L)$
+  \item $\FIRST(K) = \{d\}$
+  \item $\FIRST(L) = \{e\}$
+  \item $\FIRST(M) = \FIRST(K)\cup \{b\}$
+\end{itemize}
+
+多轮迭代后得到各个非终结符的 \FIRST 集如下（第 4 轮结果与第 3 轮完全一致，终止）：
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+    \toprule
+        非终结符 & $S$ & $H$ & $K$ & $L$ & $M$ \\
+    \midrule
+        \FIRST 集·第 1 轮 & $\{a\}$ & $\varnothing$ & $\{d\}$ & $\{e\}$ & $\{b,d\}$ \\
+        \FIRST 集·第 2 轮 & $\{a,b,d\}$ & $\{e\}$ & $\{d\}$ & $\{e\}$ & $\{b,d\}$ \\
+        \FIRST 集·第 3 轮 & $\{a,b,d,e\}$ & $\{e\}$ & $\{d\}$ & $\{e\}$ & $\{b,d\}$ \\
+        \FIRST 集·第 4 轮 & $\{a,b,d,e\}$ & $\{e\}$ & $\{d\}$ & $\{e\}$ & $\{b,d\}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{\FIRST 集结果}\label{tab:FIRST}
+\end{table}
+
+\section{求 \FOLLOW 集}
+
+求 \Emph{\FOLLOW 集}的算法如下：
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+初始化：对所有非终结符 $N$，$\FOLLOW(N)\gets\varnothing$ \;
+\While{some sets changed}{
+    \For{production $p: \textcolor{violet}{N\to \beta_1\beta_2\cdots\beta_n}$}{
+        $temp \gets \FOLLOW(N)$\;
+        \For(\textcolor{cyan}{\tcc*[h]{逆序遍历产生式的每个符号}}){$\beta_i \gets \beta_n$ \ \KwTo\ $\beta_1$}{
+            \If{$\beta_i = a$}{
+                $temp \gets \{a\}$\;
+            }
+            \If{$\beta_i = M$}{
+                $\FOLLOW(M) \gets \FOLLOW(M)\cup temp$ \;
+                \eIf{$M \notin \NULLABLE$}{
+                    $temp \gets \FIRST(M)$\;
+                }{
+                    $temp \gets \FIRST(M)\cup temp$\;
+                }
+            }
+        }
+    }
+}
+\caption{\FOLLOW 集的计算}
+\end{algorithm}
+
+算法执行流程：初始时，每个非终结符的 $\FOLLOW = \varnothing$。在整个算法中，每个非终结符的 \FOLLOW 将会越来越充实，不会重置；而 $temp$ 可能会重置。
+
+以下表 \ref{tab:FOLLOW-1}、表 \ref{tab:FOLLOW-2} 是计算 \FOLLOW 集的详细过程。计算到第 3 轮时，已经没有任何 \FOLLOW 集发生变化。阅读表格时，请依次从上往下阅读，注意盯住每一个符号，不要看串行了。
+
+
+\begin{landscape}
+\begin{table}[p]
+    \centering
+    \small
+    \begin{tabular}{|c|c|l|l|}
+    \hline
+        产生式 & $\beta_i$ & 更新 $\FOLLOW$ & 更新 $temp$ 为\\
+    \hline
+        $S\to MH$ & - & - & $\FOLLOW(S) = \varnothing$ \\
+                  & $H$ & $\FOLLOW(H)\gets \FOLLOW(H)\cup\varnothing = \varnothing$ & $temp\cup \FIRST(H) = \{e\}$\\
+                  & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup\{e\} = \{e\}$ & $temp\cup\FIRST(M) = \{b,d,e\}$ \\
+    \hline
+        $S\to a$ & $a$ & - & $\{a\}$ \\
+    \hline
+        $H\to LSo$ & - & - & $\FOLLOW(H) = \varnothing$ \\
+                   & $o$ & - & $\{o\}$ \\
+                   & $S$ & $\FOLLOW(S)\gets \FOLLOW(S)\cup \{o\} = \{o\}$ & $temp\cup\FIRST(S) = \{a,b,d,e,o\}$ \\
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup \{a,b,d,e,o\} = \{a,b,d,e,o\}$ & $\FIRST(L) = \{e\}$ \\
+    \hline
+        $H\to \varepsilon$ &&&\\
+    \hline
+        $K\to dML$ & - & - & $\FOLLOW(K) = \varnothing$ \\ 
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup\varnothing = \{a,b,d,e,o\}$  & $\FIRST(L) = \{e\}$ \\
+                   & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup \{e\} = \{e\}$ & $temp\cup\FIRST(M) = \{b,d,e\}$ \\
+                   & $d$ & - & $\{d\}$ \\
+    \hline
+        $K\to \varepsilon$ &&&\\
+    \hline
+        $L\to eHf$ & - & - & $\FOLLOW(L) = \{a,b,d,e,o\}$ \\
+                   & $f$ & - & $\{f\}$ \\
+                   & $H$ & $\FOLLOW(H) \gets \FOLLOW(H) \cup\{f\} = \{f\}$ & $temp\cup\FIRST(H) = \{e,f\}$ \\
+                   & $e$ & - & $\{e\}$ \\
+    \hline
+        $M\to K$ & - & - & $\FOLLOW(M) = \{e\}$ \\
+                 & $K$ & $\FOLLOW(K)\gets \FOLLOW(K)\cup\FOLLOW(M) = \{e\}$ & $temp\cup\FIRST(K) = \{d,e\}$ \\
+    \hline
+        $M\to bLM$ & - & - & $\FOLLOW(M) = \{e\}$ \\
+                   & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup\{e\} = \{e\}$ & $temp\cup \FIRST(M) = \{b,d,e\}$ \\
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup\{b,d,e\} = \{a,b,d,e,o\}$ & $\FIRST(L) = \{e\}$ \\
+                   & $b$ & - & $\{b\}$ \\
+    \hline
+    \end{tabular}
+    \caption{\FOLLOW 集的第 1 轮迭代}\label{tab:FOLLOW-1}
+\end{table}
+
+\begin{table}[p] % 第 2 轮
+    \centering
+    \small
+    \begin{tabular}{|c|c|l|l|}
+    \hline
+        产生式 & $\beta_i$ & 更新 $\FOLLOW$ & 更新 $temp$ 为\\
+    \hline
+        $S\to MH$ & - & - & $\FOLLOW(S) = \{o\}$ \\
+                  & $H$ & $\FOLLOW(H)\gets \FOLLOW(H)\cup\{o\} = \textcolor{red}{\{f,o\}}$ & $temp\cup \FIRST(H) = \{e,o\}$\\
+                  & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup\{e,o\} = \textcolor{red}{\{e,o\}}$ & $temp\cup\FIRST(M) = \{b,d,e,o\}$ \\
+    \hline
+        $S\to a$ & $a$ & - & $\{a\}$ \\
+    \hline
+        $H\to LSo$ & - & - & $\FOLLOW(H) = \{f,o\}$ \\
+                   & $o$ & - & $\{o\}$ \\
+                   & $S$ & $\FOLLOW(S)\gets \FOLLOW(S)\cup \{o\} = \{o\}$ & $temp\cup\FIRST(S) = \{a,b,d,e,o\}$ \\
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup \{a,b,d,e,o\} = \{a,b,d,e,o\}$ & $\FIRST(L) = \{e\}$ \\
+    \hline
+        $H\to \varepsilon$ &&&\\
+    \hline
+        $K\to dML$ & - & - & $\FOLLOW(K) = \{e\}$ \\
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup\{e\} = \{a,b,d,e,o\}$  & $\FIRST(L) = \{e\}$ \\
+                   & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup \{e\} = \textcolor{red}{\{e,o\}}$ & $temp\cup\FIRST(M) = \{b,d,e\}$ \\
+                   & $d$ & - & $\{d\}$ \\
+    \hline
+        $K\to \varepsilon$ &&&\\
+    \hline
+        $L\to eHf$ & - & - & $\FOLLOW(L) = \{a,b,d,e,o\}$ \\
+                   & $f$ & - & $\{f\}$ \\
+                   & $H$ & $\FOLLOW(H) \gets \FOLLOW(H) \cup\{f\} = \textcolor{red}{\{f,o\}}$ & $temp\cup\FIRST(H) = \{e,f\}$ \\
+                   & $e$ & - & $\{e\}$ \\
+    \hline
+        $M\to K$ & - & - & $\FOLLOW(M) = \{e,o\}$ \\
+                 & $K$ & $\FOLLOW(K)\gets \FOLLOW(K)\cup\FOLLOW(M) = \textcolor{red}{\{e,o\}}$ & $temp\cup\FIRST(K) = \{d,e,o\}$ \\
+    \hline
+        $M\to bLM$ & - & - & $\FOLLOW(M) = \{e,o\}$ \\
+                   & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup\{e,o\} = \textcolor{red}{\{e,o\}}$ & $temp\cup\FIRST(M) = \{b,d,e,o\}$ \\
+                   & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup\{b,d,e,o\} = \textcolor{red}{\{a,b,d,e,o\}}$ & $\FIRST(L) = \{e\}$ \\
+                   & $b$ & - & $\{b\}$ \\
+    \hline
+    \end{tabular}
+    \caption{\FOLLOW 集的第 2 轮迭代（\textcolor{red}{红色}文字代表相比于第 1 轮的 \FOLLOW 集的变化）}\label{tab:FOLLOW-2}
+\end{table}
+
+\end{landscape}
+
+最终，计算得到的 \FOLLOW 集表如下表 \ref{tab:FOLLOW-1-RES} 所示。能坚持到这里，很不容易，不妨给自己点个赞吧！
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{cccccc}
+    \toprule
+        非终结符 & $S$ & $H$ & $K$ & $L$ & $M$ \\
+    \midrule
+        \FOLLOW 集·第 1 轮 & $\{o\}$ & $\{f\}$ & $\{e\}$ & $\{a,b,d,e,o\}$ & $\{e\}$ \\
+        \FOLLOW 集·第 2 轮 & $\{o\}$ & $\{f,o\}$ & $\{e,o\}$ & $\{a,b,d,e,o\}$ & $\{e,o\}$ \\
+        \FOLLOW 集·第 3 轮 & $\{o\}$ & $\{f,o\}$ & $\{e,o\}$ & $\{a,b,d,e,o\}$ & $\{e,o\}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{\FOLLOW 集结果}\label{tab:FOLLOW-1-RES}
+\end{table}
+
+\section{求 \FIRSTS 集，下结论}
+\Emph{\FIRSTS 集}（有时也叫 \textsc{Select} 集），表示一条产生式可以推出来的第一个终结符的集合。
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetKwInOut{Input}{输入}
+\SetKwInOut{Output}{输出}
+\Input{产生式 \textcolor{violet}{$p:N\to \beta_1\beta_2\cdots\beta_n$}}
+\Output{$\FIRSTS(p)$}
+
+\For(\textcolor{cyan}{\tcc*[h]{顺序遍历产生式的每个符号}}){$\beta_i\gets \beta_1$ \ \KwTo\ $\beta_n$}{
+    \If{$\beta_i = a$}{
+        $\FIRSTS(p) \gets \FIRSTS(p)\cup \{a\}$ \;
+        \textbf{return}\;
+    }
+    \If{$\beta_i = M$}{
+        $\FIRSTS(p) \gets \FIRSTS(p) \cup \FIRST(M)$\;
+        \If{$M\notin \NULLABLE$}{ \textbf{return}\; }
+    }
+}
+$\FIRSTS(p) \gets \FIRSTS(p) \cup \FOLLOW(N)$\;
+\textbf{return}\;
+\caption{\FIRSTS 集的计算}
+\end{algorithm}
+
+通过先前的 \FIRST 和 \FOLLOW 集（集中列出于表 \ref{tab: FIRST_AND_FOLLOW}），可以得到每个产生式的 \FIRSTS 集，如表 \ref{tab:FIRSTS} 所示。
+
+于是，我们就可以填写 \Emph{LL(1) 分析表}了，如表 \ref{tab:RESULT} 所示。
+
+\begin{table}[p]
+    \centering
+    \begin{tabular}{cp{0.3\textwidth}p{0.3\textwidth}}
+    \toprule
+        & \FIRST & \FOLLOW \\
+    \midrule
+    $S$ & $\{a,b,d,e\}$ & $\{o\}$\\
+    $H$ & $\{e\}$ & $\{f,o\}$\\
+    $K$ & $\{d\}$& $\{e,o\}$\\
+    $L$ & $\{e\}$& $\{a,b,d,e,o\}$\\
+    $M$ & $\{b,d\}$& $\{e,o\}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{\FIRST 和 \FOLLOW 集结果}\label{tab: FIRST_AND_FOLLOW}
+\end{table}
+
+\begin{table}[p]
+    \centering
+    \begin{tabular}{clll}
+    \toprule
+        & 产生式 & 展开式 & 结果 \\
+    \midrule
+    1 & $\FIRSTS(S\to MH)$ & $\FIRST(M)\cup\FIRST(H)\cup\FOLLOW(S)$ & $\{b,d,e,o\}$ \\
+    2 & $\FIRSTS(S\to a)$ & - & $\{a\}$ \\
+    3 & $\FIRSTS(H\to LSo)$ & $\FIRST(L)$ & $\{e\}$ \\
+    4 & $\FIRSTS(H\to\varepsilon)$ & $\FOLLOW(H) $ & $ \{f,o\}$ \\
+    5 & $\FIRSTS(K\to dML)$ & - & $\{d\}$ \\
+    6 & $\FIRSTS(K\to\varepsilon) $ & $ \FOLLOW(K)$ & $ \{e,o\}$ \\
+    7 & $\FIRSTS(L\to eHf)$ & - & $\{e\}$ \\
+    8 & $\FIRSTS(M\to K)$ & $\FIRST(K)\cup\FOLLOW(M)$ & $\{d,e,o\}$ \\
+    9 & $\FIRSTS(M\to bLM)$ & - & $\{b\}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{\FIRSTS 集结果}\label{tab:FIRSTS}
+\end{table}
+
+\begin{table}[p]
+    \centering
+    \begin{tabular}{c|cccccc}
+    \toprule
+        & $a$ & $b$ & $d$ & $e$ & $f$ & $o$ \\
+    \midrule
+    $S$ & $\to a$ & $\to MH$ & $\to MH$ & $\to MH$ & - & $\to MH$ \\
+    $H$ & - & - & - & $\to LSo$ & $\to\varepsilon$ & $\to\varepsilon$ \\
+    $K$ & - & - & $\to dML$ & $\to\varepsilon$ & - & $\to\varepsilon$ \\
+    $L$ & - & - & - & $\to eHf$ & - & - \\
+    $M$ & - & $\to bLM$ & $\to K$ & $\to K$ & - & $\to K$\\
+    \bottomrule
+    \end{tabular}
+    \caption{LL(1) 分析表结果}\label{tab:RESULT}
+\end{table}
+
+\newpage
+
+最后判别是不是 LL(1) 文法。
+
+\begin{tcolorbox}[colback=violet!5, colframe=violet, boxrule=1pt, ]
+一个上下文无关文法是 LL(1) 文法的充分必要条件是，对每个非终结符 $A$ 的两条产生式 $A\to \alpha$、$A\to \beta$（其中 $\alpha,\beta$ 不同时 $\deduce\varepsilon$），均有
+\begin{equation*}
+    \FIRSTS(A\to\alpha) \cap \FIRSTS(A\to\beta) = \varnothing
+\end{equation*}
+反映在分析表上，就是看是否存在同一表项中至少有 2 个产生式（即构成冲突）。如果没有冲突，那就是 LL(1) 文法；如果有冲突，就要对文法进行等价变换，比如消除左递归和提取左公因子。
+\end{tcolorbox}
+
+通过表 \ref{tab:RESULT} 可知，没有冲突，所以是 LL(1) 文法。
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\vspace{1em}
+{\color{cyan!80!black}
+【结论】1. 如表 \ref{tab: FIRST_AND_FOLLOW} 所示；2. 如表 \ref{tab:RESULT} 所示；3. 是 LL(1) 文法。
+
+【点评】这是一道编译原理的大题，考察了 LL(1) 文法的分析方法，即依次求解 \NULLABLE—\FIRST—\FOLLOW—\FIRSTS—LL(1)分析表。本题过程繁多，持续时间也很长，需要同学们求解时保持清醒，尤其是算 \FOLLOW 集时更要打起十二分精神。由于给出了详细过程，本文档篇幅较长。
+
+需要指出的是，本文档采用孙景昊式解法：对于每一个非终结符，默认其 \FIRST 集不含 $\varepsilon$，\FOLLOW 集不含 $\#$，可能与《编译原理》课本的结果有所不同。
+}
+
+\end{document}
