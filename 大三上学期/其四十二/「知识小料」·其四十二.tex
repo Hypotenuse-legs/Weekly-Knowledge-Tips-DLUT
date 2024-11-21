@@ -1,0 +1,229 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{tasks}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={汉仪文黑-55W}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+
+%————————————————可变部分——————————————————
+\settasks{label={\Alph*.\ }, label-format={\color{cyan!50!black}}, item-format={\color{cyan!50!black}}}
+\newcommand\col[1]{\textcolor{green!50!black}{#1}}
+\newcommand\coll[1]{\textcolor{blue}{#1}}
+\newcommand\dotting{\ .\ }
+%——————————————————————————————————————————
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\colorlet{note}{yellow!70!black}
+
+
+\newcommand\IssueNumber{42}
+\newcommand\Date{2024-11-21}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{计算机组成原理}
+\newcommand\Source{历年考研 408 真题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\vspace{-0.1cm}
+    \Brown{来源：\Source}
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+\begin{center}
+  《I/O设备·计算专题》
+\end{center}
+
+
+\begin{description}
+  \item[【简单挑战】] (2011)某计算机处理器主频为 50MHz，采用定时查询方式控制设备 A 的 I/O，查询程序运行一次所用的时钟周期数至少为 500。在设备 A 工作期间，为保证数据不丢失，每秒需对其查询至少 200 次，则 CPU 用于设备 A 的 I/O 的时间占整个 CPU 时间的百分比至少是
+  \begin{tasks}(4)
+    \task 0.02\%
+    \task 0.05\%
+    \task 0.20\%
+    \task 0.50\%
+  \end{tasks}
+
+  \item[【普通挑战】] (2019)某设备以中断方式与 CPU 进行数据交换，CPU 主频为 1GHz，设备接口中的数据缓冲寄存器为 32 位，设备的数据传输速率为 50kB/s。若每次中断开销（包括中断响应和中断处理）为 1000 个时钟周期，则 CPU 用于该设备输入/输出的时间占整个 CPU 时间的百分比最多是
+  \begin{tasks}(4)
+    \task 1.25\%
+    \task 2.5\%
+    \task 5\%
+    \task 12.5\%
+  \end{tasks}
+
+  \item[【困难挑战】] (2018)假定计算机的主频为 500MHz，CPI 为 4。现有设备 A 和 B，其数据传输速率分别为 2MB/s 和 40MB/s，对应 I/O 接口中各有一个 32 位数据缓冲寄存器。若设备 B 采用 DMA 方式，每次 DMA 传送的数据块大小为 1000B，CPU 用于 DMA 预处理和后处理的总时钟周期数为 500，则 CPU 用于设备 B 输入/输出的时间占 CPU 总时间的百分比最多是\underline{\qquad}。
+
+  \item[【无畏挑战】] (2014)若某设备中断请求的响应和处理时间为 100ns，每 400ns 发出一次中断请求，中断响应所允许的最长延迟时间为 50ns，则在该设备持续工作过程中，CPU用于该设备的 I/O 时间占整个CPU时间的百分比至少是
+  \begin{tasks}(4)
+    \task 12.5\%
+    \task 25\%
+    \task 37.5\%
+    \task 50\%
+  \end{tasks}
+\end{description}
+
+}
+
+\newpage
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+这四题都与 I/O 设备有关，都是计算题。以下用 $T_c$ 表示时钟周期，用 $f_c$ 表示主频（时钟频率）。
+
+\paragraph{【简单挑战】} 一个朴素的想法，即是计算出\textcolor{cyan!70!black}{「每秒钟 CPU 对设备的查询所占 $T_c$ 数」}与\textcolor{cyan!70!black}{「每秒钟总 $T_c$ 数」}的比值。
+
+已知条件翻译：$f_c = \mathrm{50MHz = 5\times 10^7 Hz}$，每秒查询 200 次，每次占用 $500$ 个 $T_c$。
+
+\begin{itemize}[itemsep=1pt, parsep=1pt]
+  \item 每秒的对设备查询所占 $T_c$ 数：$200\times 500 = 100000 = 10^5$ 个 $T_c$。
+  \item 每秒总 $T_c$ 数：$5\times 10^7$ 个 $T_c$（也就是时钟频率）。
+  \item 比值：$r = \dfrac{10^5}{5\times 10^7}\times 100\% = 0.2\%$。
+\end{itemize}
+因此答案为 0.20\%，选 C。
+
+\paragraph{【普通挑战】} 本题求解结果与「简单挑战」一样，计算方式也一样。
+
+已知条件翻译：$f_c = \mathrm{1 GHz = 10^9 Hz}$，每秒传输 50kB 数据，每传输 32bit（4B）即触发一次中断，每次中断占 $1000$ 个 $T_c$。
+
+\begin{itemize}[parsep=1pt]
+  \item 每秒触发中断的次数：$\mathrm{\dfrac{50kB}{4B} = 12.5k = 1.25\times 10^4}$ 次。
+  \item 每秒中断所需要的 $T_c$ 数：$\mathrm{(1.25\times 10^4)\times 1000 = 1.25\times 10^7}$ 个 $T_c$。
+  \item 每秒总 $T_c$ 数：$10^9$ 个 $T_c$（也就是时钟频率）。
+  \item 比值：$r = \dfrac{1.25\times 10^7}{10^9}\times 100\% = 1.25\%$。
+\end{itemize}
+因此答案为 1.25\%，选 A。
+
+\paragraph{【困难挑战】} 本题求解结果还与「简单挑战」一样。
+
+这题跟上一题多了一些干扰信息，所以显得困难一些。已知条件翻译：$f_c = \mathrm{500 MHz = 5\times 10^8 Hz}$，一条指令需要 4 个 $T_c$（即 CPI），设备 B 每秒传输 40MB 数据，32 位数据缓冲寄存器，每计满 1000B（一个数据块）触发一次 DMA，一次 DMA 的预、后处理需要 $500$ 个 $T_c$。
+
+\begin{itemize}
+  \item 每秒触发 DMA 的次数：$\dfrac{\text{每秒传输的数据量}}{\text{一次 DMA 需要的数据量}} = \mathrm{\dfrac{ 40MB }{ 1000B} = \dfrac{40\times 10^6}{10^3}} = 4\times 10^4$ 次。
+  \item 每秒 DMA 所需要的 $T_c$ 数：$(4\times 10^4) \times 500 = 2\times 10^7$ 个 $T_c$。
+  \item 每秒总 $T_c$ 数：$5\times 10^8$（也就是时钟频率）。
+  \item 比值：$r = \dfrac{2\times 10^7}{5\times 10^8}\times 100\% = 4\%$。
+\end{itemize}
+因此答案为 4\%。\textcolor{cyan}{（注：DMA 仅预、后处理需要 CPU，其过程不依赖 CPU。）}
+
+\paragraph{【无畏挑战】} 本题要求解的结果还是一样的，但是题目明显不按套路出牌，至少连主频都未给出，着实无从下手。怎么解决？
+
+这题只有三条信息：中断请求的响应和处理需要 100ns，每 400ns 提一次请求，最多允许延迟 50ns 响应。
+
+如果只考虑前两条信息，即每次中断都立刻「有求必应」，则如下图所示：
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[>=Stealth]
+        \draw[->] (-0.5, 0) -- (8.5, 0 ) node[above] {$t$};
+        \foreach \i in {0,4,8}{
+            \draw (\i, 0) -- (\i, 0.5);
+            \draw [->, thick] (\i, -1) node[below, font=\footnotesize] {中断请求} -- (\i, 0);
+        }
+        \filldraw[fill=cyan!20!white] (0,0) -- (1,0) -- (1, 0.3) -- (0, 0.3) -- cycle;
+        \filldraw[fill=cyan!20!white] (4,0) -- (5,0) -- (5, 0.3) -- (4, 0.3) -- cycle;
+        \draw [<->, gray] (0, -0.2) -- (4, -0.2) node[below, midway] {400ns};
+        \draw [<->, gray] (4, -0.2) -- (8, -0.2) node[below, midway] {400ns};
+        \node [above, cyan!50!black] at (0.5, 0.3) {100ns};
+        \node [above, cyan!50!black] at (4.5, 0.3) {100ns};
+    \end{tikzpicture}
+\end{figure}
+在这种情况下，CPU用于该设备的 I/O 时间占整个CPU时间的比值就是 $\mathrm{\dfrac{100ns}{400ns} \times 100\% = 25\%}$。
+
+如果考虑「最多延迟 50ns」这一条件，那么我们可以把表示响应的这一段时间向后挪 50ns，像这样：
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[>=Stealth]
+        \draw[->] (-0.5, 0) -- (8.5, 0 ) node[above] {$t$};
+        \foreach \i in {0,4,8}{
+            \draw (\i, 0) -- (\i, 0.5);
+            \draw [->, thick] (\i, -1) node[below, font=\footnotesize] {中断请求} -- (\i, 0);
+        }
+        \filldraw[fill=cyan!20!white] (0.5, 0) -- (1.5, 0) -- (1.5, 0.3) -- (0.5, 0.3) -- cycle;
+        \filldraw[fill=cyan!20!white] (4.5, 0) -- (5.5, 0) -- (5.5, 0.3) -- (4.5, 0.3) -- cycle;
+        \draw [<->, gray] (0, -0.2) -- (4, -0.2) node[below, midway] {400ns};
+        \draw [<->, gray] (4, -0.2) -- (8, -0.2) node[below, midway] {400ns};
+        \node [above, cyan!50!black] at (1, 0.3) {100ns};
+        \node [above, cyan!50!black] at (5, 0.3) {100ns};
+        \node [brown, font=\footnotesize] at (0.25, 0.15) {50ns};
+        \node [brown, font=\footnotesize] at (4.25, 0.15) {50ns};
+    \end{tikzpicture}
+\end{figure}
+可以发现，延迟 50ns 并不影响这一比值，仍旧是 25\%。不难发现，无论延迟多长时间，这一比值都不变；也就是说「最多延迟 50ns」是干扰信息，只需要 100ns 和 400ns 的信息便足够了。
+
+因此答案是 25\%，选 B。
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\vspace{1em}
+{\color{cyan!80!black}
+【结论】C, A, 4\%, B
+
+【点评】这是四道计组的考研题，涉及到 I/O 时间的相关计算。对于多数比值问题，都可以用「每秒钟 CPU 对设备的查询所占 $T_c$ 数」与「每秒钟总 $T_c$ 数」做除法计算出答案；对于少数偏门的问题，则需要具体问题具体分析。
+}
+
+\end{document}
