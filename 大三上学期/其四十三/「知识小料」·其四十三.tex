@@ -1,0 +1,1779 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{chngcntr} % 本宏包用于把图片和章节序号相关联
+\usepackage{CJKfntef}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+%\usepackage{tasks}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage[table]{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={汉仪文黑-55W}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+
+%————————————————可变部分——————————————————
+%\settasks{label={\Alph*.\ }, label-format={\color{cyan!50!black}}, item-format={\color{cyan!50!black}}}
+%\newcommand\col[1]{\textcolor{green!50!black}{#1}}
+%\newcommand\coll[1]{\textcolor{blue}{#1}}
+%\newcommand\dotting{\ .\ }
+\newcommand\keyword[1]{\textcolor{darkcyan}{#1}}
+\setlist[enumerate]{itemsep=0pt, parsep=0pt}
+
+\newtcolorbox{summary}[1][内容概述]{colback=violet!10, colframe=violet!70!black, boxrule=1pt, title={#1}}
+\newtcolorbox{double_segment}[1][警告：双字段匹配]{colback=green!10, colframe=green!30!black, boxrule=1pt, title={#1}}
+\counterwithin{figure}{section}
+\captionsetup[figure]{font=small, labelfont=bf}
+\hypersetup{bookmarksnumbered = true, pdfborder = 0 0 0}
+%——————————————————————————————————————————
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\colorlet{note}{yellow!70!black}
+
+
+\newcommand\IssueNumber{43}
+\newcommand\Date{2024-11-30}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{习思想}
+%\newcommand\Source{历年考研 408 真题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+%\vspace{-0.1cm}
+%   \Brown{来源：\Source}
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{darkcyan}
+本文整理与《习近平新时代中国特色社会主义思想概论》（以下简称习思想）相关的关系图。由于篇幅较大，分成上、下两期。本期为上期，收录索引值十六进制为 $\mathrm{[0x00,\  0x07]}$ 的章节相关内容。
+}
+
+\begin{table}[htb]
+    \small
+    \centering
+    \rowcolors{2}{violet!10}{violet!20}
+    \begin{tabular}{ccl}
+        \rowcolor{violet!40} 十六进制 & 十进制 & 标题字段 \\
+        0x00 & 0 & \textcolor{violet!50}{（该字段为空）}\\
+        0x01 & 1 & 新时代坚持和发展\keyword{中国特色社会主义} \\
+        0x02 & 2 & 以\keyword{中国式现代化}全面推进中华民族伟大复兴\\
+        0x03 & 3 & 坚持\keyword{党的全面领导}\\
+        0x04 & 4 & 坚持以\keyword{人民}为中心\\
+        0x05 & 5 & 全面深化\keyword{改革开放}\\
+        0x06 & 6 & 推动高质量\keyword{发展}\\
+        0x07 & 7 & 社会主义现代化建设的\keyword{教育、科技、人才}战略\\
+        0x08 & 8 & 发展全过程人民\keyword{民主}\\
+        0x09 & 9 & 全面\keyword{依法治国}\\
+        0x0a & 10 & 建设社会主义\keyword{文化强国}\\
+        0x0b & 11 & 以保障和改善民生为重点加强\keyword{社会建设}\\
+        0x0c & 12 & 建设社会主义\keyword{生态文明}\\
+        0x0d & 13 & 全面贯彻落实\keyword{总体国家安全观}\\
+        0x0e & 14 & 建设巩固\keyword{国防}和强大人民\keyword{军队}\\
+        0x0f & 15 & 坚持「\keyword{一国两制}」和推进祖国\keyword{完全统一}\\
+        0x10 & 16 & 中国特色大国\keyword{外交}和推动构建人类命运共同体\\
+        0x11 & 17 & 全面\keyword{从严治党}\\
+    \end{tabular}
+\end{table}
+
+\newpage
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\setcounter{section}{-1}
+\section{导论}\label{sec:0}
+
+\begin{summary}
+\begin{enumerate}
+    \item 两个变局与社会主要矛盾
+    \item 习思想的内涵：十个明确、十四个坚持、十三个方面成就
+    \item 习思想的六个必须坚持
+    \item 习思想的地位
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        node distance=0.4cm,
+        font=\small]
+
+        %铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}世界};
+        \node [seq, below=of seq1] (seq2) {\color{darkcyan}中国};
+        \node [content, right=of seq1] (con1) {世界百年未有之大变局};
+        \node [content, right=of seq2] (con2) {实现中华民族伟大复兴的战略全局};
+        \draw [cyan!50] (seq1) to (seq2);
+        \draw [blue!30, dashed] (seq1) to (con1);
+        \draw [blue!30, dashed] (seq2) to (con2);
+    \end{tikzpicture}
+    \caption{当今的「两个变局」}\label{fig:sec0-两个变局}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=10cm},
+        node distance=0.4cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, right=of seq1] (con1) {人民日益增长的美好生活需要\ 和\ 不平衡不充分的发展之间的矛盾};
+        \node [content, right=of seq2] (con2) {人民日益增长的物质文化需要\ 同\ 落后的社会生产之间的矛盾};
+        \node [content, right=of seq3] (con3) {人民对于建立先进的工业国的要求\ 同\ 落后农业国的现实之间的矛盾};
+        \node [content, right=of seq4] (con4) {人民对于经济文化迅速发展的需要\ 同\ 当前经济文化不能满足人民需要的状况之间的矛盾};
+        \foreach \x in {1,2,3,4}{
+            \draw[dashed, blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{我国社会主要矛盾（由新到旧）}
+    \label{fig:sec0-我国社会主要矛盾}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {十个明确};
+        \node[item, below=of item1] (item2) {十四个坚持};
+        \node[item, below=of item2] (item3) {十三个方面成就};
+        \node[general, left=1cm of item2] (general) {习思想};
+        \node[prop, right=of item1] (prop1) {主体内容、统摄作用};
+        \node[prop, right=of item2] (prop2) {重要组成部分、基本方略};
+        \node[prop, right=of item3] (prop3) {科学总结、理论与实践成果};
+        \foreach \x in {1,2,3}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3);
+    \end{tikzpicture}
+    \caption{习思想的主要内涵}\label{fig:sec0-习思想主要内涵}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, },
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, },
+        node distance=0.3cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4,5,6}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, right=of seq1] (con1) {必须坚持人民至上};
+        \node [content, right=of seq2] (con2) {必须坚持自信自立};
+        \node [content, right=of seq3] (con3) {必须坚持守正创新};
+        \node [content, right=of seq4] (con4) {必须坚持问题导向};
+        \node [content, right=of seq5] (con5) {必须坚持系统观念};
+        \node [content, right=of seq6] (con6) {必须坚持胸怀天下};
+
+        \node [prop, right=of con1] (prop1) {根本价值立场};
+        \node [prop, right=of con2, anchor=west] (prop2) {内在精神特质};
+        \node [prop, right=of con3, anchor=west] (prop3) {鲜明理论品格};
+        \node [prop, right=of con4, anchor=west] (prop4) {重要实践要求};
+        \node [prop, right=of con5, anchor=west] (prop5) {基本思想和工作方法};
+        \node [prop, right=of con6, anchor=west] (prop6) {中国共产党人的境界格局};
+
+        \foreach \x in {1,2,...,6}{
+            \draw[blue!30] (seq\x) to (con\x);
+            \draw[violet!30] (con\x) to (prop\x);
+        }
+
+    \end{tikzpicture}
+    \caption{习思想的「六个必须坚持」}
+    \label{fig:sec0-六个必须坚持}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=4cm, minimum size=0.6cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.6cm},
+        node distance=0.5cm,
+        font=\small, >=Stealth]
+
+        \node[content, text centered] (content1) {中国特色社会主义};
+        \node[content, below=of content1, text centered] (content2) {社会主义现代化强国};
+        \node[content, below=of content2, text centered] (content3) {长期执政的马克思主义政党};
+        \node[prop, left=of content1] (left1) {1. 坚持和发展什么样的};
+        \node[prop, right=of content1] (right1) {2. 怎样坚持和发展};
+        \node[prop, left=of content2] (left2) {3. 建设什么样的};
+        \node[prop, right=of content2] (right2) {4. 怎样建设};
+        \node[prop, left=of content3] (left3) {5. 建设什么样的};
+        \node[prop, right=of content3] (right3) {6. 怎样建设};
+
+        \foreach\x in {1,2,3}{
+            \draw[->, violet!30] (left\x) to (content\x);
+            \draw[->, violet!30] (right\x) to (content\x);
+        }
+        \foreach\x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1}
+            \draw[dashed, blue!30] (content\x) to (content\prev);
+        }
+    \end{tikzpicture}
+    \caption{习思想所回答的六个时代课题}
+    \label{fig:sec0-习思想回答的时代课题}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        node distance=0.4cm,
+        font=\small]
+
+        %铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \node [seq, below=of seq1] (seq2) {\color{darkcyan}2};
+        \node [content, right=of seq1] (con1) {马克思主义与中国具体实际相结合};
+        \node [content, right=of seq2] (con2) {马克思主义与中华优秀传统文化相结合};
+        \draw [cyan!50] (seq1) to (seq2);
+        \draw [blue!30, dashed] (seq1) to (con1);
+        \draw [blue!30, dashed] (seq2) to (con2);
+    \end{tikzpicture}
+    \caption{「两个结合」}\label{fig:sec0-两个结合}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=9cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=9cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){开辟和发展中国特色社会主义的\textcolor{darkcyan}{必由之路}};
+        \node[item, right=of seq2] (item2){推进马克思主义中国化时代化的根本途径};
+        \node[item, right=of seq3] (item3){我们取得成功的最大法宝};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{我们党坚定信仰信念、把握历史主动的根本所在}（应为马克思主义科学理论指导）};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{关于「两个结合」说法正确的是}\label{fig:sec0-两个结合说法正确的是}
+\end{figure}
+
+\newpage
+\section{新时代坚持和发展中国特色社会主义}\label{sec:1}
+
+\begin{summary}
+\begin{enumerate}
+    \item 什么是社会主义，怎样建设社会主义，是中国共产党人思考的基本问题。
+    \item 党的十八大后，党面临的主要任务
+    \item 党的基本路线——国家的生命线、人民的幸福线
+    \item 党的基本方略——以「十四个坚持」为主要内容
+    \item 党的基本理论——坚持和发展中国特色社会主义的行动指南
+    \item 「五位一体」总体布局与「四个全面」战略布局
+    \item 道路自信、理论自信、制度自信、文化自信
+\end{enumerate}
+\textcolor{violet!50}{（注：《课程知识要点》条目 7,9,10 与上一节内容有重合，不重复列出）}
+\end{summary}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {实现第一个百年奋斗目标};
+        \node[item, below=of item1] (item2) {开启实现第二个百年奋斗目标新征程};
+        \node[item, below=of item2] (item3) {朝着实现中华民族伟大复兴的宏伟目标继续前进};
+        \node[general, left=1cm of item2] (general) {习思想};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3);
+    \end{tikzpicture}
+    \caption{党的十八大后，新时代党面临的主要任务}\label{fig:sec1-党的主要任务}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        node distance=0.4cm,
+        font=\small]
+
+        %铺垫形状
+        \node [seq] (seq1) {基本路线};
+        \node [seq, below=of seq1] (seq2)  {基本方略};
+        \node [seq, below=of seq2] (seq3)  {基本理论};
+
+        \node[content, right=of seq1] (right1) {国家的生命线、人民的幸福线};
+        \node[content, right=of seq2] (right2) {以「十四个坚持」为主要内容};
+        \node[content, right=of seq3] (right3) {坚持和发展中国特色社会主义的行动指南};
+
+        \foreach\x in {1,2,3}{
+            \draw [dashed, blue!30] (seq\x) to (right\x);
+        }
+        \foreach\x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1}
+            \draw[dashed, cyan!50] (seq\x) to (seq\prev);
+        }
+    \end{tikzpicture}
+    \caption{党的基本路线、基本方略、基本理论}\label{fig:sec1-基本路线、基本方略、基本理论}
+\end{figure}
+
+党的基本路线的内容：领导和团结全国各族人民，以经济建设为中心，坚持四项基本原则，坚持改革开放，自力更生，艰苦创业，为把我国建设成为富强民主文明和谐美丽的社会主义现代化强国而奋斗。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick,  align=center},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, align=center},
+        node distance=0.4cm,
+        font=\small, >=Stealth]
+        % 五位一体
+        \node[content] (left1) {经济建设};
+        \node[content, below=of left1] (left2) {政治建设};
+        \node[content, below=of left2] (left3) {文化建设};
+        \node[content, below=of left3] (left4) {社会建设};
+        \node[content, below=of left4] (left5) {生态文明建设};
+        % 中间
+        \node [seq, right=of left3] (seq5w1t) {五位一体\\总体布局};
+        \node [seq, right=of seq5w1t] (seq4gqm)  {四个全面\\战略布局};
+        % 四个全面（注意作图顺序）
+        \node[content, right=of seq4gqm] (right1) {全面建设社会主\\义现代化国家};
+        \node[content, right=of right1] (right3) {全面依法治国};
+        \node[content, above=of right3] (right2) {全面深化改革};
+        \node[content, below=of right3] (right4) {全面从严治党};
+        \node[below, outer sep=1cm] at (right1) {\color{blue!50}战略目标(1)};
+        \node[below, outer sep=0.5cm] at (right4) {\color{blue!50}战略举措(3)};
+
+        % 左侧画线
+        \draw[->, cyan!50, thick] (seq5w1t) edge[bend right, looseness=1] (left1);
+        \draw[->, cyan!50, thick] (seq5w1t) edge[bend right, looseness=0.8] (left2);
+        \draw[->, cyan!50, thick] (seq5w1t) to (left3);
+        \draw[->, cyan!50, thick] (seq5w1t) edge[bend left, looseness=0.8] (left4);
+        \draw[->, cyan!50, thick] (seq5w1t) edge[bend left, looseness=1] (left5);
+        % 中间画线
+        \draw[dashed, cyan!50] (seq5w1t) to (seq4gqm);
+        % 右侧画线
+        \draw[->, cyan!50, thick] (seq4gqm) to (right1);
+        \draw[->, blue!30, thick] (right1) edge[bend left, looseness=0.8] (right2);
+        \draw[->, blue!30, thick] (right1) to (right3);
+        \draw[->, blue!30, thick] (right1) edge[bend right, looseness=0.8] (right4);
+    \end{tikzpicture}
+    \caption{「五位一体」总体布局与「四个全面」战略布局}\label{fig:sec1-五位一体和四个全面}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        node distance=0.4cm,
+        font=\small]
+
+        %铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}是};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}是};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        \node[content, left=of seq1] (left1) {道路};
+        \node[content, left=of seq2] (left2) {理论};
+        \node[content, left=of seq3] (left3) {制度};
+        \node[content, left=of seq4] (left4) {文化};
+        \node[content, right=of seq1] (right1) {实现路径};
+        \node[content, right=of seq2] (right2) {行动指南};
+        \node[content, right=of seq3] (right3) {根本保障};
+        \node[content, right=of seq4] (right4) {精神力量};
+        \foreach\x in {1,2,3,4}{
+            \draw [dashed, blue!30] (left\x) to (seq\x);
+            \draw [dashed, blue!30] (seq\x) to (right\x);
+        }
+    \end{tikzpicture}
+    \caption{中国特色社会主义\{道路,理论,制度,文化\}的性质}\label{fig:sec1-道路理论制度文化}
+\end{figure}
+
+
+\newpage
+\section{以中国式现代化全面推进中华民族伟大复兴}
+\begin{summary}
+\begin{enumerate}
+    \item 党的历史使命，是实现中华民族伟大复兴。
+    \item 改革开放以来我们取得一切成绩和进步的根本原因——道路、理论、制度、文化
+    \item 中国梦的本质——国家富强、民族振兴、人民幸福
+    \item 「两步走」战略安排
+    \item 中国式现代化的特征
+    \item 中国式现代化的本质要求
+    \item 推进中华民族伟大复兴的重大原则
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[general] (general) {中国梦};
+        \node[item, right=of general] (item2) {民族振兴};
+        \node[item, above=of item2] (item1) {国家富强};
+        \node[item, below=of item2] (item3) {人民幸福};
+        \node[prop, right=of item1] (prop1) {全面建成富强民主文明和谐美丽的社会主义现代化强国};
+        \node[prop, right=of item2] (prop2) {使中华民族更加坚强有力地自立于世界民族之林};
+        \node[prop, right=of item3] (prop3) {以人民为中心，增进人民福祉};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3);
+        \foreach\x in {1,2,3}{
+            \draw[violet!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{中国梦的本质}\label{fig:sec2-中国梦的本质}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        node distance=0.6cm,
+        font=\small]
+
+        %铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \node [seq, below=of seq1] (seq2) {\color{darkcyan}2};
+        \node [content, right=of seq1] (con1) {从2020年到2035年基本实现社会主义现代化};
+        \node [content, right=of seq2, align=left] (con2) {从2035年到本世纪中叶把我国建成富强民主文明\\ 和谐美丽的社会主义现代化强国};
+        \draw [cyan!50] (seq1) to (seq2);
+        \draw [blue!30, dashed] (seq1) to (con1);
+        \draw [blue!30, dashed] (seq2) to (con2);
+    \end{tikzpicture}
+    \caption{「两步走」战略安排}\label{fig:sec2-两步走}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.6cm, align=center, text width=2cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.6cm},
+        node distance=0.4cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4,5}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=2cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, below=of seq1] (con1) {人口规模巨大};
+        \node [content, below=of seq2] (con2) {全体人民共同富裕};
+        \node [content, below=of seq3] (con3) {物质文明和精神文明相协调};
+        \node [content, below=of seq4] (con4) {人与自然和谐共生};
+        \node [content, below=of seq5] (con5) {走和平发展道路};
+
+        \foreach \x in {1,2,...,5}{
+            \draw[blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{中国式现代化的 5 个特征}
+    \label{fig:sec2-中国式现代化的 5 个特征}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, minimum size=0.6cm, align=center, text width=3.7cm},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.6cm, align=center, text width=3.7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.6cm, align=center, text width=3.7cm},
+        node distance=0.4cm,
+        font=\small]
+        \node[seq] (node-0-0) {坚持中国共产党领导};
+        \node[content, right=of node-0-0] (node-0-1) {坚持中国特色社会主义};
+        \node[prop, right=of node-0-1] (node-0-2) {实现高质量发展};
+        \node[content, below=of node-0-0] (node-1-0) {发展全过程人民民主};
+        \node[prop, right=of node-1-0] (node-1-1) {丰富人民精神世界};
+        \node[seq, right=of node-1-1] (node-1-2) {实现全体人民共同富裕};
+        \node[prop, below=of node-1-0] (node-2-0) {促进人与自然和谐共生};
+        \node[seq, right=of node-2-0] (node-2-1) {构建人类命运共同体};
+        \node[content, right=of node-2-1] (node-2-2) {创造人类文明新形态};
+    \end{tikzpicture}
+    \caption{中国式现代化的本质要求}\label{fig:sec2-中国式现代化的本质要求}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.6cm, align=center, text width=2cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.6cm},
+        node distance=0.4cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4,5}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=2cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, below=of seq1] (con1) {坚持和加强党的全面领导};
+        \node [content, below=of seq2] (con2) {坚持中国特色社会主义道路};
+        \node [content, below=of seq3] (con3) {坚持以人民为中心的发展思想};
+        \node [content, below=of seq4] (con4) {坚持深化改革开放};
+        \node [content, below=of seq5] (con5) {坚持发扬斗争精神};
+
+        \foreach \x in {1,2,...,5}{
+            \draw[blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{推进中华民族伟大复兴的重大原则}\label{fig:sec2-推进中华民族伟大复兴的重大原则}
+\end{figure}
+
+推进中国式现代化，需要统筹兼顾、系统谋划、整体推进，正确处理顶层设计与实践探索、战略与策略、守正与创新、效率与公平、活力与秩序、自立自强与对外开放等一系列重大关系。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=9.5cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=9.5cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){展现了不同于西方现代化模式的新图景};
+        \node[item, right=of seq2] (item2){是对西方式现代化理论和实践的重大超越};
+        \node[item, right=of seq3] (item3){为广大发展中国家提供了全新选择};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{是坚持和发展中国特色社会主义的必由之路}（参见图\ref{fig:sec3-必由之路}）};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{中国式现代化，说法正确的是}\label{fig:sec2-中国式现代化，说法正确的是} 
+\end{figure}
+
+\newpage
+\section{坚持党的全面领导}
+\begin{summary}
+\begin{enumerate}
+    \item 中国共产党是最高政治领导力量
+    \item 各种「必由之路」
+    \item 有关「中国共产党的领导」的几个知识
+    \item 中国共产党的「四力」、四个意识、四个自信、两个维护
+    \item 党的领导是全面的
+    \item 本节的其他相关概念
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, text width=7cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[prop] (item1) {是中国特色社会主义最本质的特征};
+        \node[prop, below=of item1] (item2) {是中国特色社会主义制度的最大优势};
+        \node[item, below=of item2] (item3) {是人民当家作主的可靠保障};
+        \node[item, below=of item3] (item4) {关系中国特色主义的性质、方向和命运};
+        \node[item, below=of item4] (item5) {是实现中华民族伟大复兴的根本保证};
+        \node[item, below=of item5] (item6) {是中国最大的国情};
+        \node[general, left=1cm of item3, yshift=-0.4cm] (general) {中国共产党领导};
+        \draw[thick, cyan!50, ] (general.east) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ] (general.east) edge[bend left, looseness=0.8] (item2.west);
+        \draw[thick, cyan!50, ] (general.east) edge[bend left, looseness=0.5] (item3.west);
+        \draw[thick, cyan!50, ] (general.east) edge[bend right, looseness=0.5] (item4.west);
+        \draw[thick, cyan!50, ] (general.east) edge[bend right, looseness=0.8] (item5.west);
+        \draw[thick, cyan!50, ] (general.east) edge[bend right, looseness=1] (item6.west);
+    \end{tikzpicture}
+    \caption{中国共产党领导的相关知识}\label{fig:sec3-中国共产党领导}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3.2cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5.8cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {坚持党的全面领导$^{\mathrm{0x03}}$};
+        \node[item, below=of item1] (item2) {中国特色社会主义$^{\mathrm{0x01}}$};
+        \node[item, below=of item2] (item3) {团结奋斗};
+        \node[item, below=of item3] (item4) {贯彻新发展理念$^{\mathrm{0x06}}$};
+        \node[item, below=of item4] (item5) {全面从严治党$^{\mathrm{0x11}}$};
+        \node[general, left=1cm of item3] (general) {必由之路};
+        \node[prop, right=of item1] (prop1) {坚持和发展中国特色社会主义的必由之路};
+        \node[prop, right=of item2] (prop2) {实现中华民族伟大复兴的必由之路};
+        \node[prop, right=of item3] (prop3) {中国人民创造历史伟业的必由之路};
+        \node[prop, right=of item4] (prop4) {新时代我国发展壮大的必由之路};
+        \node[prop, right=of item5] (prop5) {党永葆生机活力的必由之路};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=0.5] (item2.west);
+        \draw[thick, cyan!50, ->] (general) to (item3);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=0.5] (item4.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item5.west);
+        \foreach\x in {1,2,3,4,5}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{几个「必由之路」（注：右上角的十六进制数表示出现章节；也有观点说\textcolor{darkcyan}{改革开放}$^{\mathrm{0x05}}$是坚持和发展中国特色社会主义的必由之路。）}\label{fig:sec3-必由之路}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        node distance=0.4cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=2cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, below=of seq1] (con1) {\color{red}政治领导力};
+        \node [content, below=of seq2] (con2) {思想引领力};
+        \node [content, below=of seq3] (con3) {群众组织力};
+        \node [content, below=of seq4] (con4) {社会号召力};
+        \node [below, outer sep=0.4cm] at (con1) {\color{blue!30}（马克思主义政党第一位的能力）};
+        \foreach \x in {1,2,3,4}{
+            \draw[dashed, blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{中国共产党的「四力」}
+    \label{fig:sec3-中国共产党的「四力」}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=8cm, align=left},
+        node distance=0.6cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {四个意识};
+        \node [seq, below=of seq1] (seq2)  {四个自信};
+        \node [seq, below=of seq2] (seq3)  {两个维护};
+        \foreach \x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, right=of seq1] (con1) {政治意识、大局意识、核心意识、看齐意识};
+        \node [content, right=of seq2] (con2) {道路自信、理论自信、制度自信、文化自信};
+        \node [content, right=of seq3] (con3) {坚决维护习近平总书记党中央的核心、全党的核心地位，\\ 坚决维护党中央权威和集中统一领导。};
+        \foreach \x in {1,2,3}{
+            \draw[dashed, blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{四个意识、四个自信、两个维护}
+    \label{fig:sec3-四个意识、四个自信、两个维护}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, text width=3cm, align=center},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {领导对象全面};
+        \node[item, below=of item1] (item2) {领导内容全面};
+        \node[item, below=of item2] (item3) {领导过程全面};
+        \node[item, below=of item3] (item4) {领导方式全面};
+        \node[general, left=1cm of item3, yshift=0.4cm] (general) {党的领导是全面的};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=0.8] (item2.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=0.8] (item3.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item4.west);
+    \end{tikzpicture}
+    \caption{党的领导的全面体现}\label{fig:sec3-党的领导全面}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, },
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=5cm, align=right},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, text width=6cm, align=left}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        \node[item] (item1) {中国共产党};
+        \node[prop, right=of item1] (prop1) {是最高政治领导力量};
+        \node[item, below=of item1] (item2) {坚持党中央集中统一领导};
+        \node[prop, right=of item2] (prop2) {是最高政治原则};
+        \node[item, below=of item2] (item3) {中国共产党的自身优势};
+        \node[prop, right=of item3] (prop3) {中国特色社会主义制度优势的主要来源};
+        \node[item, below=of item3] (item4) {中国共产党作为最高政治领导力量};
+        \node[prop, right=of item4] (prop4) {是由我国国家性质和政治制度体系决定的};
+        \node[item, below=of item4] (item5) {党的领导制度};
+        \node[prop, right=of item5] (prop5) {是我国的根本领导制度};
+
+        \foreach \x in {1,2,3,4,5}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+        \foreach \x in {2,3,4,5}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \draw [blue!30, dashed] (item\x) to (item\prev);
+            \draw [violet!30, dashed] (prop\x) to (prop\prev);
+        }
+    \end{tikzpicture}
+    \caption{党的领导的其他概念}\label{fig:sec3-其他定义}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=6cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=6cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){坚持科学社会主义基本原则};
+        \node[item, right=of seq2] (item2){坚持中国共产党的领导};
+        \node[anti, right=of seq3] (item3){\color{gray}\CJKsout{坚持以人民为中心}};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{坚持深化改革开放}};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{中国特色社会主义之所以是社会主义，究其根本在于？}\label{fig:sec6-中国特色社会主义之所以是社会主义}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=6cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=6cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){在历史发展中\textcolor{darkcyan}{形成的}（此项正确）};
+        \node[item, right=of seq2] (item2){由我国国家性质决定的};
+        \node[item, right=of seq3] (item3){由我国的政治制度体系决定的};
+        \node[item, right=of seq4] (item4){由中华民族伟大复兴事业决定的};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{中国共产党是最高政治领导力量，这是？}\label{fig:sec6-中国共产党是最高政治领导力量}
+\end{figure}
+
+\begin{double_segment}
+坚持和发展中国特色社会主义的\textcolor{darkcyan}{必由之路}（参见图\ref{fig:sec3-必由之路}），目前找到两个：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 坚持党的全面领导$^\mathrm{0x03}$
+    \item 改革开放$^\mathrm{0x05}$
+\end{itemize}
+\end{double_segment}
+
+\newpage
+\section{坚持以人民为中心}
+\begin{summary}
+\begin{enumerate}
+    \item 人民是历史的创造者
+    \item 人民性与人民立场
+    \item 群众路线与共同富裕
+    \item 党的一些属性与人民的密切关系
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=6cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=6cm},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[prop] (item1) {是历史的创造者，是真正的英雄};
+        \node[item, below=of item1] (item2) {是创造历史的真正动力};
+        \node[item, below=of item2] (item3) {是社会变革的决定力量};
+        \node[item, below=of item3] (item4) {是党执政的最大底气、最深厚的根基};
+        \node[item, below=of item4] (item5) {是党的工作的最高裁决者和最终评判者};
+        \node[general, left=1cm of item3] (general) {人民};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=0.5] (item2.west);
+        \draw[thick, cyan!50, ->] (general) to (item3);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=0.5] (item4.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item5.west);
+    \end{tikzpicture}
+    \caption{人民的相关概念}\label{fig:sec4-人民的概念}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, },
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=2cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, text width=7.5cm, align=left}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        \node[item] (item1) {人民性};
+        \node[prop, right=of item1] (prop1) {是马克思主义的本质属性和鲜明品格};
+        \node[item, below=of item1] (item2) {人民立场};
+        \node[prop, right=of item2] (prop2) {是中国共产党的根本政治立场};
+        \node[item, below=of item2] (item3) {群众路线};
+        \node[prop, right=of item3] (prop3) {是我们党的生命线和根本工作路线、根本工作方法};
+        \node[item, below=of item3] (item4) {调查研究};
+        \node[prop, right=of item4] (prop4) {获得真知灼见的源头活水、贯彻群众路线的有效途径};
+        \node[item, below=of item4] (item5) {共同富裕};
+        \node[prop, right=of item5] (prop5) {是中国特色社会主义的本质要求};
+
+        \foreach \x in {1,2,3,4,5}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+        \foreach \x in {2,3,4,5}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \draw [blue!30, dashed] (item\x) to (item\prev);
+            \draw [violet!30, dashed] (prop\x) to (prop\prev);
+        }
+    \end{tikzpicture}
+    \caption{人民的衍生概念}\label{fig:sec4-人民的衍生概念}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5.8cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {党的初心和使命};
+        \node[item, below=of item1] (item2) {党的奋斗目标};
+        \node[item, below=of item2] (item3) {党的根本宗旨};
+        \node[item, below=of item3] (item4) {党的根本执政理念};
+        \node[item, below=of item4] (item5) {党的根本政治立场};
+        \node[item, below=of item5] (item6) {党的最大政治优势};
+        \node[general, left=1cm of item3, yshift=-0.4cm] (general) {党与人民};
+        \node[prop, right=of item1] (prop1) {为中国人民谋幸福，为中华民族谋复兴};
+        \node[prop, right=of item2] (prop2) {人民对美好生活的向往};
+        \node[prop, right=of item3] (prop3) {全心全意为人民服务};
+        \node[prop, right=of item4] (prop4) {坚持以人民为中心};
+        \node[prop, right=of item5] (prop5) {人民立场};
+        \node[prop, right=of item6] (prop6) {密切联系群众};
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=0.5] (item2.west);
+        \draw[thick, cyan!50, ->] (general) to (item3);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=0.5] (item4.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item5.west);
+        \foreach\x in {1,2,3,4,5}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{党的一些属性与人民的密切关系}\label{fig:sec4-党与人民}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        \node[general] (1) {发展为了人民};
+        \node[item, right=of 1] (2) {发展依靠人民};
+        \node[prop, right=of 2] (3) {发展成果由人民共享};
+    \end{tikzpicture}
+    \caption{以人民为中心的发展思想}\label{fig:sec4-以人民为中心的发展思想}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {rectangle, fill=cyan!20, draw=cyan!50, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        \node[general] (1) {时代是出卷人};
+        \node[item, right=of 1] (2) {我们（党）是答卷人};
+        \node[prop, right=of 2] (3) {人民是阅卷人};
+    \end{tikzpicture}
+    \caption{出卷、答卷、阅卷之喻}\label{fig:sec4-出卷、答卷、阅卷}
+\end{figure}
+
+\begin{double_segment}
+中国共产党区别于其他政党的\textcolor{darkcyan}{显著标志}，目前找到两个：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 全心全意为人民服务$^\mathrm{0x04}$
+    \item 勇于自我革命$^\mathrm{0x11}$
+\end{itemize}
+\end{double_segment}
+
+
+\newpage
+\section{全面深化改革开放}
+\begin{summary}
+\begin{enumerate}
+    \item 改革开放是「两个关键一招」
+    \item 社会主义改革的出发点和落脚点，解放和发展生产力，全面深化改革的总目标
+    \item 改革、发展、稳定的关系
+    \item 改革只有进行时；开放也是改革
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=4cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=4cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4,5}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[prop, right=of seq1] (item1){全面、系统、整体的};
+        \node[item, right=of seq2] (item2){必须着眼改革的};
+        \node[item, right=of seq3] (item3){全面深化改革开放是};
+        \node[item, right=of seq4] (item4){新时代改革开放是};
+        \node[item, right=of seq5] (item5){增强全面深化改革的};
+        \node[item, right=of item1](prop1){制度创新};
+        \node[prop, right=of item2](prop2){关联性、系统性、可行性};
+        \node[prop, right=of item3](prop3){有立场、有方向、有原则的};
+        \node[prop, right=of item4](prop4){全方位、深层次、根本性的};
+        \node[prop, right=of item5](prop5){系统性、整体性、协同性};
+        \foreach \x in {1,2,3,4,5}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{关于改革开放的一些易混淆术语}\label{fig:sec5-几个术语}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3.5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=7cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}是};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}是};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, left=of seq1] (item1){社会主义改革开放的出发点和落脚点};
+        \node[item, left=of seq2] (item2){解放和发展生产力};
+        \node[item, left=of seq3] (item3){全面深化改革总目标};
+        \node[item, left=of seq4] (item4){国家治理体系和治理能力};
+        \node[prop, right=of seq1](prop1){为了更好实现和维护人民的利益};
+        \node[prop, right=of seq2](prop2){改革开放的\textcolor{darkcyan}{鲜明特征}和\textcolor{darkcyan}{首要任务}};
+        \node[prop, right=of seq3](prop3){完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化};
+        \node[prop, right=of seq4](prop4){由这个国家的历史文化、社会性质、经济发展水平决定的};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (seq\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{关于改革开放的一些定义}\label{fig:sec5-几个定义}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 使用极坐标系布置等边三角形节点
+        % 等边三角形的每个内角是60度，所以三个节点分别位于90度、210度和330度
+        \node[seq] (A) at (90:1.5cm) {改革}; % 半径可以调整以匹配您想要的三角形大小
+        \node[seq] (B) at (210:1.5cm) {发展};
+        \node[seq] (C) at (330:1.5cm) {稳定};
+        \draw[cyan!50, thick] (A) -- (B) -- (C) -- (A);
+        \node[item] (A1) at (90:2.2cm) {动力};
+        \node[item] (B1) at (210:2.3cm) {目的};
+        \node[item] (C1) at (330:2.3cm) {前提};
+
+    \end{tikzpicture}
+    \caption{改革、发展、稳定的关系}\label{fig:sec5-改革发展稳定}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=7cm, align=left}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4,5,6}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){经济体制改革};
+        \node[item, right=of seq2] (item2){政治体制改革};
+        \node[item, right=of seq3] (item3){文化体制改革};
+        \node[item, right=of seq4] (item4){社会体制改革};
+        \node[item, right=of seq5] (item5){生态文明体制改革};
+        \node[item, right=of seq6] (item6){党的建设制度改革};
+        \node[prop, right=of item1](prop1){紧紧围绕使\textcolor{darkcyan}{市场}在资源配置中起决定性作用};
+        \node[prop, right=of item2](prop2){紧紧围绕坚持\textcolor{darkcyan}{党的领导、人民当家作主、依法治国}有机统一};
+        \node[prop, right=of item3](prop3){紧紧围绕建设社会主义核心价值体系};
+        \node[prop, right=of item4](prop4){紧紧围绕更好保障和改善民生};
+        \node[prop, right=of item5](prop5){紧紧围绕建设美丽中国};
+        \node[prop, right=of item6](prop6){紧紧围绕提高\textcolor{darkcyan}{科学执政、民主执政、依法执政}水平};
+        \foreach \x in {1,2,3,4,5,6}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{「六个紧紧围绕」与六个体制改革（课本p99）}\label{fig:sec5-六个紧紧围绕}
+\end{figure}
+
+此外，改革开放永无止境；开放也是改革；改革只有进行时，没有完成时；以\textcolor{darkcyan}{国内大循环}吸引全球资源要素。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}是};
+        \foreach \x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}是};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, left=of seq1] (item1){决定当代中国命运的关键一招};
+        \node[item, left=of seq2] (item2){实现中华民族伟大复兴的关键一招};
+        \node[item, left=of seq3] (item3){实现中华民族伟大复兴的关键一步};
+        \node[prop, right=of seq1](prop1){改革开放};
+        \node[prop, right=of seq2](prop2){改革开放};
+        \node[prop, right=of seq3](prop3){全面建成小康社会};
+        \foreach \x in {1,2,3}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (seq\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{「关键一步」和「关键一招」}\label{fig:sec5-关键一步和关键一招}
+\end{figure}
+
+\newpage
+\section{推动高质量发展}
+\begin{summary}
+\begin{enumerate}
+    \item 高质量发展和新发展理念的定性
+    \item 贯彻新发展理念是新时代我国发展壮大的必由之路（见0x03节）
+    \item 新发展理念的内容
+    \item 我国经济发展的「三期叠加」状态
+    \item 社会主义基本经济制度、市场经济体制的内涵
+    \item 乡村振兴战略、区域协调发展战略等
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=2.5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=6cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}是};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}是};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, left=of seq1] (item1){高质量发展};
+        \node[item, left=of seq2] (item2){高质量发展};
+        \node[item, left=of seq3] (item3){新发展理念};
+        \node[item, left=of seq4] (item4){贯彻新发展理念};
+        \node[prop, right=of seq1](prop1){新时代我国经济社会发展的\textcolor{darkcyan}{鲜明主题}};
+        \node[prop, right=of seq2](prop2){全面建设社会主义现代化国家的\textcolor{darkcyan}{首要任务}};
+        \node[prop, right=of seq3](prop3){实现高质量发展的指导原则};
+        \node[prop, right=of seq4](prop4){新时代我国发展壮大的必由之路};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (seq\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{高质量发展、新发展理念的定性}\label{fig:sec6-高质量发展、新发展理念的定性}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=3cm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        
+        % 角度偏移量：72度
+        \node[seq] (A) at (90: 1.5cm) {创新};
+        \node[seq] (B) at (162: 1.5cm) {协调};
+        \node[seq] (C) at (18: 1.5cm) {绿色};
+        \node[seq] (D) at (234: 1.5cm) {开放};
+        \node[seq] (E) at (-54: 1.5cm) {共享};
+        \draw[thick, cyan!50] (A)--(B)--(D)--(E)--(C)--(A);
+        \node[item] (A1) at (90: 3.2cm)  {引领发展的第一\textcolor{darkcyan}{动力}（第一动力）};
+        \node[item] (B1) at (162: 4.1cm) {解决发展不平衡问题（内生特点）};
+        \node[item] (C1) at (18: 4.1cm)  {永续发展的必要条件（普遍形态）};
+        \node[item] (D1) at (234: 3.2cm) {繁荣发展的必由之路（必由之路）};
+        \node[item] (E1) at (-54: 3.2cm) {中国特色社会主义\textcolor{darkcyan}{本质要求}（根本目的）};
+        
+        \foreach \c in {A,B,C,D,E}{
+            \draw[blue!30] (\c) -- (\c1);
+        }
+    \end{tikzpicture}
+    \caption{新发展理念}\label{fig:sec5-新发展理念}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        content/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        node distance=0.4cm,
+        font=\small]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=2.5cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+
+        %填写文字
+        \node [content, below=of seq1] (con1) {增长速度换挡期};
+        \node [content, below=of seq2] (con2) {结构调整阵痛期};
+        \node [content, below=of seq3] (con3) {前期刺激政策消化期};
+        \foreach \x in {1,2,3}{
+            \draw[dashed, blue!30] (seq\x) to (con\x);
+        }
+    \end{tikzpicture}
+    \caption{经济发展的「三期叠加」阶段}
+    \label{fig:sec6-经济发展的「三期叠加」阶段}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=1.5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5.8cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {所有制};
+        \node[item, below=of item1] (item2) {分配方式};
+        \node[item, below=of item2] (item3) {经济体制};
+        \node[general, left=1cm of item2] (general) {基本经济制度};
+        \node[prop, right=of item1] (prop1) {公有制为主体、多种所有制经济共同发展};
+        \node[prop, right=of item2] (prop2) {按劳分配为主体、多种分配方式并存};
+        \node[prop, right=of item3] (prop3) {社会主义市场经济体制};
+        
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3.west);
+
+        \foreach\x in {1,2,3}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{基本经济制度的内涵}\label{fig:sec6-基本经济制度}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=7cm, align=left}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){对公有制经济};
+        \node[item, right=of seq2] (item2){对非公有制经济};
+        \node[item, right=of seq3] (item3){构建市场经济体制};
+        \node[item, right=of seq4] (item4){大循环和双循环};
+        \node[prop, right=of item1](prop1){（毫不动摇）巩固和发展};
+        \node[prop, right=of item2](prop2){（毫不动摇）鼓励、支持、引导};
+        \node[prop, right=of item3](prop3){关键是要处理好\textcolor{darkcyan}{政府和市场}的关系};
+        \node[prop, right=of item4](prop4){以国内大循环为主体、国内国际双循环相互促进};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{经济制度相关措施}\label{fig:sec6-经济制度相关措施}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, text width=1.5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, text width=5.8cm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {总目标};
+        \node[item, below=of item1] (item2) {总方针};
+        \node[item, below=of item2] (item3) {总要求};
+        \node[item, below=of item3] (item4) {制度保障};
+        \node[general, left=1cm of item2, yshift=-0.4cm] (general) {乡村振兴};
+        \node[prop, right=of item1] (prop1) {农业农村现代化};
+        \node[prop, right=of item2] (prop2) {农业农村优先发展};
+        \node[prop, right=of item3] (prop3) {产业兴旺、生态宜居、乡风文明等};
+        \node[prop, right=of item4] (prop4) {城乡融合发展体制机制和政策体系};
+
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=0.7] (item2.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=0.7] (item3.west);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item4.west);
+        \foreach\x in {1,2,3,4}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{乡村振兴战略}\label{fig:sec6-乡村振兴}
+\end{figure}
+
+市场在资源配置中起决定性作用；宏观调控是党和国家治理经济的重要方式；资本是带动各类生产要素集聚配置的重要纽带。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=9.5cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=9.5cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){为全面建设社会主义现代化国家提供更为坚实的物质基础};
+        \node[item, right=of seq2] (item2){是不断满足人民对美好生活需要的重要保证};
+        \node[item, right=of seq3] (item3){是维护国家长治久安的必然要求};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{是民族复兴的根基、国家强盛的前提}（应为国家安全、社会稳定）};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{高质量发展，包括的内容}\label{fig:sec6-高质量发展包括的内容}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=9.5cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=9.5cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){高标准、高质量建设雄安新区};
+        \node[item, right=of seq2] (item2){推进长江经济带发展};
+        \node[item, right=of seq3] (item3){推进粤港澳大湾区建设};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{鼓励东部地区加快推进现代化}（这属于区域协调发展战略）}; \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{深入实施区域重大战略，包括的内容}\label{fig:sec6-深入实施区域重大战略包括的内容}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=9.5cm, align=left},
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=9.5cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){长期目标和短期目标的关系};
+        \node[anti, right=of seq2] (item2){\color{gray}\CJKsout{调查研究和基层探索的关系}（应为顶层设计和基层探索）}; 
+        \node[item, right=of seq3] (item3){充分发挥市场决定性作用和更好发挥政府作用的关系};
+        \node[item, right=of seq4] (item4){增强群众获得感和适应发展阶段的关系};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{全面实施乡村振兴战略，要处理好的关系}\label{fig:sec6-全面实施乡村振兴战略，要处理好的关系}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm}, % property的缩写
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=2cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, below=of seq1] (item1){城市化地区};
+        \node[item, below=of seq2] (item2){农产品主产区};
+        \node[item, below=of seq3] (item3){生态功能区};
+        \node[anti, below=of seq4] (item4){\color{gray}\CJKsout{科技园区}};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{主体功能区制度与三大空间格局，包括的内容}\label{fig:sec6-主体功能区制度与三大空间格局}
+\end{figure}
+
+\newpage
+\section{社会主义现代化建设的教育、科技、人才战略}
+\begin{summary}
+\begin{enumerate}
+    \item 教育、科技、人才的关系
+    \item 科教兴国战略、人才强国战略、创新驱动发展战略
+    \item 教育强国、科技强国、人才强国及其他内容
+\end{enumerate}
+\end{summary}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 使用极坐标系布置等边三角形节点
+        % 等边三角形的每个内角是60度，所以三个节点分别位于90度、210度和330度
+        \node[seq] (A) at (90:1.5cm) {教育}; % 半径可以调整以匹配您想要的三角形大小
+        \node[seq] (B) at (210:1.5cm) {科技};
+        \node[seq] (C) at (330:1.5cm) {人才};
+        \draw[cyan!50, thick] (A) -- (B) -- (C) -- (A);
+        \node[item] (A1) at (90:2.2cm) {根本};
+        \node[item] (B1) at (210:2.3cm) {关键};
+        \node[item] (C1) at (330:2.3cm) {基础};
+        \node[prop] (A2) at (90:2.7cm) {优先发展};
+        \node[prop] (B2) at (210:3.2cm) {自立自强};
+        \node[prop] (C2) at (330:3.2cm) {引领驱动};
+    \end{tikzpicture}
+    \caption{教育、科技、人才的关系}\label{fig:sec7-教育、科技、人才}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm,  text width=2cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}是};
+        \foreach \x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}是};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, left=of seq1] (item1){科技};
+        \node[item, left=of seq2] (item2){人才};
+        \node[item, left=of seq3] (item3){创新};
+        \node[prop, right=of seq1](prop1){第一生产力};
+        \node[prop, right=of seq2](prop2){第一资源};
+        \node[prop, right=of seq3](prop3){第一动力};
+        \foreach \x in {1,2,3}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (seq\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{科技、人才、创新的三个「第一」}\label{fig:sec7-科技、人才、创新的三个「第一」}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=3cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm,  text width=6cm, align=left}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){科教兴国战略};
+        \node[item, right=of seq2] (item2){人才强国战略};
+        \node[item, right=of seq3] (item3){创新驱动发展战略};
+        \node[prop, right=of item1](prop1){科教兴国是我国的基本国策};
+        \node[prop, right=of item2](prop2){人才强国战略是国家和民族长远发展大计};
+        \node[prop, right=of item3](prop3){创新在国家发展全局中居于核心位置};
+        \foreach \x in {1,2,3}{
+            \draw[blue!30] (seq\x) to (item\x);
+            \draw[violet!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{科教兴国、人才强国、创新驱动发展战略}\label{fig:sec7-科教兴国、人才强国、创新驱动发展战略}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3.5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5.5cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {教育的根本任务};
+        \node[item, below=of item1] (item2) {发展教育的根本尺度};
+        \node[item, below=of item2] (item3) {教育的根本问题};
+        \node[general, left=1cm of item2] (general) {教育强国};
+        \node[prop, right=of item1] (prop1) {立德树人};
+        \node[prop, right=of item2] (prop2) {人民满意};
+        \node[prop, right=of item3] (prop3) {培养什么人、怎样培养人、为谁培养人};
+
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3.west);
+
+        \foreach\x in {1,2,3}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{建设教育强国的内涵}\label{fig:sec7-教育强国}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        general/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=5cm, align=center},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm, minimum size=0.7cm, text width=3cm, align=center}, % property的缩写
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+        \node[item] (item1) {科技创新的源头};
+        \node[item, below=of item1] (item2) {将基础研究转化为实际应用的桥梁};
+        \node[item, below=of item2] (item3) {世界科技强国竞争的着力点};
+        \node[general, left=1cm of item2] (general) {科技强国};
+        \node[prop, right=of item1] (prop1) {基础研究};
+        \node[prop, right=of item2] (prop2) {应用研究};
+        \node[prop, right=of item3] (prop3) {国家战略科技力量};
+
+        \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
+        \draw[thick, cyan!50, ->] (general) to (item2);
+        \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3.west);
+
+        \foreach\x in {1,2,3}{
+            \draw[blue!30] (item\x) to (prop\x);
+        }
+    \end{tikzpicture}
+    \caption{建设科技强国的内涵}\label{fig:sec7-科技强国}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm,text width=8cm, align=left},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm,  text width=8cm, align=left}, % property的缩写
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm, text width=8cm, align=left},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, below=of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, right=of seq1] (item1){是国家强盛和民族复兴的战略基石};
+        \node[item, right=of seq2] (item2){是应对风险挑战和维护国家利益的必然选择};
+        \node[item, right=of seq3] (item3){是构建新发展格局、推动高质量发展、满足人民美好生活需要的内在要求};
+        \node[anti, right=of seq4] (item4){\color{gray}\CJKsout{是发展经济的着力点}（应为实体经济）};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{实现高水平自立自强，包括的内容}\label{fig:sec7-高水平自立自强}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        seq/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+        item/.style = {rectangle, fill=blue!10, draw=blue!30, thick, rounded corners=2mm},
+        prop/.style = {rectangle, fill=violet!10, draw=violet!30, thick, rounded corners=2mm}, % property的缩写
+        anti/.style = {rectangle, fill=gray!20, draw=gray!40, thick, rounded corners=2mm},
+        node distance=0.4cm,
+        font=\small,
+        >=Stealth]
+
+        % 铺垫形状
+        \node [seq] (seq1) {\color{darkcyan}1};
+        \foreach \x in {2,3,4}{
+            \pgfmathtruncatemacro{\prev}{\x-1} % 使用一个宏来预处理上一个节点的编号
+            \node [seq, right=1.5cm of seq\prev] (seq\x)  {\color{darkcyan}\x};
+            \draw [cyan!50, thick] (seq\x) to (seq\prev);
+        }
+        \node[item, below=of seq1] (item1){原始创新};
+        \node[item, below=of seq2] (item2){集成创新};
+        \node[item, below=of seq3] (item3){开放创新};
+        \node[anti, below=of seq4] (item4){\color{gray}\CJKsout{改革创新}};
+        \foreach \x in {1,2,3,4}{
+            \draw[blue!30] (seq\x) to (item\x);
+        }
+    \end{tikzpicture}
+    \caption{实现自主创新，包括的内容}\label{fig:sec7-自主创新}
+\end{figure}
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+%\begin{figure}[H]
+%    \centering
+%    \begin{tikzpicture}[
+%        >=Stealth,
+%        item/.style = {circle, fill=cyan!20, draw=cyan!50, thick},
+%        node distance = 3cm,
+%        font=\small]
+%
+%        \node[item] (develop) {发展};
+%        \node[item, right=of develop] (save) {安全};
+%        \draw[->, blue!30, thick] (develop) edge[bend left, looseness=0.7] node[above] {\color{blue!80}基础和目的} (save);
+%        \draw[->, blue!30, thick] (save) edge[bend left, looseness=0.7] node[below] {\color{blue!80}条件和保障} (develop);
+%        \node[left, outer sep=1cm] at (develop) {\color{blue}一体两翼};
+%        \node[right, outer sep=1cm] at (save) {驱动双轮};
+%    \end{tikzpicture}
+%    \caption{发展和安全的关系}\label{fig:sec13-发展和安全的关系}
+%\end{figure}
+
+
+
+\end{document} 
