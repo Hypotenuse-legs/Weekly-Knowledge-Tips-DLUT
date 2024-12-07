@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2024.1.30)  5 DEC 2024 10:44
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2024.1.30)  8 DEC 2024 00:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./「知识小料」·其四十三.tex
-(「知识小料」·其四十三.tex
+**./「知识小料」·其四十四.tex
+(「知识小料」·其四十四.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexart.cls
@@ -1114,8 +1114,8 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;"
 
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 40.
-(「知识小料」·其四十三.aux)
-\openout1 = `「知识小料」·其四十三.aux'.
+(「知识小料」·其四十四.aux)
+\openout1 = `「知识小料」·其四十四.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
@@ -1233,9 +1233,9 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 64.
-(「知识小料」·其四十三.out) (「知识小料」·其四十三.out)
+(「知识小料」·其四十四.out) (「知识小料」·其四十四.out)
 \@outlinefile=\write4
-\openout4 = `「知识小料」·其四十三.out'.
+\openout4 = `「知识小料」·其四十四.out'.
 
 
 Underfull \hbox (badness 10000) detected at line 71
@@ -1347,16 +1347,8 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [4]
-
-Package fancyhdr Warning: \footskip is too small (2.84544pt): 
-(fancyhdr)                Make it at least 10.1178pt, for example:
-(fancyhdr)                \setlength{\footskip}{10.1178pt}.
-
-File: 空白示例.png Graphic file (type bmp)
-<空白示例.png>
-[5]
-Overfull \hbox (1.57979pt too wide) in paragraph at lines 579--580
- [][] 
+Underfull \hbox (badness 1824) in paragraph at lines 416--416
+ [][]\TU/汉仪文黑-55W(0)/m/n/9.03374 中 华 优 秀 传 统 文 化
  []
 
 
@@ -1366,8 +1358,16 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
+[5]
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
 [6]
-Overfull \hbox (1.57979pt too wide) in paragraph at lines 632--633
+Overfull \hbox (8.49863pt too wide) in paragraph at lines 589--590
  [][] 
  []
 
@@ -1387,15 +1387,6 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [8]
-Underfull \hbox (badness 7576) in paragraph at lines 829--829
- [][]\TU/汉仪文黑-55W(0)/m/n/9.03374 中 国 共 产 党
- []
-
-
-Underfull \hbox (badness 4846) in paragraph at lines 837--837
- [][]\TU/汉仪文黑-55W(0)/m/n/9.03374 党 的 领 导 制 度
- []
-
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1428,6 +1419,10 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [12]
+Overfull \hbox (16.13782pt too wide) in paragraph at lines 893--894
+ [][] 
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1459,47 +1454,21 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
-[16]
-
-Package fancyhdr Warning: \footskip is too small (2.84544pt): 
-(fancyhdr)                Make it at least 10.1178pt, for example:
-(fancyhdr)                \setlength{\footskip}{10.1178pt}.
-
-File: 空白示例.png Graphic file (type bmp)
-<空白示例.png>
-[17]
-
-Package fancyhdr Warning: \footskip is too small (2.84544pt): 
-(fancyhdr)                Make it at least 10.1178pt, for example:
-(fancyhdr)                \setlength{\footskip}{10.1178pt}.
-
-File: 空白示例.png Graphic file (type bmp)
-<空白示例.png>
-[18]
-
-Package fancyhdr Warning: \footskip is too small (2.84544pt): 
-(fancyhdr)                Make it at least 10.1178pt, for example:
-(fancyhdr)                \setlength{\footskip}{10.1178pt}.
-
-File: 下半示例.png Graphic file (type bmp)
-<下半示例.png>
-File: 下半示例.png Graphic file (type bmp)
-<下半示例.png>
-[19] (「知识小料」·其四十三.aux)
+[16] (「知识小料」·其四十四.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `「知识小料」·其四十三.out' has not changed.
-(rerunfilecheck)             Checksum: 7920C160E4E886172518809C0ED02157;1152.
+Package rerunfilecheck Info: File `「知识小料」·其四十四.out' has not changed.
+(rerunfilecheck)             Checksum: FD0FB427BC6EDDDC707EBAE77831A017;1577.
  ) 
 Here is how much of TeX's memory you used:
- 33209 strings out of 409673
- 729489 string characters out of 5775313
- 1954630 words of memory out of 5000000
- 54697 multiletter control sequences out of 15000+600000
- 566742 words of font info for 142 fonts, out of 8000000 for 9000
+ 33079 strings out of 409673
+ 732347 string characters out of 5775313
+ 1957630 words of memory out of 5000000
+ 54565 multiletter control sequences out of 15000+600000
+ 568316 words of font info for 150 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  117i,11n,121p,1200b,1108s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 「知识小料」·其四十三.pdf (19 pages).
+Output written on 「知识小料」·其四十四.pdf (16 pages).

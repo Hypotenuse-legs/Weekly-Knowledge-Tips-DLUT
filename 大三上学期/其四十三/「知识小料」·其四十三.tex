@@ -660,7 +660,7 @@
             \draw[blue!30] (seq\x) to (item\x);
         }
     \end{tikzpicture}
-    \caption{中国式现代化，说法正确的是}\label{fig:sec2-中国式现代化，说法正确的是} 
+    \caption{中国式现代化，说法正确的是}\label{fig:sec2-中国式现代化，说法正确的是}
 \end{figure}
 
 \newpage
@@ -874,7 +874,7 @@
             \draw[blue!30] (seq\x) to (item\x);
         }
     \end{tikzpicture}
-    \caption{中国特色社会主义之所以是社会主义，究其根本在于？}\label{fig:sec6-中国特色社会主义之所以是社会主义}
+    \caption{中国特色社会主义之所以是社会主义，究其根本在于？}\label{fig:sec3-中国特色社会主义之所以是社会主义}
 \end{figure}
 
 \begin{figure}[H]
@@ -902,7 +902,7 @@
             \draw[blue!30] (seq\x) to (item\x);
         }
     \end{tikzpicture}
-    \caption{中国共产党是最高政治领导力量，这是？}\label{fig:sec6-中国共产党是最高政治领导力量}
+    \caption{中国共产党是最高政治领导力量，这是？}\label{fig:sec3-中国共产党是最高政治领导力量}
 \end{figure}
 
 \begin{double_segment}
@@ -1287,7 +1287,7 @@
         node distance=0.4cm,
         font=\small,
         >=Stealth]
-        
+
         % 角度偏移量：72度
         \node[seq] (A) at (90: 1.5cm) {创新};
         \node[seq] (B) at (162: 1.5cm) {协调};
@@ -1300,7 +1300,7 @@
         \node[item] (C1) at (18: 4.1cm)  {永续发展的必要条件（普遍形态）};
         \node[item] (D1) at (234: 3.2cm) {繁荣发展的必由之路（必由之路）};
         \node[item] (E1) at (-54: 3.2cm) {中国特色社会主义\textcolor{darkcyan}{本质要求}（根本目的）};
-        
+
         \foreach \c in {A,B,C,D,E}{
             \draw[blue!30] (\c) -- (\c1);
         }
@@ -1352,7 +1352,7 @@
         \node[prop, right=of item1] (prop1) {公有制为主体、多种所有制经济共同发展};
         \node[prop, right=of item2] (prop2) {按劳分配为主体、多种分配方式并存};
         \node[prop, right=of item3] (prop3) {社会主义市场经济体制};
-        
+
         \draw[thick, cyan!50, ->] (general) edge[bend left, looseness=1] (item1.west);
         \draw[thick, cyan!50, ->] (general) to (item2);
         \draw[thick, cyan!50, ->] (general) edge[bend right, looseness=1] (item3.west);
@@ -1502,7 +1502,7 @@
             \draw [cyan!50, thick] (seq\x) to (seq\prev);
         }
         \node[item, right=of seq1] (item1){长期目标和短期目标的关系};
-        \node[anti, right=of seq2] (item2){\color{gray}\CJKsout{调查研究和基层探索的关系}（应为顶层设计和基层探索）}; 
+        \node[anti, right=of seq2] (item2){\color{gray}\CJKsout{调查研究和基层探索的关系}（应为顶层设计和基层探索）};
         \node[item, right=of seq3] (item3){充分发挥市场决定性作用和更好发挥政府作用的关系};
         \node[item, right=of seq4] (item4){增强群众获得感和适应发展阶段的关系};
         \foreach \x in {1,2,3,4}{
