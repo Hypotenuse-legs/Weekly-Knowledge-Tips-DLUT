@@ -1,0 +1,264 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{tasks}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[table]{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={汉仪文黑-55W}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+
+%————————————————可变部分——————————————————
+\settasks{label={\Alph*.\ }, label-format={\color{cyan!50!black}}, item-format={\color{cyan!50!black}}}
+\newcommand\col[1]{\textcolor{green!50!black}{#1}}
+\newcommand\coll[1]{\textcolor{blue}{#1}}
+\newcommand\dotting{\ .\ }
+\setlist[enumerate]{itemsep=0pt, parsep=0pt}
+\setlist[itemize]{itemsep=0pt, parsep=0pt}
+%——————————————————————————————————————————
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\colorlet{note}{yellow!70!black}
+
+
+\newcommand\IssueNumber{45}
+\newcommand\Date{2024-12-9}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{计算机组成原理·实验}
+%\newcommand\Source{历年考研 408 真题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.28\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+%\vspace{-0.1cm}
+%    \Brown{来源：\Source}
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{cyan!50!black}
+\begin{center}
+  《计组实验一小记》
+\end{center}}
+
+\section{图与PPT部分}
+
+\paragraph{五条指令}
+\begin{enumerate}
+  \item \verb!add.w   rd rj rk!
+  \item \verb!addi.w  rd rj si12!
+  \item \verb!ld.w    rd rj si12!
+  \item \verb!st.w    rd rj si12!
+  \item \verb!bne     rj rd offs16!
+\end{enumerate}
+
+\paragraph{寄存器堆}
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+  \item RA1, RA2, WA1 表示地址线。
+  \item RD1, RD2, WD1 表示数据线。
+  \item 在图中，RA1 连 rj， RD1 连 src1，表示在进入 ALU 前把 GR[rj] 的值作为 src1 加数传入。
+\end{itemize}
+
+注：\verb!addi,w!和 \verb!ld.w!不需要使用寄存器堆的 RA2。
+
+\paragraph{控制信号表}
+控制信号表如下所示，注意PPT图中表示和代码表示的对应关系。
+
+几个缩写：rf 的全称是 register file （寄存器堆），src 的全称是 source（源头），sel 的全称是 selection（选择）。
+
+\begin{table}[H]
+\small
+    \centering
+    \rowcolors{2}{cyan!10}{cyan!20}
+    \begin{tabular}{llp{0.3\textwidth}p{0.27\textwidth}}
+        \rowcolor{cyan!50}
+        图示 & 代码表示 & 表示含义 & 牵扯指令 \\
+
+        \verb!sel_alu_src2! & \verb!src2_is_imm! & \textbf{抉择}：操作数2是来自RD2的数，或者立即数（的符号扩展） & \verb!addi.w, ld.w, st.w!（立即数） \\
+        \verb!sel_rf_res! & \verb!res_from_mem! & \textbf{抉择}：ALU和是直接作为结果，或作为存储器的地址 & \verb!ld.w!（地址） \\
+        \verb!sel_rf_ra2! & \verb!src_reg_is_rd! & \textbf{抉择}：寄存器的 RA2 应准许 rk ，或者 rd & \verb!st.w, bne!（准许rd） \\
+        \verb!data_ram_we! & \verb!mem_we! & 对存储器写使能信号 & \verb!st.w! \\
+        \verb!data_ram_ce! & - & 对存储器写片选控制信号 & \verb!ld.w, st.w! \\
+        \verb!br_taken! & \verb!br_taken! & \textbf{抉择}：PC 的目标采取 PC+4，或 \verb!br_target! & \verb!bne!（采取后者） \\
+        \verb!rf_we! & \verb!gr_we! & 对寄存器堆的写使能信号（表示能否写寄存器堆） & \verb!add.w, addi.w, ld.w!（开启） \\
+    \end{tabular}
+    \caption{控制信号表}\label{fig:control}
+\end{table}
+
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+\section{代码部分}
+\paragraph{顶层设计}
+\begin{itemize}
+    \item \verb!inst_sram_wen!等 4 个：从指令存储器与CPU交互的 4 个信号（写使能、地址、写数据、读数据）。
+    \item \verb!data_sram_wen!等 4 个：从数据存储器与CPU交互的 4 个信号（写使能、地址、写数据、读数据）。
+    \item \verb!clk!：时钟。
+    \item \verb!resetn!：当取 1 时，\verb!reset!取 0，\verb!valid!取 1，\verb!pc!取 \verb!nextpc!。
+\end{itemize}
+
+\paragraph{指令分割}
+对 \verb!inst! 进行分割。
+
+\begin{itemize}
+    \item \verb!op_31_26! 等 4 个：表示指令特定段的内容。
+    \item \verb!rd!：永远是 $ \{4:0\} $。
+    \item \verb!rj!：永远是 $ \{9:5\} $。
+    \item \verb!rk!：永远是 $ \{14:10\} $。
+    \item \verb!i12!：12 位立即数，在 \verb!addi.w, ld.w, st.w! 指令使用。
+    \item \verb!i16!：16 位立即数，在 \verb!bne! 指令使用。
+\end{itemize}
+
+\paragraph{指令操作码译码}
+封装在黑箱子里。
+
+\begin{lstlisting}
+wire [ 5:0] op_31_26;
+wire [ 3:0] op_25_22;
+wire [ 1:0] op_21_20;
+wire [ 4:0] op_19_15;
+\end{lstlisting}
+
+随后是指令操作码的确定，需参考指令手册。
+
+\begin{table}[H]
+  \centering
+  \rowcolors{2}{cyan!10}{cyan!20}
+  \begin{tabular}{ccccc}
+    \rowcolor{cyan!50}
+    指令 & 31:26 & 25:22 & 21:20 & 19:15  \\
+      \verb!add.w! & 000000 & 0000 & 01 & 00000 \\
+      \verb!addi.w! & 000000 & 1010 & - & - \\
+      \verb!ld.w! & 001010 & 0010 & - & - \\
+      \verb!st.w! & 001010 & 0110 & - &  - \\
+      \verb!bne! & 010111 & - & - & - \\
+  \end{tabular}
+  \caption{指令操作码}\label{tab:operation}
+\end{table}
+
+\paragraph{控制信号}
+通过表 \ref{fig:control} 的内容，由指令种类控制各种信号。下面的列表中，「生效」表示该变量取 1，「不生效」表示该变量取 0。
+
+\begin{itemize}
+  \item \verb!src2_is_imm  !：对指令 \verb!addi.w, ld.w, st.w! 生效，表示寄存器第二操作数 RD2 为立即数。
+  \item \verb!res_from_mem !：对指令 \verb!ld.w! 生效，表示 ALU 相加和作为存储器的地址。
+  \item \verb!gr_we        !：对指令 \verb!add.w, addi.w, ld.w! 生效，表示允许寄存器写数据。
+  \item \verb!mem_we       !：对指令 \verb!st.w! 生效，表示允许存储器写数据。
+  \item \verb!src_reg_is_rd!：对指令 \verb!st.w, bne! 生效，表示寄存器的第二地址 RA2 准许 rd。
+  \item \verb!rf_raddr1!：表示寄存器第一地址 RA1 的取值，默认为 rj。
+  \item \verb!rf_raddr2!：表示寄存器第二地址 RA2 的取值，当 \verb!src_reg_is_rd! 生效时取 rd，不生效取 rk。
+\end{itemize}
+
+\paragraph{寄存器黑箱}
+\begin{itemize}
+    \item \verb!clk, raddr1, raddr2, rdata2, we, waddr, wdata! 表示寄存器内外连接的引脚。
+    \item 要填入的信息如凸出部分所示，比如 \verb!.waddr(rd)! 意思是将 \verb!rd!送入寄存器写地址的引脚，毕竟当寄存器需要被写入时（由指令 \verb!add.w, addi.w, ld.w!控制着），其地址仅可能是 rd。
+\end{itemize}
+
+\begin{lstlisting}
+regfile u_regfile(
+    .clk    (clk      ),
+    .raddr1 (  rf_raddr1  ),
+    .rdata1 (rj_value),
+    .raddr2 (  rf_raddr2  ),
+    .rdata2 (rkd_value),
+    .we     (gr_we    ),
+    .waddr  (  rd   	  ),
+    .wdata  (rf_wdata )
+);
+\end{lstlisting}
+
+\paragraph{其他信息}
+\begin{itemize}[itemsep=2pt, parsep=3pt]
+    \item \verb!br_offs!：对 \verb!bne! 指令生效，用于确定 pc 跳转的偏移量。对照指令，其目标为 16 位立即数作符号扩展得到的数值。扩展方法：往后填两个 0；往前对其最高位重复填写 14 位。
+
+    所以是 \verb!{{14{inst[25]}}, inst[25:10], 2'b00}!
+
+    或者是 \verb!{{14{i16[15]}}, i16[15:0], 2'b00}!
+
+    \item \verb!br_target!：对 \verb!bne! 指令生效，用于确定 pc 跳转的目标。
+    \item \verb!rj_eq_rd!：对 \verb!bne! 指令生效，表示读取 \verb!rj_value! 和 \verb!rkd_value! 是否相等。其中 \verb!rj_value! 和 \verb!rkd_value! 在寄存器黑箱里面通过 raddr1 和 raddr2 读出。
+    \item \verb!br_taken!：对 \verb!bne! 指令生效，意为控制 pc 使用 \verb!br_target!（而非 pc+4）的条件。需要满足以下三点：
+        \begin{enumerate}
+            \item \verb!valid!取 1，也就是至少要开机；
+            \item \verb!inst_bne!取 1，也就是要满足 \verb!bne!指令的操作码（或者说指令的种类是 \verb!bne!）；
+            \item \verb!rj_eq_rd!取 1，也就是指令所述的跳转条件。
+        \end{enumerate}
+    \item \verb!nextpc!：对 \verb!bne! 指令生效，确定下一个 pc 值。
+    \item \verb!imm!：对 \verb!addi.w, ld.w, st.w! 指令生效，用于把 12 位立即数扩到 32 位。扩展方法：不往后填，往前对其最高位重复填写 20 位。
+    \item \verb!alu_src1!：对前四条指令生效，表示 ALU 的第一操作数，其值总是 GR[rj] 即 \verb!rj_value!。
+    \item \verb!alu_src2!：对前四条指令生效，表示 ALU 的第二操作数。当 \verb!sel_alu_src2!（代码表示为 \verb!src2_is_imm!）生效时，其值为刚刚扩展过的立即数 \verb!imm!，不生效时为 \verb!rkd_value!。
+    \item \verb!alu_result!：对前四条指令生效，表示 ALU 加法的和。
+    \item \verb!data_sram_we! 等 3 个：对 \verb!ld.w, st.w! 指令生效，是顶层设计中 CPU 和数据存储器交互的接口。
+        \begin{enumerate}
+            \item \verb!data_sram_we! 应取图上的 \verb!data_ram_we!（代码表示为 \verb!ram_we!）。
+            \item \verb!data_sram_addr! 应取图上的 ALU 加法结果，也就是代码的 \verb!alu_result!。
+            \item \verb!data_sram_wdata! 对 \verb!st.w! 指令生效，应取图上的 GR[rd] 也就是代码的 \verb!rkd_value!。
+        \end{enumerate}
+    \item \verb!rf_wdata!：表示对寄存器堆写入的数据，在图上的 \verb!sel_rf_res!（代码表示 \verb!res_from_mem!）生效时，取数据存储器读出的值 \verb!data_sram_rdata!（一个顶层设计变量）；不生效时取 ALU 加法结果。
+\end{itemize}
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+\end{document}
