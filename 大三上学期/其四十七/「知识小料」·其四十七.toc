@@ -1,0 +1,46 @@
+\contentsline {section}{\numberline {1}编译、编译器}{3}{section.1}%
+\contentsline {section}{\numberline {2}词法分析·大纲}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}词法分析的任务}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}正则表达式(RE)}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}有限状态自动机(FA)}{6}{subsection.2.3}%
+\contentsline {section}{\numberline {3}词法分析·自动生成}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}RE→NFA：Thompson算法}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}NFA→DFA：子集构造算法}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}DFA→词法分析器代码：Hopcraft最小化算法}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}词法分析的驱动代码}{9}{subsection.3.4}%
+\contentsline {section}{\numberline {4}语法分析·大纲}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}语法分析的任务}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}上下文无关文法}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}分析树与二义性文法}{11}{subsection.4.3}%
+\contentsline {section}{\numberline {5}语法分析·自顶向下}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}自顶向下分析}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}递归下降分析}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}LL(1)算法}{14}{subsection.5.3}%
+\contentsline {paragraph}{\textsc {Nullable}集}{16}{paragraph*.11}%
+\contentsline {paragraph}{\textsc {First}集}{16}{paragraph*.12}%
+\contentsline {paragraph}{\textsc {Follow}集}{16}{paragraph*.13}%
+\contentsline {paragraph}{\textsc {First\_s}集}{17}{paragraph*.14}%
+\contentsline {paragraph}{LL(1) 分析表}{18}{paragraph*.15}%
+\contentsline {paragraph}{LL(1) 分析器}{18}{paragraph*.16}%
+\contentsline {section}{\numberline {6}语法分析·自底向上}{18}{section.6}%
+\contentsline {subsection}{\numberline {6.1}LR(0)算法}{18}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}SLR(1)算法}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}LR(1) 算法}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}文法的判别}{20}{subsection.6.4}%
+\contentsline {section}{\numberline {7}抽象语法树}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}语法制导翻译}{21}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}抽象语法树}{21}{subsection.7.2}%
+\contentsline {section}{\numberline {8}语义分析}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}语义分析的任务}{22}{subsection.8.1}%
+\contentsline {paragraph}{实例：类型检查}{23}{paragraph*.19}%
+\contentsline {subsection}{\numberline {8.2}符号表}{23}{subsection.8.2}%
+\contentsline {section}{\numberline {9}代码生成与优化}{24}{section.9}%
+\contentsline {subsection}{\numberline {9.1}代码生成·栈式计算机}{25}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}代码生成·寄存器式计算机}{26}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}中间表示}{27}{subsection.9.3}%
+\contentsline {paragraph}{三地址码}{27}{paragraph*.20}%
+\contentsline {paragraph}{控制流图}{27}{paragraph*.21}%
+\contentsline {subsection}{\numberline {9.4}数据流分析}{28}{subsection.9.4}%
+\contentsline {paragraph}{到达定义分析}{28}{paragraph*.22}%
+\contentsline {paragraph}{活性分析}{29}{paragraph*.24}%
+\contentsline {subsection}{\numberline {9.5}代码优化}{30}{subsection.9.5}%
