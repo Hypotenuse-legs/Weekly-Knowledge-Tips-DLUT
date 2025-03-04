@@ -195,12 +195,12 @@ for(int i=0; i<a.size(); i++)
         \verb!*it! & 图中表示 $a_0$ \\
       \end{tabular}
   \end{minipage}
- 
+
 %  \begin{minipage}[t]{.61\textwidth}
 %  \phantom{...}
 %
 %  \end{minipage}
-%  
+%
   \caption{vector迭代器图解}\label{fig:vector-iterator}
 \end{figure}
 
@@ -285,7 +285,7 @@ stack<int> s;  //整数值栈
 stack<char> s1; //字符值栈
 \end{lstlisting}
 
-假设有 \verb!stack<int> s;! 即 $s$ 是一个整型栈。 
+假设有 \verb!stack<int> s;! 即 $s$ 是一个整型栈。
 \begin{table}[H]
   \centering
   \begin{tabular}{ll}
@@ -378,10 +378,10 @@ priority_queue <pair<int,int> > q; //存放二元组的优先队列
 二元组的声明：
 \begin{lstlisting}[numbers=none]
 pair<int,int> p; //声明整数—整数二元组p
-pair<char,int> p1; 
+pair<char,int> p1;
 pair<pair<int,int>,int> p2;
 vector < pair<int,int> > v; //声明存放整数—整数二元组的变长数组v
-stack < pair<int,int> > s; 
+stack < pair<int,int> > s;
 \end{lstlisting}
 
 假设有 \verb!pair<int,int> p!，即建立整数—整数二元组 $p$。以下是相关操作：
@@ -390,7 +390,7 @@ stack < pair<int,int> > s;
   \begin{tabular}{ll}
     \verb!p = make_pair(1,2);! & 把 $p$ 的值指定为 $(1,2)$ \\
     \verb!p.first! & 返回 $p$ 的第一元，注意不是\verb!p.first()!  \\
-    \verb!p.second! & 返回 $p$ 的第二元 \\ 
+    \verb!p.second! & 返回 $p$ 的第二元 \\
   \end{tabular}
 \end{table}
 
@@ -444,7 +444,7 @@ int main(){
 
 以下列出了多种排序函数的写法：
 \begin{lstlisting}[numbers=none]
-int a[1001],n;    
+int a[1001],n;
 sort(a+1, a+1+n); //升序排序
 sort(a+1, a+1+n, greater<int>()); //降序排序
 

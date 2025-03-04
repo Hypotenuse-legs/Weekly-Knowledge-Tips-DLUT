@@ -33,7 +33,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\cfoot{\sffamily\footnotesize{-\ \thepage\ -}} 
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
 %\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
 
 \colorlet{darkcyan}{cyan!50!black}
@@ -130,7 +130,7 @@
 \begin{enumerate}[itemsep=0pt,parsep=0pt]
     \item 求每一非终结符的 \FIRST 集和 \FOLLOW 集。
     \item 填写该文法的 LL(1) 分析表。
-    \item 该文法是否为 LL(1) 文法？请解释你的回答。 
+    \item 该文法是否为 LL(1) 文法？请解释你的回答。
 \end{enumerate}
 }
 
@@ -204,7 +204,7 @@
         }
     }
 }
-\caption{\FIRST 集的计算}  
+\caption{\FIRST 集的计算}
 \end{algorithm}
 
 由 \NULLABLE 集信息，得到：
@@ -287,7 +287,7 @@
     \hline
         $H\to \varepsilon$ &&&\\
     \hline
-        $K\to dML$ & - & - & $\FOLLOW(K) = \varnothing$ \\ 
+        $K\to dML$ & - & - & $\FOLLOW(K) = \varnothing$ \\
                    & $L$ & $\FOLLOW(L)\gets \FOLLOW(L)\cup\varnothing = \{a,b,d,e,o\}$  & $\FIRST(L) = \{e\}$ \\
                    & $M$ & $\FOLLOW(M)\gets \FOLLOW(M)\cup \{e\} = \{e\}$ & $temp\cup\FIRST(M) = \{b,d,e\}$ \\
                    & $d$ & - & $\{d\}$ \\
@@ -479,4 +479,4 @@ $\FIRSTS(p) \gets \FIRSTS(p) \cup \FOLLOW(N)$\;
 需要指出的是，本文档采用孙景昊式解法：对于每一个非终结符，默认其 \FIRST 集不含 $\varepsilon$，\FOLLOW 集不含 $\#$，可能与《编译原理》课本的结果有所不同。
 }
 
-\end{document}
+\end{document} 

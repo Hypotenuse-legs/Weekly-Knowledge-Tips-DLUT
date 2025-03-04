@@ -433,7 +433,7 @@ while (workList != [])
             add t to Q and workList
 \end{lstlisting}
 
-示例：图 \ref{fig:NFA-example} 中的表达式 $a(b|c)^*$ 转移得到的闭包如下：
+图 \ref{fig:NFA-example} 中的表达式 $a(b|c)^*$ 转移得到的闭包如下：
 \begin{align*}
     n_0(q_0) & \xrightarrow{a} \{n_1, n_2, n_3, n_4, n_6, n_9\} := q_1 \\
     q_1 &\xrightarrow{b} \{n_5, n_8, n_9, n_3, n_4, n_6\} := q_2 \\
@@ -1060,7 +1060,7 @@ SLR(1) 算法与 LR(0) 仅在归约操作有区别：对于状态 $i$ 的归约�
 
 此外，对抽象语法树这个树形数据结构，可以实现很多工作，比如「优美打印」和树上的递归计算节点个数。以下是示例：从表达式到栈式计算机 Stack 的编译器（供参考）：
 \begin{lstlisting}
-List all; 
+List all;
 void compile (E e)
 {
     switch (e->kind) {
@@ -1083,7 +1083,7 @@ void compile (E e)
 \begin{split}
    E\to\  & n \OR \text{true} \OR \text{false} \\
     \OR & E+E \\
-    \OR & E \&\& E 
+    \OR & E \&\& E
 \end{split}
 \end{equation}
 我们需要检查加法操作时的两个操作数均为 \verb!int! 类型，与操作时的两个操作数均为 \verb!bool! 类型。逻辑比较简单。
@@ -1095,7 +1095,7 @@ enum type check_exp (Exp_t e)
         case EXP_INT: return INT;
         case EXP_TRUE: return BOOL;
         case EXP_FALSE: return BOOL;
-        case EXP_ADD: 
+        case EXP_ADD:
             t1 = check_exp (e->left);
             t2 = check_exp (e->right);
             if (t1!=INT || t2!=INT)
@@ -1121,7 +1121,7 @@ enum type check_exp (Exp_t e)
 int x;          // [插入] x:(INT,0)
 int f ()        // [插入] x:(INT,0), f:(INT,1)
 {
-    if (4) {    
+    if (4) {
         int x;  // [插入] x:(INT,0), f:(INT,1), x:(INT,2)
         x = 6;
     }           // [删除] x:(INT,0), f:(INT,1)
@@ -1129,7 +1129,7 @@ int f ()        // [插入] x:(INT,0), f:(INT,1)
         int x;  // [插入] x:(INT,0), f:(INT,1), x:(INT,2)
         x = 5;
     }           // [删除] x:(INT,0), f:(INT,1)
-    x = 8;      
+    x = 8;
 }               // [删除] x:(INT,0)
 \end{lstlisting}
 
@@ -1386,7 +1386,7 @@ Gen_S(S s) // 句子sentence
     \begin{tikzpicture}[var/.style={circle,draw,minimum size=12pt}, node distance=1.5cm]
         \node[var] (a) at (0:1) {$a$};
         \node[var] (b) at (120:1) {$b$};
-        \node[var] (c) at (240:1) {$c$}; 
+        \node[var] (c) at (240:1) {$c$};
         \draw (a) to (b);
         \draw (a) to (c);
     \end{tikzpicture}
