@@ -1,0 +1,228 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption,subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+%\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{pifont}
+\usepackage{tasks}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
+\CTEXsetup[format={\bfseries\large}]{paragraph}
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+\settasks{ label=(\Alph*), item-format=\color{darkcyan}, label-format=\color{darkcyan}, label-offset=0.7em}
+
+
+\lstset{
+    basicstyle=\small\ttfamily, %注意行末有逗号！
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\color{cyan!90!black},
+    stringstyle=\color{green!40!black},
+    columns=flexible,
+    numbers=left,
+    numberstyle=\footnotesize,
+    escapechar=`,
+    frame=shadowbox,
+    %rulesepcolor=\color{red!20!blue!20!green!20}
+    backgroundcolor=\color{cyan!5!white},
+    language = SQL,
+    tabsize = 4,
+    breaklines = true,
+}
+
+% -----------------本文档专用-----------------
+\newcommand\drawrec[3]{ % 画矩形，第一个数字表示进程号，第二个数字表示开始时间，第三个数字表示结束时间
+    \ifnum #1=1
+        \filldraw[fill=cyan] (#2, 2.3) rectangle (#3, 2.7);
+    \fi
+    \ifnum #1=2
+        \filldraw[fill=violet] (#2, 1.3) rectangle (#3, 1.7);
+    \fi
+    \ifnum #1=3
+        \filldraw[fill=red] (#2, 0.3) rectangle (#3, 0.7);
+    \fi
+}
+\newcommand\marking[2]{ %标线，第一个数字表示标记的时间，第二个数字表示标记的进程号
+    \draw[dashed] (#1, 0) -- (#1, 4-#2-0.2);
+    \node[below, font=\small] at (#1,0) {#1};
+}
+% ---------------------------------------------
+
+\newcommand\IssueNumber{51}
+\newcommand\Date{2025-4-13}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{操作系统}
+\newcommand\Source{2023 考研 408 真题}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\vspace{-0.1cm}
+    \Brown{来源：\Source} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{darkcyan}
+进程 P1、P2 和 P3 进入就绪队列的的时刻、优先值（越大优先权越高）以及 CPU 的执行时间如下表所示。
+
+\begin{table}[htb]
+    \color{darkcyan}
+    \centering
+    \begin{tabular}{cccc}
+    \toprule
+        进程名 & 进入就绪队列的时刻 & 优先级 & CPU 执行时间 \\
+    \midrule
+        P1 & 0ms & 1 & 60ms \\
+        P2 & 20ms & 10 & 42ms \\
+        P3 & 30ms & 100 & 13ms \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+系统采用基于优先权的抢占式CPU调度算法，从0ms时刻开始进行调度，则P1、P2和P3的平均周转时间为
+
+\begin{tasks}(4)
+    \task 60ms
+    \task 61ms
+    \task 70ms
+    \task 71ms
+\end{tasks}
+}
+
+这是一道经典的调度问题。基于优先权调度，而且优先权数字大的进程会抢占CPU。调度时空图如图 \ref{fig:answer} 所示。
+
+\begin{itemize}[itemsep=0pt,parsep=2pt]
+    \item 0ms：P1 加入就绪队列。P1 一直调度，持续到 20ms；
+    \item 20ms：P2 加入就绪队列，其优先级比 P1 高，因此\Emph{抢占}，持续到 30ms；
+    \item 30ms：P3 加入就绪队列，其优先级比 P2 高，因此\Emph{抢占}，直至P3调度结束；
+    \item 43ms：P3 离开就绪队列，P2 继续调度（剩余 32ms），直至P2调度结束；
+    \item 75ms：P2 离开就绪队列，P1 继续调度（剩余 40ms），直至P1调度结束；
+    \item 115ms：P1 离开就绪队列，调度完成。
+\end{itemize}
+
+求「周转时间」，公式是\Emph{「$\text{周转时间} = \text{完成时刻} - \text{进入时刻}$」}（如图 \ref{fig:time} 所示）。P1 的周转时间为 $115-0=115$ms，P2 的周转时间为 $75-20=55$ms，P3 的周转时间为 $43-30=13$ms。因此平均周转时间为 $(115+55+13)\div 3 = 61$ms。
+
+\newpage
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[>=Stealth, xscale=0.1]
+        \draw[->] (0,0) -- (120,0) node[above, font=\small] {$t$/ms};
+        \draw (0,0) -- (0, 3) node[above, font=\small] {进程};
+        \node[below left] at (0,0) {$O$};
+        \node[left] at (0, 0.5) {P3};
+        \node[left] at (0, 1.5) {P2};
+        \node[left] at (0, 2.5) {P1};
+        \drawrec{1}{0}{20};
+        \drawrec{2}{20}{30};
+        \drawrec{3}{30}{43};
+        \drawrec{2}{43}{75};
+        \drawrec{1}{75}{115};
+        \marking{20}{1};
+        \marking{30}{2};
+        \marking{43}{2};
+        \marking{75}{1};
+        \marking{115}{1};
+        \node[right, cyan] at (20, 2.5) {$\frac{20}{60}$};
+        \node[right, violet] at (30, 1.5) {$\frac{10}{42}$};
+        \node[right, red] at (43, 0.5) {\ding{51}};
+        \node[right, violet] at (75, 1.5) {\ding{51}};
+        \node[right, cyan] at (115, 2.5) {\ding{51}};
+    \end{tikzpicture}
+    \caption{调度时空图}\label{fig:answer}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[>=Stealth, xscale=0.8]
+        \filldraw[draw=cyan, fill=cyan] (0,0) rectangle (3, 0.4);
+        \filldraw[draw=cyan, fill=violet] (3,0) rectangle (8,0.4);
+        \draw[->] (0, 1.4) node[above,font=\small] {进入（到达）} -- (0, 0.4);
+        \draw[->] (3, 1.4) node[above,font=\small] {开始} -- (3, 0.4);
+        \draw[->] (8, 1.4) node[above,font=\small] {完成} -- (8, 0.4);
+        \draw (0,0) -- (0,-1.5);
+        \draw (3,0) -- (3,-1);
+        \draw (8,0) -- (8,-1.5);
+        \draw[<->, violet] (3,-0.7) -- (8,-0.7) node[midway,above,font=\small] {服务时间};
+        \draw[<->, blue] (0, -1.3) -- (8, -1.3) node[midway,above,font=\small] {周转时间};
+        
+        \node[right,font=\small] at (9,0) {$\text{带权周转} = \dfrac{\text{\textcolor{blue}{周转时间}}}{\text{\textcolor{violet}{服务时间}}} \geqslant 1$};
+    \end{tikzpicture}
+    \caption{周转时间图解}\label{fig:time}
+\end{figure}
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\vspace{1em}
+
+{\color{cyan!80!black}
+【结论】B
+
+【点评】这是一道调度算法的选择题。常见的调度算法包括「先来先服务」FCFS、「短作业优先」SJF、「时间片轮转」RR、「优先级调度」等。画出时空图，明确完成时间、周转时间、带权周转时间等指标的求法，是解决此题的关键。
+}
+
+
+
+\end{document}

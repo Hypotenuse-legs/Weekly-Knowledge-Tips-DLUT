@@ -1,0 +1,283 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{background}
+\usepackage{caption,subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+%\usepackage{fourier}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{tikz}
+\usepackage{ulem}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+
+\geometry{a5paper, top=0.1cm, left=1cm, right=1cm, bottom=1cm, footskip=0.1cm}
+\setCJKmainfont[BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}]{汉仪文黑-55W}
+\setfontfamily\Issue{Century Schoolbook}
+\setfontfamily\Genshin{Genshin Teyvat Lingua Franca}
+\newCJKfontfamily\TitleFont{思源宋体 CN Heavy}
+\newfontfamily\timesnewroman{Times New Roman}
+%\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\sffamily\footnotesize{-\ \thepage\ -}}
+\CTEXsetup[format={\bfseries\large}]{paragraph}
+%\CTEXsetup[format = {\centering\bfseries\large}, beforeskip = 3pt, afterskip = 3pt]{section}
+
+\colorlet{darkcyan}{cyan!50!black}
+\newcommand\Black[1]{\textcolor[gray]{0.3}{#1}}
+\newcommand\Brown[1]{\textcolor[HTML]{998A4E}{#1}}
+\newcommand\Emph[1]{\colorbox{green!10}{\textcolor{green!30!black}{#1}}}
+\newcommand\Notes[1]{\textcolor{yellow!50!black}{\small #1}}
+\newcommand\Example[1]{\textcolor{cyan!70!black}{\small #1}}
+
+\renewcommand\d{\mathrm{d}}
+
+\lstset{
+    basicstyle=\small\ttfamily, %注意行末有逗号！
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\color{cyan!90!black},
+    stringstyle=\color{green!40!black},
+    columns=flexible,
+    numbers=left,
+    numberstyle=\footnotesize,
+    escapechar=`,
+    frame=shadowbox,
+    %rulesepcolor=\color{red!20!blue!20!green!20}
+    backgroundcolor=\color{cyan!5!white},
+    language = SQL,
+    tabsize = 4,
+    breaklines = true,
+}
+
+\newcommand\IssueNumber{50}
+\newcommand\Date{2025-3-20}
+%\newcommand\Contributer{@金光日}
+\newcommand\Subject{数据库系统原理}
+
+
+\begin{document}
+\backgroundsetup{contents=\includegraphics{上半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+\begin{center}
+%{\scriptsize\Issue \textcolor[HTML]{C8BA83}{\Genshin WEEKLY TIPS}}
+\phantom{...}
+
+{\Large\textcolor{brown!40!white}{\makebox[10cm][s]{\Genshin WEEKLY KNOWLEDGE TIPS}}}
+
+\vspace{-2em}
+
+{\Huge\bfseries\TitleFont \Black{知\ 识\ 小\ 料}}
+
+
+\vspace{-0.1cm}
+{\footnotesize \Brown{「电计 2203 班」周常规知识整理共享}}
+\end{center}
+
+\vspace{-0.5cm}
+
+
+\begin{figure}[H]
+\hspace{1cm}
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+    \Brown{\Genshin ISSUE}
+
+    \vspace{-0.6cm}
+    \Huge \Issue\slshape\bfseries\Black{\IssueNumber}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+\centering
+    \Brown{日期：\Date} \\
+%\vspace{-0.1cm}
+%    \Brown{贡献者：\Contributer} \\
+\vspace{-0.1cm}
+    \Brown{学科：\Subject} \\
+\end{minipage}
+\hspace{0.8cm}
+\end{figure}
+
+{\color{darkcyan}
+设学生—课程数据库中包含三个表：
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 学生表：$\mathrm{Student(Sno, Sname, Ssex, Sage, Sdept)}$
+    \item 课程表：$\mathrm{Course(Cno, Cname, Ccredit)}$
+    \item 选课表：$\mathrm{SC(Sno, Cno, Grade)}$
+\end{itemize}
+完成下面两个操作：
+\begin{enumerate}
+    \item 查询选修了课程名为「数据库系统原理」的学生姓名和课程成绩。使用关系代数、ALPHA 语言、QBE 语言、SQL 语言完成操作。（16分）
+    \item 查询选修了全部课程的学生学号和姓名。使用关系代数、ALPHA 语言、SQL 语言完成操作。（12分）
+\end{enumerate}
+}
+
+【第 1 问】
+\begin{itemize}
+    \item 用关系代数查找。课程名称位于 Course 表，学生姓名位于 Student 表，课程成绩位于 SC 表，所以应该做出\Emph{三表连接}。比较简单的一种操作是：
+    \begin{equation*}
+        \mathrm{\pi_{Sname,Grade}(\sigma_{Cname= "\text{数据库系统原理}"}(Student \bowtie Course \bowtie SC))}
+    \end{equation*}
+
+    也可以先在内部做出选择，再在外部连接：
+    \begin{equation*}
+        \mathrm{\pi_{Sname,Grade}(Student \bowtie \sigma_{Cname= "\text{数据库系统原理}"}(Course) \bowtie SC) }
+    \end{equation*}
+    
+    \item 用 ALPHA 语言查找。限定的是课程名，可以对课程表定义 \textsc{Range} 语句，采用课程实例 (CX) 将三表连接。
+    \begin{table}[htb]
+    \newcommand\SC{\textcolor{blue}{SC}}
+    \newcommand\Student{\textcolor{green!40!black}{Student}}
+    \newcommand\CX{\textcolor{red!70!black}{CX}}    
+        \centering
+        \begin{tabular}{llll}
+        \textsc{Range} & Course & \CX & \\
+        \multicolumn{3}{l}{\textsc{Get}\  W (\Student.Sname, \SC.Grade):\ } &  $\exists$ \CX( \Student.Sno = \SC.Sno $\wedge$\\
+        \multicolumn{4}{l}{ \CX.Cno=\SC.Cno $\wedge$ \CX.Cname="数据库系统原理")} \\
+        \end{tabular}
+    \end{table}
+    
+    \item 用 QBE 语言查找。注意实例用下划线标出，所有属性要写全，用于连接的示例（\uline{001},\uline{2}）要彼此一致，用于打印的项目前面应加上「P.」。
+    
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Student & Sno & Sname & Ssex & Sage & Sdept \\
+        \hline
+                & \uline{001} & P.\uline{李勇} &      &      & \\
+        \hline
+    \end{tabular}\\
+    
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Course & Cno & Cname & Ccredit \\
+        \hline
+                & \uline{2} & 数据库系统原理 & \\
+        \hline
+    \end{tabular}\\
+    
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        SC & Sno & Cno & Grade \\
+        \hline
+           & \uline{001} & \uline{2} & P.\uline{90} \\
+        \hline
+    \end{tabular}
+    \end{table}
+    
+    \item 用 SQL 语言查找。可以采用朴素的自然连接来实现。
+\begin{lstlisting}
+SELECT Sname, Grade FROM Student, Course, SC
+WHERE Student.Sno = SC.Sno AND Course.Cno = SC.Cno 
+    AND Course.Cname="数据库系统原理";
+\end{lstlisting}
+\end{itemize}
+
+\backgroundsetup{contents=\includegraphics{空白示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+【第 2 问】
+\begin{itemize}
+    \item 用关系代数查找。涉及「全部课程」，因此宜做个\Emph{除法}。查询的除了学号，还有姓名，因此宜与学生表做个连接。
+
+\begin{equation*}
+    \mathrm{(\pi_{Sno,Cno}(SC)\div \pi_{Cno}(Course)) \bowtie \pi_{Sno,Sname}(Student)}
+\end{equation*}
+
+    \item 用 ALPHA 语言查找。原意 「查询选修了全部课程的学生学号和姓名」可以翻译如下：
+    
+    \begin{table}[htb]
+    \newcommand\Student{\mathrm{Student}}
+    \newcommand\Sno{\mathrm{Sno}}
+    \newcommand\Cno{\mathrm{Cno}}
+    \newcommand\Sname{\mathrm{Sname}}
+    \newcommand\SC{\mathrm{SC}}
+    \newcommand\Course{\mathrm{Course}}
+    \renewcommand\sc{\textcolor{blue}{sc}}
+    \newcommand\s{\textcolor{green!40!black}{s}}
+    \renewcommand\c{\textcolor{red!70!black}{c}}
+        \centering
+        \begin{tabular}{ll}
+          $W=\{\s.\Sno,\s.\Sname | \s\in \Student \wedge$  & 查询这样的\textcolor{green!40!black}{学生}，\\
+           $(\forall \c) [\c\in \Course \to $ & 使得对\textbf{任意}一门\textcolor{red!70!black}{课}，\\
+           $(\exists \sc) (\sc\in \SC \wedge $ & 总\textbf{存在}一条\textcolor{blue}{选课记录}，\\
+           $\sc.\Sno=\s.\Sno \wedge \sc.\Cno=\c.\Cno )]\}$ & 是这位\textcolor{green!40!black}{学生}选的这一门\textcolor{red!70!black}{课}的记录。\\
+        \end{tabular}
+    \end{table}
+    
+    \begin{table}[htb]
+    \newcommand\SCX{\textcolor{blue}{SCX}}
+    \newcommand\Student{\textcolor{green!40!black}{Student}}
+    \newcommand\CX{\textcolor{red!70!black}{CX}}  
+        \centering
+        \begin{tabular}{lll}
+            \textsc{Range} & Course & \CX \\
+            & SC & \SCX \\
+            \multicolumn{3}{l}{\textsc{Get}\ W (\Student.Sno,\ \Student.Sname):} \\
+            \multicolumn{3}{l}{\qquad $\forall$ \CX \ $\exists$ \SCX (\SCX.Sno=\Student.Sno $\wedge$ \SCX.Cno=\CX.Cno)}
+        \end{tabular}
+    \end{table}
+    
+    \item 用 SQL 语言查找。由于 SQL 不支持 $\forall$ 只支持 $\exists$（\verb!EXISTS!），因此需要把上面的分析改写：「所要查询的学生，不存在一门课程他没有选修」。
+        
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{ll} %这一段有bug，有些命令只能强制废弃，AI也查不出来
+            \newcommand\Student{\mathrm{Student}}
+            %\newcommand\Sno{}
+            %\newcommand\Cno{}
+            \newcommand\Sname{\mathrm{Sname}}
+            %\newcommand\SC{}
+            %\newcommand\Course{\mathrm{Course}}
+            %\newcommand\scRecord{}  % 避免覆盖原生\sc
+            %\newcommand\s{}
+            %\newcommand\c{\textcolor{red!70!black}{c}}
+
+            $W = \{\,\textcolor{green!40!black}{s}.\mathrm{Sno}, \textcolor{green!40!black}{s}.\Sname \mid \textcolor{green!40!black}{s} \in \Student \land$
+            & 查询这样的\textcolor{green!40!black}{学生}，\\
+            $\neg(\exists \textcolor{red!70!black}{c}) [\textcolor{red!70!black}{c} \in \mathrm{Course} \land$
+            & \textbf{不存在}一门\textcolor{red!70!black}{课}，\\
+            $\neg(\exists \textcolor{blue}{sc}) (\textcolor{blue}{sc} \in \mathrm{SC} \land$
+            & 使得\textbf{不存在}一条\textcolor{blue}{选课记录}，\\
+            $\textcolor{blue}{sc}.\mathrm{Sno} = \textcolor{green!40!black}{s}.\mathrm{Sno} \land \textcolor{blue}{sc}.\mathrm{Cno} = \textcolor{red!70!black}{c}.\mathrm{Cno})]]\}$
+            & 是这位\textcolor{green!40!black}{学生}选的这一门\textcolor{red!70!black}{课}的记录。
+        \end{tabular}
+    \end{table}
+        
+        如果还是觉得「别扭」的话，也可以运用离散数学的知识，对 ALPHA 语言分析的这一段列出的谓词公式做出等价变换，可以看到推导结果是相同的。
+\begin{align*}
+          & (\forall c)[c\in\mathrm{Course} \to (\exists sc)(sc\in\mathrm{SC} \wedge (...))] \\
+     \iff & (\forall c)[\neg c\in\mathrm{Course} \vee (\exists sc)(sc\in\mathrm{SC} \wedge (...))] \\
+     \iff & (\forall c)\neg [c\in\mathrm{Course} \wedge \neg(\exists sc)(sc\in\mathrm{SC} \wedge (...))] \\
+     \iff & \neg(\exists c) [c\in\mathrm{Course} \wedge \neg(\exists sc)(sc\in\mathrm{SC} \wedge (...))] \\
+\end{align*}
+        
+        于是我们就可以撰写代码（可在PPT的例46中参考）：
+\begin{lstlisting}
+SELECT Sno,Sname FROM Student WHERE NOT EXISTS 
+    (SELECT * FROM Course WHERE NOT EXISTS 
+        (SELECT * FROM SC WHERE 
+        SC.Sno=Student.Sno AND SC.Cno=Course.Cno));
+\end{lstlisting}
+\end{itemize}
+
+\vspace{1em}
+
+{\color{cyan!80!black}
+【结论】见解析。
+
+【点评】这是一道数据库系统原理的真题，分值不低，是妥妥的重点。而且，对于「查询选修了全部课程的学生」这一问的存在关系和全称关系，需要多多加以理解，是妥妥的难点。这两道题均可以在老师的幻灯片中找到，应该掌握。
+}
+
+\backgroundsetup{contents=\includegraphics{下半示例.png}, center, scale=1, angle=0, opacity=1}
+\BgThispage
+
+\end{document} 
