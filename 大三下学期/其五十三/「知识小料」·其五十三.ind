@@ -1,0 +1,138 @@
+\begin{theindex}
+
+  \item Amdahl 定律, 4
+
+  \indexspace
+
+  \item Cache 一致性协议, 18
+  \item Cache 失效原因(3C/4C), 14
+  \item CPI, 3
+
+  \indexspace
+
+  \item Flynn 分类法, 15
+
+  \indexspace
+
+  \item IPC, 11
+
+  \indexspace
+
+  \item Johnson 分类法, 16
+
+  \indexspace
+
+  \item MPI, 16
+
+  \indexspace
+
+  \item OpenMP, 16
+
+  \indexspace
+
+  \item POSIX Threads 标准, 16
+
+  \indexspace
+
+  \item RISC 指令, 5
+
+  \indexspace
+
+  \item Tomasulo 算法, 11
+  \item Top500, 5
+
+  \indexspace
+
+  \item 一致性失效, 14
+  \item 任务/线程级并行(TLP), 15
+  \item 保留站, 11
+
+  \indexspace
+
+  \item 写不分配, 13
+  \item 写使无效, 18
+  \item 写分配, 13
+  \item 写回, 13
+  \item 写更新, 18
+  \item 写穿透, 13
+  \item 写缓冲, 13
+  \item 冯·诺依曼结构, 3
+  \item 冲突失效, 14
+  \item 冷启动失效, 14
+  \item 分支目标缓冲(BTB), 12
+  \item 前递, 8
+  \item 动态多功能流水线, 7
+  \item 动态调度, 10
+  \item 单指令流单数据流(SISD), 16
+  \item 单指令流多数据流(SIMD), 16
+  \item 南北桥, 15
+  \item 同时多线程(SMT), 17
+  \item 同步机制, 19
+  \item 吞吐率, 9
+  \item 基准测试程序, 4
+  \item 处理器一致性, 18
+  \item 多发射技术, 11
+  \item 多指令流多数据流(MIMD), 16
+  \item 多线程, 17
+  \item 大端序, 5
+  \item 存储一致性模型, 17
+  \item 实际吞吐率, 9
+  \item 容量失效, 14
+  \item 小端序, 5
+  \item 平均修复时间(MTTR), 15
+  \item 平均故障间隔时间(MTBF), 15
+  \item 平均无故障时间(MTTF), 15
+  \item 平均访存时间(AMAT), 13
+  \item 应用程序二进制接口(ABI), 6
+  \item 应用程序编程接口(API), 6
+  \item 延迟槽, 8
+  \item 弱一致性, 18
+  \item 影响CPU性能的因素, 3
+  \item 循环展开, 10
+
+  \indexspace
+
+  \item 指令冲突, 7
+  \item 指令相关, 7
+  \item 指令系统(ISA), 5
+  \item 指令级并行(ILP), 15
+  \item 摩尔定律, 4
+  \item 数据级并行(DLP), 15
+  \item 最大吞吐率, 9
+  \item 流水线冒险, 7
+  \item 流水线加速比, 9
+  \item 流水线效率, 9
+
+  \indexspace
+
+  \item 片上Cache结构, 17
+  \item 片上互联网络(NOC), 19
+  \item 特权指令系统, 6
+  \item 瓶颈段, 9
+  \item 相关分支预测, 12
+  \item 神威·太湖之光, 5
+  \item 程序访问的局部性, 13
+  \item 粗粒度, 17
+  \item 细粒度, 17
+
+  \indexspace
+
+  \item 计算机层次结构, 3
+  \item 计算机性能评价原则, 4
+  \item 记分板算法, 10
+  \item 超标量, 11
+  \item 超长指令字(VLIM), 11
+  \item 转移历史表(BHT), 12
+  \item 转移预测, 12
+
+  \indexspace
+
+  \item 释放一致性, 18
+  \item 重排序缓存(ROB), 11
+  \item 锦标赛预测法, 12
+  \item 阻塞, 8
+  \item 静态多功能流水线, 7
+  \item 顺序一致性, 17
+  \item 高速缓存, 13
+
+\end{theindex}

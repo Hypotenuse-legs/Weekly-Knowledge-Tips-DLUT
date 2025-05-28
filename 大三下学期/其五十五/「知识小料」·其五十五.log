@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2024.1.30)  27 APR 2025 12:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2024.1.30)  28 MAY 2025 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./「知识小料」·其四十四.tex
-(「知识小料」·其四十四.tex
+**./「知识小料」·其五十五.tex
+(「知识小料」·其五十五.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexart.cls
@@ -314,6 +314,26 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen184
+\lightrulewidth=\dimen185
+\cmidrulewidth=\dimen186
+\belowrulesep=\dimen187
+\belowbottomsep=\dimen188
+\aboverulesep=\dimen189
+\abovetopsep=\dimen190
+\cmidrulesep=\dimen191
+\cmidrulekern=\dimen192
+\defaultaddspace=\dimen193
+\@cmidla=\count302
+\@cmidlb=\count303
+\@aboverulesep=\dimen194
+\@belowrulesep=\dimen195
+\@thisruleclass=\count304
+\@lastruleclass=\count305
+\@thisrulewidth=\dimen196
+)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/background\background.sty
 Package: background 2014/03/04 v2.1 background material
 
@@ -326,7 +346,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@tempa@toks=\toks23
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.tex))
-\XKV@depth=\count302
+\XKV@depth=\count306
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty
@@ -335,8 +355,8 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-co
 mmon.tex
 \pgfutil@everybye=\toks24
-\pgfutil@tempdima=\dimen184
-\pgfutil@tempdimb=\dimen185
+\pgfutil@tempdima=\dimen197
+\pgfutil@tempdimb=\dimen198
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-la
 tex.def
@@ -366,8 +386,8 @@ Package graphics Info: Driver file: xetex.def on input line 107.
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
-\Gin@req@height=\dimen186
-\Gin@req@width=\dimen187
+\Gin@req@height=\dimen199
+\Gin@req@width=\dimen256
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty
 
@@ -384,26 +404,26 @@ de.tex
 raryfiltered.code.tex
 \pgfkeys@tmptoks=\toks27
 ))
-\pgf@x=\dimen188
-\pgf@y=\dimen189
-\pgf@xa=\dimen190
-\pgf@ya=\dimen191
-\pgf@xb=\dimen192
-\pgf@yb=\dimen193
-\pgf@xc=\dimen194
-\pgf@yc=\dimen195
-\pgf@xd=\dimen196
-\pgf@yd=\dimen197
+\pgf@x=\dimen257
+\pgf@y=\dimen258
+\pgf@xa=\dimen259
+\pgf@ya=\dimen260
+\pgf@xb=\dimen261
+\pgf@yb=\dimen262
+\pgf@xc=\dimen263
+\pgf@yc=\dimen264
+\pgf@xd=\dimen265
+\pgf@yd=\dimen266
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count303
-\c@pgf@countb=\count304
-\c@pgf@countc=\count305
-\c@pgf@countd=\count306
+\c@pgf@counta=\count307
+\c@pgf@countb=\count308
+\c@pgf@countc=\count309
+\c@pgf@countd=\count310
 \t@pgf@toka=\toks28
 \t@pgf@tokb=\toks29
 \t@pgf@tokc=\toks30
-\pgf@sys@id@count=\count307
+\pgf@sys@id@count=\count311
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -422,13 +442,13 @@ File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
 ommon-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfsys@objnum=\count308
+\pgfsys@objnum=\count312
 )))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysso
 ftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count309
-\pgfsyssoftpath@bigbuffer@items=\count310
+\pgfsyssoftpath@smallbuffer@items=\count313
+\pgfsyssoftpath@bigbuffer@items=\count314
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyspr
 otocol.code.tex
@@ -462,8 +482,8 @@ x
 e.tex)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.c
 ode.tex
-\pgfmath@dimen=\dimen198
-\pgfmath@count=\count311
+\pgfmath@dimen=\dimen267
+\pgfmath@count=\count315
 \pgfmath@box=\box58
 \pgfmath@toks=\toks31
 \pgfmath@stack@operand=\toks32
@@ -491,39 +511,39 @@ s.integerarithmetics.code.tex)
 e.tex)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.co
 de.tex
-\c@pgfmathroundto@lastzeros=\count312
+\c@pgfmathroundto@lastzeros=\count316
 ))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepo
 ints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen199
-\pgf@picmaxx=\dimen256
-\pgf@picminy=\dimen257
-\pgf@picmaxy=\dimen258
-\pgf@pathminx=\dimen259
-\pgf@pathmaxx=\dimen260
-\pgf@pathminy=\dimen261
-\pgf@pathmaxy=\dimen262
-\pgf@xx=\dimen263
-\pgf@xy=\dimen264
-\pgf@yx=\dimen265
-\pgf@yy=\dimen266
-\pgf@zx=\dimen267
-\pgf@zy=\dimen268
+\pgf@picminx=\dimen268
+\pgf@picmaxx=\dimen269
+\pgf@picminy=\dimen270
+\pgf@picmaxy=\dimen271
+\pgf@pathminx=\dimen272
+\pgf@pathmaxx=\dimen273
+\pgf@pathminy=\dimen274
+\pgf@pathmaxy=\dimen275
+\pgf@xx=\dimen276
+\pgf@xy=\dimen277
+\pgf@yx=\dimen278
+\pgf@yy=\dimen279
+\pgf@zx=\dimen280
+\pgf@zy=\dimen281
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepa
 thconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen269
-\pgf@path@lasty=\dimen270
+\pgf@path@lastx=\dimen282
+\pgf@path@lasty=\dimen283
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepa
 thusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen271
-\pgf@shorten@start@additional=\dimen272
+\pgf@shorten@end@additional=\dimen284
+\pgf@shorten@start@additional=\dimen285
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoresc
 opes.code.tex
@@ -531,19 +551,19 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count313
+\pgf@picture@serial@count=\count317
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregr
 aphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen273
+\pgflinewidth=\dimen286
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretr
 ansformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen274
-\pgf@pt@y=\dimen275
-\pgf@pt@temp=\dimen276
+\pgf@pt@x=\dimen287
+\pgf@pt@y=\dimen288
+\pgf@pt@temp=\dimen289
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequ
 ick.code.tex
@@ -560,14 +580,14 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorear
 rows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen277
+\pgfarrowsep=\dimen290
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoresh
 ade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen278
-\pgf@sys@shading@range@num=\count314
-\pgf@shadingcount=\count315
+\pgf@max=\dimen291
+\pgf@sys@shading@range@num=\count318
+\pgf@shadingcount=\count319
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreim
 age.code.tex
@@ -606,8 +626,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-
 version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen279
-\pgf@nodesepend=\dimen280
+\pgf@nodesepstart=\dimen292
+\pgf@nodesepend=\dimen293
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-
 version-1-18.sty
@@ -623,8 +643,8 @@ x))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.cod
 e.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen281
-\pgffor@skip=\dimen282
+\pgffor@iter=\dimen294
+\pgffor@skip=\dimen295
 \pgffor@stack=\toks34
 \pgffor@toks=\toks35
 ))
@@ -635,34 +655,34 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrary
 plothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count316
-\pgfplotmarksize=\dimen283
+\pgf@plot@mark@count=\count320
+\pgfplotmarksize=\dimen296
 )
-\tikz@lastx=\dimen284
-\tikz@lasty=\dimen285
-\tikz@lastxsaved=\dimen286
-\tikz@lastysaved=\dimen287
-\tikz@lastmovetox=\dimen288
-\tikz@lastmovetoy=\dimen289
-\tikzleveldistance=\dimen290
-\tikzsiblingdistance=\dimen291
+\tikz@lastx=\dimen297
+\tikz@lasty=\dimen298
+\tikz@lastxsaved=\dimen299
+\tikz@lastysaved=\dimen300
+\tikz@lastmovetox=\dimen301
+\tikz@lastmovetoy=\dimen302
+\tikzleveldistance=\dimen303
+\tikzsiblingdistance=\dimen304
 \tikz@figbox=\box64
 \tikz@figbox@bg=\box65
 \tikz@tempbox=\box66
 \tikz@tempbox@bg=\box67
-\tikztreelevel=\count317
-\tikznumberofchildren=\count318
-\tikznumberofcurrentchild=\count319
-\tikz@fig@count=\count320
+\tikztreelevel=\count321
+\tikznumberofchildren=\count322
+\tikznumberofcurrentchild=\count323
+\tikz@fig@count=\count324
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulemat
 rix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count321
-\pgfmatrixcurrentcolumn=\count322
-\pgf@matrix@numberofcolumns=\count323
+\pgfmatrixcurrentrow=\count325
+\pgfmatrixcurrentcolumn=\count326
+\pgf@matrix@numberofcolumns=\count327
 )
-\tikz@expandcount=\count324
+\tikz@expandcount=\count328
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/l
 ibraries\tikzlibrarytopaths.code.tex
@@ -692,26 +712,6 @@ Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 \AP@partial=\box68
 \AP@footins=\box69
 ))
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen292
-\lightrulewidth=\dimen293
-\cmidrulewidth=\dimen294
-\belowrulesep=\dimen295
-\belowbottomsep=\dimen296
-\aboverulesep=\dimen297
-\abovetopsep=\dimen298
-\cmidrulesep=\dimen299
-\cmidrulekern=\dimen300
-\defaultaddspace=\dimen301
-\@cmidla=\count325
-\@cmidlb=\count326
-\@aboverulesep=\dimen302
-\@belowrulesep=\dimen303
-\@thisruleclass=\count327
-\@lastruleclass=\count328
-\@thisrulewidth=\dimen304
-)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
@@ -730,63 +730,43 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count329
 \c@continuedfloat=\count330
 )
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/chngcntr\chngcntr.sty
-Package: chngcntr 2018/04/09 v1.1a change counter resetting
-Package chngcntr Info: \counterwithout already defined.
-(chngcntr)             Quitting chngcntr on input line 21.
-)
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJKfntef.sty
-Package: xeCJKfntef 2022/08/05 v3.9.1 xeCJK font effect
-
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
-\UL@box=\box70
-\UL@hyphenbox=\box71
-\UL@skip=\skip63
-\UL@hook=\toks37
-\UL@height=\dimen313
-\UL@pe=\count331
-\UL@pixel=\dimen314
-\ULC@box=\box72
-Package: ulem 2019/11/18
-\ULdepth=\dimen315
-)
-\l__xeCJK_space_skip=\skip64
-\c__xeCJK_ulem-begin_node_dim=\dimen316
-\l__xeCJK_hidden_box=\box73
-\l__xeCJK_fntef_box=\box74
-\l__xeCJK_under_symbol_box=\box75
-\c__xeCJK_filll_skip=\skip65
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count331
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count332
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\enitkv@toks@=\toks38
-\labelindent=\skip66
-\enit@outerparindent=\dimen317
-\enit@toks=\toks39
-\enit@inbox=\box76
-\enit@count@id=\count332
-\enitdp@description=\count333
+\enitkv@toks@=\toks37
+\labelindent=\skip63
+\enit@outerparindent=\dimen313
+\enit@toks=\toks38
+\enit@inbox=\box70
+\enit@count@id=\count333
+\enitdp@description=\count334
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip67
-\f@nch@O@elh=\skip68
-\f@nch@O@erh=\skip69
-\f@nch@O@olh=\skip70
-\f@nch@O@orh=\skip71
-\f@nch@O@elf=\skip72
-\f@nch@O@erf=\skip73
-\f@nch@O@olf=\skip74
-\f@nch@O@orf=\skip75
+\f@nch@headwidth=\skip64
+\f@nch@O@elh=\skip65
+\f@nch@O@erh=\skip66
+\f@nch@O@olh=\skip67
+\f@nch@O@orh=\skip68
+\f@nch@O@elf=\skip69
+\f@nch@O@erf=\skip70
+\f@nch@O@olf=\skip71
+\f@nch@O@orf=\skip72
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count334
-\float@exts=\toks40
-\float@box=\box77
-\@float@everytoks=\toks41
-\@floatcapt=\box78
+\c@float@type=\count335
+\float@exts=\toks39
+\float@box=\box71
+\@float@everytoks=\toks40
+\@floatcapt=\box72
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -797,18 +777,18 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count335
-\Gm@cntv=\count336
-\c@Gm@tempcnt=\count337
-\Gm@bindingoffset=\dimen318
-\Gm@wd@mp=\dimen319
-\Gm@odd@mp=\dimen320
-\Gm@even@mp=\dimen321
-\Gm@layoutwidth=\dimen322
-\Gm@layoutheight=\dimen323
-\Gm@layouthoffset=\dimen324
-\Gm@layoutvoffset=\dimen325
-\Gm@dimlist=\toks42
+\Gm@cnth=\count336
+\Gm@cntv=\count337
+\c@Gm@tempcnt=\count338
+\Gm@bindingoffset=\dimen314
+\Gm@wd@mp=\dimen315
+\Gm@odd@mp=\dimen316
+\Gm@even@mp=\dimen317
+\Gm@layoutwidth=\dimen318
+\Gm@layoutheight=\dimen319
+\Gm@layouthoffset=\dimen320
+\Gm@layoutvoffset=\dimen321
+\Gm@dimlist=\toks41
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
@@ -857,14 +837,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count338
+\c@section@level=\count339
 ) (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count339
+\etb@tempcnta=\count340
 )
-\@linkdim=\dimen326
-\Hy@linkcounter=\count340
-\Hy@pagecounter=\count341
+\@linkdim=\dimen322
+\Hy@linkcounter=\count341
+\Hy@pagecounter=\count342
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
@@ -872,7 +852,7 @@ File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count342
+\Hy@SavedSpaceFactor=\count343
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
@@ -885,14 +865,14 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count343
+\c@Hy@tempcnt=\count344
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen327
+\XeTeXLinkMargin=\dimen323
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -902,9 +882,9 @@ y
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count344
-\Field@Width=\dimen328
-\Fld@charsize=\dimen329
+\Fld@menulength=\count345
+\Field@Width=\dimen324
+\Fld@charsize=\dimen325
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -916,9 +896,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count345
-\c@Item=\count346
-\c@Hfootnote=\count347
+\Hy@abspage=\count346
+\c@Item=\count347
+\c@Hfootnote=\count348
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex.def
@@ -928,11 +908,11 @@ File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box79
-\c@Hy@AnnotLevel=\count348
-\HyField@AnnotCount=\count349
-\Fld@listcount=\count350
-\c@bookmark@seq@number=\count351
+\pdfm@box=\box73
+\c@Hy@AnnotLevel=\count349
+\HyField@AnnotCount=\count350
+\Fld@listcount=\count351
+\c@bookmark@seq@number=\count352
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilech
 eck.sty
@@ -950,8 +930,131 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip76
+\Hy@SectionHShift=\skip73
 )
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/imakeidx\imakeidx.sty
+Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchro
+nous mode
+
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count353
+\mult@box=\box74
+\multicol@leftmargin=\dimen326
+\c@unbalance=\count354
+\c@collectmore=\count355
+\doublecol@number=\count356
+\multicoltolerance=\count357
+\multicolpretolerance=\count358
+\full@width=\dimen327
+\page@free=\dimen328
+\premulticols=\dimen329
+\postmulticols=\dimen330
+\multicolsep=\skip74
+\multicolbaselineskip=\skip75
+\partial@page=\box75
+\last@line=\box76
+\mc@boxedresult=\box77
+\maxbalancingoverflow=\dimen331
+\mult@rightbox=\box78
+\mult@grightbox=\box79
+\mult@firstbox=\box80
+\mult@gfirstbox=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\c@minrows=\count359
+\c@columnbadness=\count360
+\c@finalcolumnbadness=\count361
+\last@try=\dimen332
+\multicolovershoot=\dimen333
+\multicolundershoot=\dimen334
+\mult@nat@firstbox=\box118
+\colbreak@box=\box119
+\mc@col@check@num=\count362
+))
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count363
+\lst@gtempboxa=\box120
+\lst@token=\toks42
+\lst@length=\count364
+\lst@currlwidth=\dimen335
+\lst@column=\count365
+\lst@pos=\count366
+\lst@lostspace=\dimen336
+\lst@width=\dimen337
+\lst@newlines=\count367
+\lst@lineno=\count368
+\lst@maxwidth=\dimen338
+
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count369
+\lst@skipnumbers=\count370
+\lst@framebox=\box121
+)
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK-listings.sty
+Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
+\l__xeCJK_listings_max_char_int=\count371
+\l__xeCJK_listings_flag_int=\count372
+) (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\pifont.sty
+Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
+
+
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
+
+
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
 
@@ -967,54 +1070,73 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box80
-\tcb@upperbox=\box81
-\tcb@lowerbox=\box82
-\tcb@phantombox=\box83
-\c@tcbbreakpart=\count352
-\c@tcblayer=\count353
-\c@tcolorbox@number=\count354
-\l__tcobox_tmpa_box=\box84
-\l__tcobox_tmpa_dim=\dimen330
-\tcb@temp=\box85
-\tcb@temp=\box86
-\tcb@temp=\box87
-\tcb@temp=\box88
+\tcb@titlebox=\box122
+\tcb@upperbox=\box123
+\tcb@lowerbox=\box124
+\tcb@phantombox=\box125
+\c@tcbbreakpart=\count373
+\c@tcblayer=\count374
+\c@tcolorbox@number=\count375
+\l__tcobox_tmpa_box=\box126
+\l__tcobox_tmpa_dim=\dimen339
+\tcb@temp=\box127
+\tcb@temp=\box128
+\tcb@temp=\box129
+\tcb@temp=\box130
+)
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbbreakable.cod
+e.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/pdfcol\pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
+)
+Package pdfcol Info: pdfTeX's color stacks are not available.
+\tcb@testbox=\box131
+\tcb@totalupperbox=\box132
+\tcb@totallowerbox=\box133
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrary
 arrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen331
-\pgfarrowlength=\dimen332
-\pgfarrowwidth=\dimen333
-\pgfarrowlinewidth=\dimen334
+\pgfarrowinset=\dimen340
+\pgfarrowlength=\dimen341
+\pgfarrowwidth=\dimen342
+\pgfarrowlinewidth=\dimen343
 )
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/l
 ibraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
-Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
-(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen335
-\ar@mcellbox=\box89
-\extrarowheight=\dimen336
-\NC@list=\toks45
-\extratabsurround=\skip77
-\backup@length=\skip78
-\ar@cellbox=\box90
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgf
+libraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\everycr=\toks46
-\minrowclearance=\skip79
-\rownum=\count355
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box134
+\UL@hyphenbox=\box135
+\UL@skip=\skip76
+\UL@hook=\toks45
+\UL@height=\dimen344
+\UL@pe=\count376
+\UL@pixel=\dimen345
+\ULC@box=\box136
+Package: ulem 2019/11/18
+\ULdepth=\dimen346
 )
 
 Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (SimSun(0)).
 
 
-Package fontspec Info: Could not resolve font "汉仪文黑-55W/B" (it probably
+Package fontspec Info: Could not resolve font "方正苏新诗柳楷简体/B" (it probably
 (fontspec)             doesn't exist).
 
 
@@ -1028,8 +1150,8 @@ Package fontspec Info: Could not resolve font "汉仪文黑-55W/BI" (it probably
 
 Package fontspec Info: Font family '汉仪文黑-55W(0)' created for font '汉仪文黑-55W'
 (fontspec)             with options
-(fontspec)             [Script={CJK},BoldFont={汉仪文黑-85W},ItalicFont={汉仪文黑-55W}]
-.
+(fontspec)             [Script={CJK},BoldFont={汉仪文黑-85W},ItalicFont={方正苏新诗柳楷简体}
+].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
@@ -1041,7 +1163,7 @@ Package fontspec Info: Font family '汉仪文黑-55W(0)' created for font '汉�
 (fontspec)             <->"汉仪文黑-85W/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"汉仪文黑-55W/OT:script=hani;language=dflt;"
+(fontspec)             <->"方正苏新诗柳楷简体/OT:script=hani;language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
 
@@ -1113,89 +1235,96 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             <->"Times New
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;"
 
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 40.
-(「知识小料」·其四十四.aux)
-\openout1 = `「知识小料」·其四十四.aux'.
+\「知识小料」·其五十五@idxfile=\write4
+\openout4 = `「知识小料」·其五十五.idx'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
+Writing index file 「知识小料」·其五十五.idx
+(C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(「知识小料」·其五十五.aux)
+\openout1 = `「知识小料」·其五十五.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 64.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 64.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 64.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 64.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 64.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 64.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 64.
-LaTeX Font Info:    Redeclaring math accent \check on input line 64.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 64.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 64.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 64.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 64.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 64.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 85.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 85.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 85.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 85.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 85.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 85.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 85.
+LaTeX Font Info:    Redeclaring math accent \check on input line 85.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 85.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 85.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 85.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 85.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 64.
+(Font)              `operators' in the math version `normal' on input line 85.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 64.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 85.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 64.
+(Font)              `operators' in the math version `bold' on input line 85.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 64.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 64.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 64.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 64.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 64.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 64.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 64.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 64.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 64.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 85.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 64.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 85.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -1232,13 +1361,14 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 64.
-(「知识小料」·其四十四.out) (「知识小料」·其四十四.out)
-\@outlinefile=\write4
-\openout4 = `「知识小料」·其四十四.out'.
+Package hyperref Info: Link coloring OFF on input line 85.
+(「知识小料」·其五十五.out) (「知识小料」·其五十五.out)
+\@outlinefile=\write5
+\openout5 = `「知识小料」·其五十五.out'.
 
+\c@lstlisting=\count377
 
-Underfull \hbox (badness 10000) detected at line 71
+Underfull \hbox (badness 10000) detected at line 92
 \TU/GenshinTeyvatLinguaFranca(0)/m/n/15.05624 WEEKLY KNOWLEDGE TIPS
  []
 
@@ -1266,18 +1396,18 @@ Package fontspec Info: Font family '思源宋体CNHeavy(0)' created for font '�
 LaTeX Font Info:    Font shape `TU/CenturySchoolbook(0)/m/sl' in size <26.09749
 > not available
 (Font)              Font shape `TU/CenturySchoolbook(0)/m/it' tried instead on 
-input line 92.
+input line 113.
 LaTeX Font Info:    Font shape `TU/CenturySchoolbook(0)/b/sl' in size <26.09749
 > not available
 (Font)              Font shape `TU/CenturySchoolbook(0)/b/it' tried instead on 
-input line 92.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 109
-.
+input line 113.
+(「知识小料」·其五十五.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 109
-.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1320,7 +1450,11 @@ File: 上半示例.png Graphic file (type bmp)
 <上半示例.png>
 [1
 
-]
+])
+\tf@toc=\write6
+\openout6 = `「知识小料」·其五十五.toc'.
+
+
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1347,10 +1481,6 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [4]
-Underfull \hbox (badness 1824) in paragraph at lines 416--416
- [][]\TU/汉仪文黑-55W(0)/m/n/9.03374 中 华 优 秀 传 统 文 化
- []
-
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1359,6 +1489,9 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [5]
+File: 需求分析.jpg Graphic file (type bmp)
+<需求分析.jpg>
+
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1367,8 +1500,17 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [6]
-Overfull \hbox (8.49863pt too wide) in paragraph at lines 589--590
- [][] 
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
+[7]
+Overfull \hbox (4.29729pt too wide) in paragraph at lines 371--372
+[]\TU/汉仪文黑-55W(0)/m/n/10.53937 绘 制 顶 层 数 据 流 图 \TU/lmr/m/n/10.53937 (DFD)\TU/汉仪
+文黑-55W(0)/m/n/10.53937 ：|  三 个[] 数 据 源 和 一 个[]数 据 处 理 枢 纽。 （从
  []
 
 
@@ -1378,15 +1520,10 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
-[7]
-
-Package fancyhdr Warning: \footskip is too small (2.84544pt): 
-(fancyhdr)                Make it at least 10.1178pt, for example:
-(fancyhdr)                \setlength{\footskip}{10.1178pt}.
-
-File: 空白示例.png Graphic file (type bmp)
-<空白示例.png>
 [8]
+File: 耦合.jpg Graphic file (type bmp)
+<耦合.jpg>
+
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1419,10 +1556,6 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [12]
-Overfull \hbox (16.13782pt too wide) in paragraph at lines 893--894
- [][] 
- []
-
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1447,6 +1580,12 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
 [15]
+Overfull \hbox (13.9273pt too wide) in paragraph at lines 705--706
+[][]\TU/汉仪文黑-55W(0)/b/n/10.53937 对 象[][]\TU/汉仪文黑-55W(0)/m/n/10.53937 是 对 某 个 实 
+体 的 抽 象，|  形 式 化 定 义 为 $\OMS/cmsy/m/n/10.53937 h[]\OML/cmm/m/it/10.53937 ; []; 
+[]; []\OMS/cmsy/m/n/10.53937 i$\TU/汉仪文黑-55W(0)/m/n/10.53937 。|
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (2.84544pt): 
 (fancyhdr)                Make it at least 10.1178pt, for example:
@@ -1454,21 +1593,105 @@ Package fancyhdr Warning: \footskip is too small (2.84544pt):
 
 File: 空白示例.png Graphic file (type bmp)
 <空白示例.png>
-[16] (「知识小料」·其四十四.aux)
+[16] (C:\Users\黄朗\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9.03374> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 725.
+
+
+LaTeX Font Warning: Font shape `TU/lmtt/bx/sc' undefined
+(Font)              using `TU/lmtt/bx/n' instead on input line 725.
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/sc' in size <9.03374> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 725.
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
+[17]
+Overfull \hbox (18.26341pt too wide) in paragraph at lines 805--830
+ []|  [] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
+[18]
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
+[19]
+
+Package fancyhdr Warning: \footskip is too small (2.84544pt): 
+(fancyhdr)                Make it at least 10.1178pt, for example:
+(fancyhdr)                \setlength{\footskip}{10.1178pt}.
+
+File: 空白示例.png Graphic file (type bmp)
+<空白示例.png>
+[20]
+runsystem(makeindex 「知识小料」·其五十五.idx)...executed safely (allowed).
+
+ (「知识小料」·其五十五.ind
+File: 下半示例.png Graphic file (type bmp)
+<下半示例.png>
+File: 下半示例.png Graphic file (type bmp)
+<下半示例.png>
+ [21
+
+]) (「知识小料」·其五十五.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `「知识小料」·其四十四.out' has not changed.
-(rerunfilecheck)             Checksum: FD0FB427BC6EDDDC707EBAE77831A017;1577.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `「知识小料」·其五十五.out' has not changed.
+(rerunfilecheck)             Checksum: ACA150364E0F58D84C98DECF7D7A8F83;3722.
  ) 
 Here is how much of TeX's memory you used:
- 33079 strings out of 409673
- 732347 string characters out of 5775313
- 1957630 words of memory out of 5000000
- 54565 multiletter control sequences out of 15000+600000
- 568316 words of font info for 150 fonts, out of 8000000 for 9000
+ 35208 strings out of 409673
+ 783472 string characters out of 5775313
+ 1994630 words of memory out of 5000000
+ 56615 multiletter control sequences out of 15000+600000
+ 569301 words of font info for 169 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 117i,11n,121p,1200b,1108s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,13n,121p,1200b,1259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 「知识小料」·其四十四.pdf (16 pages).
+Output written on 「知识小料」·其五十五.pdf (21 pages).

@@ -1,0 +1,89 @@
+\indexentry{计算机层次结构}{3}
+\indexentry{冯·诺依曼结构}{3}
+\indexentry{CPI}{3}
+\indexentry{影响CPU性能的因素}{3}
+\indexentry{计算机性能评价原则}{4}
+\indexentry{基准测试程序}{4}
+\indexentry{摩尔定律}{4}
+\indexentry{Amdahl 定律}{4}
+\indexentry{Top500}{5}
+\indexentry{神威·太湖之光}{5}
+\indexentry{指令系统(ISA)}{5}
+\indexentry{RISC 指令}{5}
+\indexentry{大端序}{5}
+\indexentry{小端序}{5}
+\indexentry{特权指令系统}{6}
+\indexentry{应用程序二进制接口(ABI)}{6}
+\indexentry{应用程序编程接口(API)}{6}
+\indexentry{静态多功能流水线}{7}
+\indexentry{动态多功能流水线}{7}
+\indexentry{流水线冒险}{7}
+\indexentry{指令相关}{7}
+\indexentry{指令冲突}{7}
+\indexentry{阻塞}{8}
+\indexentry{前递}{8}
+\indexentry{延迟槽}{8}
+\indexentry{瓶颈段}{9}
+\indexentry{吞吐率}{9}
+\indexentry{最大吞吐率}{9}
+\indexentry{实际吞吐率}{9}
+\indexentry{流水线加速比}{9}
+\indexentry{流水线效率}{9}
+\indexentry{循环展开}{10}
+\indexentry{动态调度}{10}
+\indexentry{记分板算法}{10}
+\indexentry{Tomasulo 算法}{11}
+\indexentry{保留站}{11}
+\indexentry{重排序缓存(ROB)}{11}
+\indexentry{多发射技术}{11}
+\indexentry{IPC}{11}
+\indexentry{超标量}{11}
+\indexentry{超长指令字(VLIM)}{11}
+\indexentry{转移预测}{12}
+\indexentry{转移历史表(BHT)}{12}
+\indexentry{分支目标缓冲(BTB)}{12}
+\indexentry{相关分支预测}{12}
+\indexentry{锦标赛预测法}{12}
+\indexentry{高速缓存}{13}
+\indexentry{程序访问的局部性}{13}
+\indexentry{写回}{13}
+\indexentry{写穿透}{13}
+\indexentry{写分配}{13}
+\indexentry{写不分配}{13}
+\indexentry{写缓冲}{13}
+\indexentry{平均访存时间(AMAT)}{13}
+\indexentry{Cache 失效原因(3C/4C)}{14}
+\indexentry{冷启动失效}{14}
+\indexentry{容量失效}{14}
+\indexentry{冲突失效}{14}
+\indexentry{一致性失效}{14}
+\indexentry{南北桥}{15}
+\indexentry{平均无故障时间(MTTF)}{15}
+\indexentry{平均故障间隔时间(MTBF)}{15}
+\indexentry{平均修复时间(MTTR)}{15}
+\indexentry{指令级并行(ILP)}{15}
+\indexentry{数据级并行(DLP)}{15}
+\indexentry{任务/线程级并行(TLP)}{15}
+\indexentry{Flynn 分类法}{15}
+\indexentry{单指令流单数据流(SISD)}{16}
+\indexentry{单指令流多数据流(SIMD)}{16}
+\indexentry{多指令流多数据流(MIMD)}{16}
+\indexentry{Johnson 分类法}{16}
+\indexentry{POSIX Threads 标准}{16}
+\indexentry{OpenMP}{16}
+\indexentry{MPI}{16}
+\indexentry{多线程}{17}
+\indexentry{细粒度}{17}
+\indexentry{粗粒度}{17}
+\indexentry{同时多线程(SMT)}{17}
+\indexentry{片上Cache结构}{17}
+\indexentry{存储一致性模型}{17}
+\indexentry{顺序一致性}{17}
+\indexentry{处理器一致性}{18}
+\indexentry{弱一致性}{18}
+\indexentry{释放一致性}{18}
+\indexentry{Cache 一致性协议}{18}
+\indexentry{写使无效}{18}
+\indexentry{写更新}{18}
+\indexentry{片上互联网络(NOC)}{19}
+\indexentry{同步机制}{19}

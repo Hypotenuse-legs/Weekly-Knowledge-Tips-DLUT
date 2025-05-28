@@ -1,0 +1,44 @@
+\contentsline {section}{\numberline {1}（第 1 章） 计算机系统结构概述}{3}{}%
+\contentsline {subsection}{\numberline {1.1}何为「计算机体系/系统结构」}{3}{}%
+\contentsline {subsection}{\numberline {1.2}衡量计算机的指标——性能、价格、功耗}{3}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}性能}{3}{}%
+\contentsline {paragraph}{成本、功耗}{4}{}%
+\contentsline {subsection}{\numberline {1.3}系统结构发展趋势}{4}{}%
+\contentsline {subsection}{\numberline {1.4}系统结构设计原则}{4}{}%
+\contentsline {subsection}{\numberline {1.5}支线[L01.1]·计算机设计新趋势}{5}{}%
+\contentsline {section}{\numberline {2}（第 2 章）指令系统}{5}{}%
+\contentsline {subsection}{\numberline {2.1}指令系统}{5}{}%
+\contentsline {subsection}{\numberline {2.2}指令系统的演变}{5}{}%
+\contentsline {subsection}{\numberline {2.3}指令系统的组成}{5}{}%
+\contentsline {section}{\numberline {3}（第3章）特权指令系统与 ABI}{6}{}%
+\contentsline {section}{\numberline {4}（第9章）指令流水线·上}{6}{}%
+\contentsline {subsection}{\numberline {4.1}支线[L09.0]·流水线基本概念}{6}{}%
+\contentsline {subsection}{\numberline {4.2}流水线处理器}{7}{}%
+\contentsline {subsection}{\numberline {4.3}静态流水线解决指令相关}{8}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}数据相关}{8}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}控制相关}{8}{}%
+\contentsline {paragraph}{异常处理}{8}{}%
+\contentsline {subsection}{\numberline {4.4}支线 [L09.2]·流水线的性能指标}{9}{}%
+\contentsline {subsection}{\numberline {4.5}指令调度技术·循环展开}{10}{}%
+\contentsline {section}{\numberline {5}（第9章）指令流水线·下}{10}{}%
+\contentsline {subsection}{\numberline {5.1}提高流水线效率·动态调度}{10}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Tomasulo 算法}{11}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}重排序缓存(ROB)}{11}{}%
+\contentsline {subsection}{\numberline {5.2}提高流水线效率·多发射}{11}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}支线 [L09.5]·多发射技术}{11}{}%
+\contentsline {subsection}{\numberline {5.3}提高流水线效率·转移预测}{12}{}%
+\contentsline {subsubsection}{\numberline {5.3.1}转移历史表}{12}{}%
+\contentsline {subsection}{\numberline {5.4}提高流水线效率·高速缓存}{13}{}%
+\contentsline {subsubsection}{\numberline {5.4.1}主存—Cache 层次}{13}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}Cache 性能分析与优化}{13}{}%
+\contentsline {subsubsection}{\numberline {5.4.3}Cache失效原因与解决}{14}{}%
+\contentsline {subsection}{\numberline {5.5}支线 [L09.6]·I/O处理与存储系统}{15}{}%
+\contentsline {section}{\numberline {6}（第10章）并行编程基础}{15}{}%
+\contentsline {subsection}{\numberline {6.1}三种并行行为}{15}{}%
+\contentsline {subsection}{\numberline {6.2}Flynn分类法}{15}{}%
+\contentsline {subsection}{\numberline {6.3}典型并行计算机结构与并行编程}{16}{}%
+\contentsline {section}{\numberline {7}多核处理器}{16}{}%
+\contentsline {subsection}{\numberline {7.1}分支[L11.1]·单处理器时代的终结}{17}{}%
+\contentsline {subsection}{\numberline {7.2}分支[L11.2]·同时多线程}{17}{}%
+\contentsline {subsection}{\numberline {7.3}访存结构、存储一致性模型}{17}{}%
+\contentsline {subsection}{\numberline {7.4}互连结构、同步机制}{19}{}%

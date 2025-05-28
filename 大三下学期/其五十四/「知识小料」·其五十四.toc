@@ -1,0 +1,40 @@
+\contentsline {section}{\numberline {1}数据定义}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Create 创建}{2}{subsection.1.1}%
+\contentsline {paragraph}{创建表}{2}{paragraph*.3}%
+\contentsline {paragraph}{创建模式}{2}{paragraph*.4}%
+\contentsline {paragraph}{创建视图}{2}{paragraph*.5}%
+\contentsline {paragraph}{创建索引}{3}{paragraph*.6}%
+\contentsline {subsection}{\numberline {1.2}Drop 删除}{3}{subsection.1.2}%
+\contentsline {paragraph}{删除表}{3}{paragraph*.7}%
+\contentsline {paragraph}{删除模式}{3}{paragraph*.8}%
+\contentsline {paragraph}{删除视图}{3}{paragraph*.9}%
+\contentsline {paragraph}{删除索引}{3}{paragraph*.10}%
+\contentsline {subsection}{\numberline {1.3}Alter 修改}{4}{subsection.1.3}%
+\contentsline {paragraph}{修改表}{4}{paragraph*.11}%
+\contentsline {paragraph}{修改索引}{4}{paragraph*.12}%
+\contentsline {section}{\numberline {2}数据操纵}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Insert 数据插入}{4}{subsection.2.1}%
+\contentsline {paragraph}{插入元组}{4}{paragraph*.13}%
+\contentsline {paragraph}{插入子查询结果}{5}{paragraph*.14}%
+\contentsline {subsection}{\numberline {2.2}Delete 数据删除}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Update 数据修改}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}数据查询}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Select 查询语句}{5}{subsection.3.1}%
+\contentsline {paragraph}{版本1}{5}{paragraph*.15}%
+\contentsline {paragraph}{版本2}{6}{paragraph*.16}%
+\contentsline {paragraph}{版本3}{6}{paragraph*.17}%
+\contentsline {paragraph}{版本4}{6}{paragraph*.18}%
+\contentsline {paragraph}{版本5}{7}{paragraph*.19}%
+\contentsline {paragraph}{版本6}{7}{paragraph*.20}%
+\contentsline {paragraph}{版本7}{8}{paragraph*.21}%
+\contentsline {subsection}{\numberline {3.2}条件的千变万化}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}数据控制}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Grant 授予权限}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Revoke 撤回权限}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {5}约束完整性命名}{9}{section.5}%
+\contentsline {paragraph}{插入操作的完整性命名}{9}{paragraph*.22}%
+\contentsline {paragraph}{修改操作的完整性命名}{10}{paragraph*.23}%
+\contentsline {section}{\numberline {6}触发器}{10}{section.6}%
+\contentsline {paragraph}{创建触发器}{10}{paragraph*.24}%
+\contentsline {paragraph}{删除触发器}{11}{paragraph*.25}%
+\contentsline {section}{\numberline {7}事务操作}{11}{section.7}%
